@@ -1,9 +1,10 @@
-/**/
+/*http://www.linhadecodigo.com.br/artigo/3633/entendendo-o-atributo-box-shadow-nas-css3.aspx*/
 #body{
-  background-color: rgb(124, 123, 126);
+  background-color: rgb(243, 243, 243);
 }
 #jum{
-  background-color: rgb(197, 194, 194);
+  background-color: rgb(196, 196, 196);
+  box-shadow: 5px -5px 5px 2px rgb(107, 106, 106);/*sombreamento jumbotron*/
 }
 #logo {
   width: 50%;
@@ -24,11 +25,11 @@ input[type="password"] {
   background-color: transparent;
   border: none;
   outline: none;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid rgb(41, 41, 41);
   height: 40px;
 }
 
 input[type="text"]:focus,
 input[type="password"]:focus{
-  border-bottom: 2px solid rgb(228, 20, 20);
+  border-bottom: 2px solid rgb(115, 168, 218);
 }
