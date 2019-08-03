@@ -1,10 +1,8 @@
-/*http://www.linhadecodigo.com.br/artigo/3633/entendendo-o-atributo-box-shadow-nas-css3.aspx*/
+/*index.html*/
 #body{
   background-color: rgb(243, 243, 243);
 }
-#ble{
-  width: 100%;
-}
+
 #jum{
   margin-top: 40%;
   background-color: white;
@@ -29,9 +27,32 @@ input[type="password"] {
   outline: none;
   border-bottom: 2px solid rgb(41, 41, 41);
   height: 40px;
+  padding-left: 32px;
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus{
-  border-bottom: 2px solid rgb(104, 176, 218);
+input[type = "text"]:focus,
+input[type = "password"]:focus{
+  border-bottom: 2px solid #68b0da;
+}
+
+.inputIcon{
+  position: relative;
+}
+
+.inputIcon i{
+  position: absolute;
+  left: 0;
+  top: 7px;
+  padding: 5px;
+}
+.inputIcon input[type = "text"]:focus + i{
+  color: #68b0da;
+}
+.inputIcon input[type = "password"]:focus + i{
+  color: #68b0da;
+}
+
+/*inicial.html*/
+#logo{
+  width: 40%;
 }
