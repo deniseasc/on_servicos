@@ -1,23 +1,22 @@
 /*index.html*/
-#body{
-  background-color: rgb(243, 243, 243);
-}
-
 #jum{
   margin-top: 40%;
-  background-color: white;
-  box-shadow: 5px -5px 5px 2px rgb(107, 106, 106);/*sombreamento jumbotron*/
+  background-color: transparent;
+  box-shadow: 5px -5px 5px 2px rgb(143, 142, 142);/*sombreamento jumbotron*/
 }
 h2 {
   text-align: center;
 }
 #btnEntrar {
   margin-left: 11%;
+  background-image: linear-gradient(to right, #C71585, #9932CC);
+  border: none;
 }
 #cadastra {
   margin-left: 11%;
   background-color: transparent;
-  color: rgb(104, 176, 218);
+  color: white;
+  border-color: #C71585;
 }
 input[type="text"],
 input[type="password"] {
@@ -32,7 +31,7 @@ input[type="password"] {
 
 input[type = "text"]:focus,
 input[type = "password"]:focus{
-  border-bottom: 2px solid #68b0da;
+  border-bottom: 2px solid #9932CC;
 }
 
 .inputIcon{
@@ -46,12 +45,14 @@ input[type = "password"]:focus{
   padding: 5px;
 }
 .inputIcon input[type = "text"]:focus + i{
-  color: #68b0da;
+  color: #C71585;
 }
 .inputIcon input[type = "password"]:focus + i{
-  color: #68b0da;
+  color: #C71585;
 }
-
+::-webkit-input-placeholder {
+   color: black; /* cor do placeholder*/
+}
 /*inicial.html*/
 #logo{
   width: 40%;
