@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+html,body{
+    height: 100%;
+}
+
+body{
+    overflow-x: hidden;
+}
+    /*Boot CSS*/
+.clear{clear: both;}
+.center{padding: 0 2%; margin: 0 auto;}
+
+.w100{
+    width: 100%;
+}
+
+.w50{
+    width: 49%;
+    background: red !important;
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
+    /* Fim CSS */
+
+    /* Menu Superior */
+header{
+    position: relative;
+    left: 300px;    
+    padding: 10px 0;
+    height: 45px;
+    background: #78909c;
+    width: calc(100% - 300px);
+}
+  /* Fim do Menu Superior */
+
+    /* Menu Lateral */
+div.menu-wrapper{width: 300px;}
+div.menu{
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100%;
+    background: #607d8b;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 300px;
+    padding: 10px;
+}
+
+.menu-btn{
+    float: left;
+    cursor: pointer;
+    font-size: 23px;
+    color: white;
+}
+  /* Fim do Menu Lateral */
+
+/* Conteudo app css*/
+.content{
+    width: calc(100% - 300px);
+    position: relative;
+    left: 300px;
+    padding: 10px;
+}
+
+.box-content{
+    padding: 10px;
+    margin-bottom: 10px;
+}
+/* Fim do Conteudo app css*/
+
+/* Se tela for menor que 768 */
+@media screen and (max-width: 768px){
+    .menu{
+        display: none;
+    }
+    .content{
+        width: 100%;
+        left: 0;
+    }
+    header{
+        left: 0;
+        width: 100%;
+    }
+}
+/* Fim*/
+
+/* Se tela for menor que 400 */
+@media screen and (max-width: 400px){
+    div.menu-wrapper{
+        width: 180px;
+    }
+    .menu{
+        width: 200px;
+    }
+}
