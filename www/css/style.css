@@ -13,7 +13,6 @@ h2 {
   border: none;
   color: white;
 }
-
 #cadastra {
   margin-left: 11%;
   background-color: transparent;
@@ -21,7 +20,8 @@ h2 {
   border-color: #C71585;
 }
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+input[type = "number"] {
   width: 100%;
   background-color: transparent;
   border: none;
@@ -32,7 +32,8 @@ input[type="password"] {
 }
 
 input[type = "text"]:focus,
-input[type = "password"]:focus{
+input[type = "password"]:focus,
+input[type = "number"]:focus{
   border-bottom: 2px solid #9932CC;
 }
 
@@ -52,10 +53,26 @@ input[type = "password"]:focus{
 .inputIcon input[type = "password"]:focus + i{
   color: #C71585;
 }
+.inputIcon input[type = "number"]:focus + i{
+  color: #C71585;
+}
 ::-webkit-input-placeholder {
    color: black; /* cor do placeholder*/
 }
 /*inicial.html*/
 #logo{
   width: 40%;
+}
+/* Página cadastro.html*/
+#btnUsua {
+  margin-left: 65%;
+  background-image: linear-gradient(to right, #C71585, #9932CC);
+  border: none;
+  color: white;
+}
+#btnProf {
+  margin-left: 75%;
+  background-image: linear-gradient(to right, #C71585, #9932CC);
+  border: none;
+  color: white;
 }
