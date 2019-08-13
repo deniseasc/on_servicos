@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
 }
 
 html,body{
@@ -20,11 +19,6 @@ body{
     width: 100%;
 }
 
-.w50{
-    width: 49%;
-    background: red !important;
-}
-
 .left{
     float: left;
 }
@@ -40,7 +34,7 @@ header{
     left: 300px;    
     padding: 10px 0;
     height: 45px;
-    background: #78909c;
+    background: linear-gradient(to right, #9d6c9e, #da9ba6);
     width: calc(100% - 300px);
 }
   /* Fim do Menu Superior */
@@ -51,7 +45,7 @@ div.menu{
     overflow-x: hidden;
     overflow-y: auto;
     height: 100%;
-    background: #607d8b;
+    background: linear-gradient(to bottom, #9d6c9e, #e38069, #f98a2c, #16351a);
     position: fixed;
     left: 0;
     top: 0;
@@ -65,7 +59,14 @@ div.menu{
     font-size: 23px;
     color: white;
 }
-  /* Fim do Menu Lateral */
+
+#user{
+  font-size: 80px;
+  margin-top: 5%;
+  margin-left: 28%;
+}
+
+/* Fim do Menu Lateral */
 
 /* Conteudo app css*/
 .content{
@@ -79,6 +80,25 @@ div.menu{
     padding: 10px;
     margin-bottom: 10px;
 }
+
+/* Botões e icones do meio */
+#b{
+  height: 90px;
+  margin-top: 100%;
+  background-color: transparent;
+  border-color: #C71585;
+}
+
+#b2{
+  height: 90px;
+  background-color: transparent;
+  border-color: #C71585;
+}
+
+#icon{
+  font-size: 50px;
+}
+
 /* Fim do Conteudo app css*/
 
 /* Se tela for menor que 768 */
