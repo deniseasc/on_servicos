@@ -77,3 +77,10 @@ input[type = "number"]:focus{
   border: none;
   color: white;
 }
+
+#ftoPerfil{
+  width:100px;
+  height:auto;
+  margin-top: 10;
+  margin-right: 15%;
+}
