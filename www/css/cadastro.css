@@ -1,55 +1,63 @@
-/* Página cadastro.html*/
-#jum{
-  margin-top: 40%;
-  background-color: transparent;
-  box-shadow: 5px -5px 5px 2px rgb(143, 142, 142);/*sombreamento jumbotron*/
+/* Página cadastroUsua.html e cadastroProf.html*/
+.box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 300px;
+  padding: 30px;
+  box-sizing: border-box;
+  border: 5px solid #0e97a5;
+  border-radius: 0px 35px;
 }
-
 h2 {
   text-align: center;
 }
 
-#btnEntrar {
+#btnProx {
   margin-left: 11%;
-  background-image: linear-gradient(to right, #C71585, #9932CC);
+  background: linear-gradient(to right, #0e97a5, #20b6b9);
   border: none;
   color: white;
   text-decoration: none;
 }
-
-#cadastra {
-  margin-left: 11%;
-  background-color: transparent;
-  color: white;
-  border-color: #C71585;
-}
-
 input[type="text"],
-input[type="password"],
-input[type = "number"] {
-  width: 100%;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  border-bottom: 2px solid rgb(41, 41, 41);
-}
+	input[type="password"],
+	input[type="number"],
+	select,
+	textarea {
+		border-radius: 2px;
+		border: solid 1px;
+    color: transparent;
+    width: 100%;
+	}
+  input[type="text"],
+	input[type="password"],
+	input[type="number"],
+	select {
+		height: 2em;
+	}
+  input[type="text"]:focus,
+		input[type="password"]:focus,
+		input[type="number"]:focus,
+		select:focus,
+		textarea:focus {
+      border: 2px solid #0e97a5;
+		}
 
-input[type = "text"]:focus,
-input[type = "password"]:focus,
-input[type = "number"]:focus{
-  border-bottom: 2px solid #9932CC;
-}
-#btnUsua {
-  margin-left: 65%;
-  background-image: linear-gradient(to right, #C71585, #9932CC);
+#btnSalvar{
+  margin-left: 11%;
+  background: linear-gradient(to right, #0e97a5, #20b6b9);
   border: none;
   color: white;
+  text-decoration: none;
 }
-#btnProf {
-  margin-left: 75%;
-  background-image: linear-gradient(to right, #C71585, #9932CC);
+#btnCont{
+  margin-left: 11%;
+  background: linear-gradient(to right, #0e97a5, #20b6b9);
   border: none;
   color: white;
+  text-decoration: none;
 }
 
 ::-webkit-input-placeholder {

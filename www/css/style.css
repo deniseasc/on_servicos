@@ -1,15 +1,25 @@
 /*index.html*/
-#jum{
-  margin-top: 40%;
-  background-color: transparent;
-  box-shadow: 5px -5px 5px 2px rgb(143, 142, 142);/*sombreamento jumbotron*/
+*{
+  background-color: #e7e9eb;
 }
+.box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 300px;
+  padding: 30px;
+  box-sizing: border-box;
+  border: 5px solid #0e97a5;
+  border-radius: 0px 35px;
+}
+
 h2 {
   text-align: center;
 }
 #btnEntrar {
   margin-left: 11%;
-  background-image: linear-gradient(to right, #C71585, #9932CC);
+  background: linear-gradient(to right, #0e97a5, #20b6b9);
   border: none;
   color: white;
   text-decoration: none;
@@ -17,8 +27,8 @@ h2 {
 #cadastra {
   margin-left: 11%;
   background-color: transparent;
-  color: white;
-  border-color: #C71585;
+  color: #20b6b9;
+  border-color: #0e97a5;
 }
 input[type="text"],
 input[type="password"],
@@ -35,7 +45,7 @@ input[type = "number"] {
 input[type = "text"]:focus,
 input[type = "password"]:focus,
 input[type = "number"]:focus{
-  border-bottom: 2px solid #9932CC;
+  border-bottom: 2px solid #0e97a5;
 }
 
 .inputIcon{
@@ -49,13 +59,31 @@ input[type = "number"]:focus{
   padding: 5px;
 }
 .inputIcon input[type = "text"]:focus + i{
-  color: #C71585;
+  color: #0e97a5;
 }
 .inputIcon input[type = "password"]:focus + i{
-  color: #C71585;
+  color: #0e97a5;
 }
 .inputIcon input[type = "number"]:focus + i{
-  color: #C71585;
+  color: #0e97a5;
+}
+
+/* Modal */
+#modalSair {
+  margin-left: 215px;
+  background-color: transparent;
+  border-color: #0e97a5;
+  color: #0e97a5;
+}
+#btnUsua {
+  background-image: linear-gradient(to right, #0e97a5, #20b6b9);
+  border: none;
+  color: white;
+}
+#btnProf {
+  background-image: linear-gradient(to right, #0e97a5, #20b6b9);
+  border: none;
+  color: white;
 }
 
 /* cor do placeholder*/
