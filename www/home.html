@@ -37,7 +37,7 @@
 
           <div class="row">
             <div class="col-xs-12">
-              <a href="servicos.html"><button class="btn btn-info btn-block" id="btn"> Meus Serviços </button></a>
+              <a href="chat.html"><button class="btn btn-info btn-block" id="btn">Mensagens</button></a>
                 <hr id="hr">
             </div>
           </div>
@@ -63,10 +63,23 @@
   <div class="content">
     <!-- Conteudo app -->
     <div class="box-content w100 left">
+
+      <div class="row">
+        <div class="col-xs-12">
+          <img src="img/logo.png" id="logo"><br><br>
+        </div>
+      </div>
+
+    <form class="pesquisa">
+      <input type="search" id="texto" placeholder="Pesquisar">
+      <img src="img/lupa.png" class="btn">
+    </form><br>
+
+    <h4>Serviços mais procurados:</h4>
       
       <div class="row">
         <div class="col-xs-6">
-          <button class="btn btn-warning btn-block" id="b1"><i class="fas fa-tools" id="icon"></i><br>Pedreiro</button>
+          <a href="listaServicos.html"><button class="btn btn-warning btn-block" id="b1"><i class="fas fa-hard-hat" id="icon"></i><br>Pedreiro</button></a>
         </div>
 
         <div class="col-xs-6">
@@ -76,11 +89,21 @@
 
       <div class="row">
         <div class="col-xs-6">
-          <button class="btn btn-info btn-block" id="b3"><i class="fas fa-bug" id="icon"></i><br>Dedetizador</button>
+          <button class="btn btn-info btn-block" id="b3"><i class="fas fa-wrench" id="icon"></i><br>Encanador</button>
         </div>
 
         <div class="col-xs-6">
           <button class="btn btn-primary btn-block" id="b4"><i class="fas fa-paint-roller" id="icon"></i><br>Pintor</button>
+        </div>
+      </div><br>
+
+      <div class="row">
+        <div class="col-xs-6">
+          <button class="btn btn-info btn-block" id="b5"><i class="fas fa-swimming-pool" id="icon"></i><br>Piscineiro</button>
+        </div>
+
+        <div class="col-xs-6">
+          <button class="btn btn-primary btn-block" id="b6"><i class="fab fa-pagelines" id="icon"></i><br>Jardineiro</button>
         </div>
       </div>
       

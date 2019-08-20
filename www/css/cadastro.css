@@ -13,8 +13,7 @@
 h2 {
   text-align: center;
 }
-
-#btnProx {
+#btnProximo {
   margin-left: 11%;
   background: linear-gradient(to right, #0e97a5, #20b6b9);
   border: none;
@@ -22,29 +21,39 @@ h2 {
   text-decoration: none;
 }
 input[type="text"],
-	input[type="password"],
-	input[type="number"],
-	select,
-	textarea {
-		border-radius: 2px;
-		border: solid 1px;
-    color: transparent;
-    width: 100%;
-	}
-  input[type="text"],
-	input[type="password"],
-	input[type="number"],
-	select {
-		height: 2em;
-	}
-  input[type="text"]:focus,
-		input[type="password"]:focus,
-		input[type="number"]:focus,
-		select:focus,
-		textarea:focus {
-      border: 2px solid #0e97a5;
-		}
-
+input[type="password"],
+input[type="number"],
+select,
+textarea {
+  border-radius: 2px;
+  border: solid 1px;
+  width: 100%;
+}
+input[type="text"],
+input[type="password"],
+input[type="number"],
+select {
+  height: 2em;
+  border-top: 2px solid #0e97a5;
+  border-bottom: 2px solid #0e97a5;
+  border-left: 2px solid #0e97a5;
+  border-right: 2px solid #0e97a5;
+}
+textarea{
+  border-top: 2px solid #0e97a5;
+  border-bottom: 2px solid #0e97a5;
+  border-left: 2px solid #0e97a5;
+  border-right: 2px solid #0e97a5;
+}
+input[type="text"]:focus,
+  input[type="password"]:focus,
+  input[type="number"]:focus,
+  select, textarea {
+  border-top: 2px solid #20b6b9;
+  border-bottom: 2px solid #20b6b9;
+  border-left: 2px solid #20b6b9;
+  border-right: 2px solid #20b6b9;
+}
 #btnSalvar{
   margin-left: 11%;
   background: linear-gradient(to right, #0e97a5, #20b6b9);
@@ -52,14 +61,20 @@ input[type="text"],
   color: white;
   text-decoration: none;
 }
-#btnCont{
+#btnContinuar{
   margin-left: 11%;
   background: linear-gradient(to right, #0e97a5, #20b6b9);
   border: none;
   color: white;
   text-decoration: none;
 }
-
+#btnFinalizar{
+  margin-left: 11%;
+  background: linear-gradient(to right, #0e97a5, #20b6b9);
+  border: none;
+  color: white;
+  text-decoration: none;
+}
 ::-webkit-input-placeholder {
    color: black; /* cor do placeholder*/
 }

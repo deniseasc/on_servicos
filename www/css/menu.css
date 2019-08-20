@@ -3,15 +3,36 @@
     margin: 0;
     padding: 0;
 }
-
 html,body{
     height: 100%;
 }
-
 body{
     overflow-x: hidden;
 }
-
+#logo{
+  width: 45%;
+  margin-left: 27%;
+}
+.pesquisa{
+  width: 400px;
+  height: 40px;
+}
+#texto{
+  width: 285px;
+  height: 40px;
+  float: left;
+  font-size: 18px;
+  background-color: transparent;
+  border-color: #0e97a5;
+  border-radius: 5px;
+}
+.btn{
+  width: 50px;
+  height: 40px;
+  background-color: #0e97a5;
+  padding: 5px 10px;
+  cursor: pointer;
+}
 /*Boot CSS*/
 .clear{clear: both;}
 .center{padding: 0 2%; margin: 0 auto;}
@@ -19,61 +40,53 @@ body{
 .w100{
     width: 100%;
 }
-
 .left{
     float: left;
 }
-
 .right{
     float: right;
 }
 /* Fim CSS */
 
 /* Menu Superior */
-
 header{
     position: relative;
     left: 300px;    
     padding: 10px 0;
     height: 45px;
-    background-color: #c8d8e7;
+    background-color: #20b6b9;
     width: calc(100% - 300px);
 }
 /* Fim do Menu Superior */
 
 /* Menu Lateral */
-
 div.menu-wrapper{width: 300px;}
 div.menu{
     overflow-x: hidden;
     overflow-y: auto;
     height: 100%;
-    background: linear-gradient(45deg, #c8d8e7, #e7e9eb);
+    background: linear-gradient(to top, #c8d8e7, #e7e9eb, #e7e9eb);
     position: fixed;
     left: 0;
     top: 0;
     width: 300px;
     padding: 10px;
 }
-
 .menu-btn{
     float: left;
     cursor: pointer;
     font-size: 23px;
     color: white;
 }
-
 #user{
   font-size: 80px;
   margin-top: 5%;
   margin-left: 28%;
 }
-
 #btn{
   background-color: transparent;
   border-color: transparent;
 }
-
 #hr{
   border-color: black;
 }
@@ -86,31 +99,30 @@ div.menu{
     left: 300px;
     padding: 10px;
 }
-
 .box-content{
     padding: 10px;
     margin-bottom: 10px;
 }
-
 /* Botões e icones do meio */
+h4{
+  text-align: center;
+}
 #b1{
   height: 90px;
-  margin-top: 100%;
+  margin-top: 20%;
   background-color: transparent;
   border-color: #0e97a5;
   border-radius: 10px 30px;
   color: #0e97a5;
 }
-
 #b2{
   height: 90px;
-  margin-top: 100%;
+  margin-top: 20%;
   background-color: transparent;
   border-color: #0e97a5;
   border-radius: 30px 10px;
   color: #0e97a5;
 }
-
 #b3{
   height: 90px;
   background-color: transparent;
@@ -118,7 +130,6 @@ div.menu{
   border-radius: 30px 10px;
   color: #0e97a5;
 }
-
 #b4{
   height: 90px;
   background-color: transparent;
@@ -126,15 +137,81 @@ div.menu{
   border-radius: 10px 30px;
   color: #0e97a5;
 }
-
+#b5{
+  height: 90px;
+  background-color: transparent;
+  border-color: #0e97a5;
+  border-radius: 10px 30px;
+  color: #0e97a5;
+}
+#b6{
+  height: 90px;
+  background-color: transparent;
+  border-color: #0e97a5;
+  border-radius: 30px 10px;
+  color: #0e97a5;
+}
 #icon{
   font-size: 27px;
 }
-
 #btn {
   color: black;
 }
+/* Meu Perfil USUÁRIO*/
+input[type="text"],
+input[type="password"],
+input[type="number"] {
+  border-radius: 2px;
+  border: solid 1px;
+  width: 100%;
+}
+input[type="text"],
+input[type="password"],
+input[type="number"] {
+  height: 2em;
+  border-top: 2px solid #0e97a5;
+  border-bottom: 2px solid #0e97a5;
+  border-left: 2px solid #0e97a5;
+  border-right: 2px solid #0e97a5;
+}
+#btnEditar{
+  background: linear-gradient(to right, #0e97a5, #20b6b9);
+  border: none;
+  color: white;
+  text-decoration: none;
+}
+#btnSalvar{
+  background: linear-gradient(to right, #0e97a5, #20b6b9);
+  border: none;
+  color: white;
+  text-decoration: none;
+}
+#btnVoltar{
+  background: linear-gradient(to right, #0e97a5, #20b6b9);
+  border: none;
+  color: white;
+  text-decoration: none;
+}
+#btnConta{
+  background: linear-gradient(to right, #0e97a5, #20b6b9);
+  border: none;
+  color: white;
+  text-decoration: none;
+}
+#foto{
+  margin-left: 35%;
+}
+#prof{
+  margin-left: 35%;
+}
+h3, h5{
+  text-align: center;
+}
 
+.box{
+  border: 2px solid #20b6b9;
+  padding: 10px;
+}
 /* Fim do Conteudo app css*/
 
 
