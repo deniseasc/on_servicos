@@ -10,11 +10,15 @@
   border: 5px solid #0e97a5;
   border-radius: 0px 35px;
 }
+#logo{
+  width: 45%;
+  margin-left: 27%;
+  margin-top: 10%;
+}
 h2 {
   text-align: center;
 }
 #btnProximo {
-  margin-left: 11%;
   background: linear-gradient(to right, #0e97a5, #20b6b9);
   border: none;
   color: white;
@@ -55,21 +59,30 @@ input[type="text"]:focus,
   border-right: 2px solid #20b6b9;
 }
 #btnSalvar{
-  margin-left: 11%;
+  background: linear-gradient(to right, #0e97a5, #20b6b9);
+  border: none;
+  color: white;
+  text-decoration: none;
+}
+#btnCancelar{
   background: linear-gradient(to right, #0e97a5, #20b6b9);
   border: none;
   color: white;
   text-decoration: none;
 }
 #btnContinuar{
-  margin-left: 11%;
+  background: linear-gradient(to right, #0e97a5, #20b6b9);
+  border: none;
+  color: white;
+  text-decoration: none;
+}
+#btnVolt{
   background: linear-gradient(to right, #0e97a5, #20b6b9);
   border: none;
   color: white;
   text-decoration: none;
 }
 #btnFinalizar{
-  margin-left: 11%;
   background: linear-gradient(to right, #0e97a5, #20b6b9);
   border: none;
   color: white;

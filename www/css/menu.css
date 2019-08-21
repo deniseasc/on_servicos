@@ -198,6 +198,18 @@ input[type="number"] {
   color: white;
   text-decoration: none;
 }
+#btnExcluir{
+  background: linear-gradient(to right, #106770, #23929e);
+  border: none;
+  color: white;
+  text-decoration: none;
+}
+#editar{
+  background: linear-gradient(to right, #0e97a5, #20b6b9);
+  border: none;
+  color: white;
+  text-decoration: none;
+}
 #foto{
   margin-left: 35%;
 }
