@@ -6,6 +6,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
   <script src="components/loader.js"></script>
   <script src="lib/onsenui/js/onsenui.min.js"></script>
+  <script src="components/acao.js"></script> 
 
   <script src="components/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -28,7 +29,7 @@
     </div>
 
     <div class="box">
-
+<form name="cadastroprof" method="post" action="endProf.html"  onsubmit="return validacaoProfissional();">
    <div class="row">
       <div class="col-xs-12">
         <h3>Dados Pessoais:</h3>
@@ -38,19 +39,19 @@
     <div class="row">
       <div class="col-xs-12">
         <label>Nome:</label>
-        <input type="text" placeholder="Nome">
+        <input type="text" name="nome" placeholder="Nome">
       </div>
     </div>
 
      <div class="row">
       <div class="col-xs-6">
         <label>CPF:</label>
-        <input type="number" placeholder="CPF">
+        <input type="number" name="cpf" placeholder="CPF">
       </div>
       
       <div class="col-xs-6">
         <label>Celular:</label>
-        <input type="number" placeholder="Celular">
+        <input type="number" name="celular" placeholder="Celular">
       </div>
     </div>
 
@@ -58,7 +59,7 @@
     <div class="row">
       <div class="col-xs-12">
         <label>E-mail:</label>
-        <input type="text" placeholder="E-mail">
+        <input type="text" name="email" placeholder="E-mail">
       </div>
     </div>
 
@@ -66,12 +67,12 @@
     <div class="row">
       <div class="col-xs-6">
         <label>Login:</label>
-        <input type="text" placeholder="Login">
+        <input type="text" name="login" placeholder="Login">
       </div>
 
       <div class="col-xs-6">
         <label>Senha:</label>
-        <input type="password" placeholder="Senha">
+        <input type="password" name="senha" placeholder="Senha">
       </div>
     </div>
 
@@ -84,10 +85,11 @@
       </div>
 
       <div class="col-xs-6">
-          <a href="endProf.html"><button class="btn btn-block" id="btnProximo">Continuar</button></a>
+          <button class="btn btn-block" type="submit" id="btnProximo">Continuar</button></a>
       </div>
     </div>
   </div>
+  </form>
   </div><!-- Fim container -->
 </body>
 </html>

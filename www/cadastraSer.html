@@ -6,6 +6,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
   <script src="components/loader.js"></script>
   <script src="lib/onsenui/js/onsenui.min.js"></script>
+  <script type="text/javascript" src="components/acao.js"></script>
 
   <script src="components/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -28,6 +29,7 @@
     </div>
 
     <br><div class="box">
+  <form name="cadastroservico" method="post" action="index.html"  onsubmit="return validacaoservico();">
 
    <div class="row">
       <div class="col-xs-12">
@@ -52,14 +54,14 @@
   <div class="row">
     <div class="col-xs-12">
       <label>Serviços que realiza:</label>
-      <input type="text" placeholder="ex:Limpeza de terrenos">
+      <input type="text" name="sevico" placeholder="ex:Limpeza de terrenos">
     </div>
   </div>
 
   <div class="row">
     <div class="col-xs-12">
       <label>Mais detalhes:</label>
-      <textarea name="comentário"rows="3" cols="5" placeholder="ex: Aos domingos estou disponível apenas até 15h. "></textarea>
+      <textarea name="comentário" rows="3" cols="5" placeholder="ex: Aos domingos estou disponível apenas até 15h. "></textarea>
     </div>
   </div>
 
@@ -101,7 +103,7 @@
       </div>
 
       <div class="col-xs-6">
-          <a href="homeProf.html"><button class="btn btn-block" id="btnFinalizar">Finalizar</button></a>
+         <button class="btn btn-block" type="submit" id="btnFinalizar">Finalizar</button></a>
       </div>
     </div>
   </div>
