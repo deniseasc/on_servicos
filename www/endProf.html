@@ -6,6 +6,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
   <script src="components/loader.js"></script>
   <script src="lib/onsenui/js/onsenui.min.js"></script>
+  <script type="text/javascript" src="components/acao.js"></script>
 
   <script src="components/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -28,6 +29,7 @@
     </div>
 
     <div class="box">
+  <form name="enderecoprof" method="post" action="cadastraSer.html"  onsubmit="return validacaoenderecoprof();">
 
     <div class="row">
       <div class="col-xs-12">
@@ -38,43 +40,43 @@
        <div class="row">
          <div class="col-xs-6">
         <label>CEP:</label>
-        <input type="number" placeholder="CEP">
+        <input type="number" name="cep" placeholder="CEP">
       </div>
 
       <div class="col-xs-6">
         <label>Estado:</label>
-        <input type="text" placeholder="Estado">
+        <input type="text" name="estado" placeholder="Estado">
       </div>
       </div>
 
       <div class="row">
       <div class="col-xs-6">
         <label>Cidade:</label>
-        <input type="text" placeholder="Cidade">
+        <input type="text" name="cidade" placeholder="Cidade">
       </div>
       
       <div class="col-xs-6">
         <label>Bairro:</label>
-        <input type="text" placeholder="Bairro">
+        <input type="text" name="bairro" placeholder="Bairro">
       </div>
     </div>
 
     <div class="row">
       <div class="col-xs-6">
         <label>Endereço:</label>
-        <input type="text" placeholder="Endereço">
+        <input type="text" name="endereco" placeholder="Endereço">
       </div>
 
       <div class="col-xs-6">
         <label>Número:</label>
-        <input type="number" placeholder="Número">
+        <input type="number" name="numero" placeholder="Número">
        </div>
     </div>
 
       <div class="row">
       <div class="col-xs-12">
         <label>Complemento:</label>
-        <input type="text" placeholder="Complemeto">
+        <input type="text" name="complemento" placeholder="Complemeto">
       </div>
     </div>
 
@@ -84,11 +86,12 @@
       </div>
 
       <div class="col-xs-6">
-          <a href="cadastraSer.html"><button class="btn btn-info btn-block" id="btnContinuar">Continuar</button></a>
+         <button class="btn btn-info btn-block" type="submit" id="btnContinuar">Continuar</button></a>
       </div>
     </div>
 
   </div>
+  </form>
   </div><!-- Fim container -->
 </body>
 </html>

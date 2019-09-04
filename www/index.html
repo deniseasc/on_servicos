@@ -6,9 +6,10 @@
   <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
   <script src="components/loader.js"></script>
   <script src="lib/onsenui/js/onsenui.min.js"></script>
+  <script type="text/javascript" src="components/acao.js"></script>
 
   <script src="components/jquery-3.4.1.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>  
   <script src="components/bootstrap.js"></script>
 
   <script src="https://kit.fontawesome.com/be184030a6.js"></script><!-- link font awesome-->
@@ -30,37 +31,39 @@
     </div>
     
     <div class="box">
+      <form name="formlogin" method="post" action="enderecoUsu.html"  onsubmit="return validacaoLogin();">
 
       <div class="row">
         <div class="col-xs-12">
             <h2>Login</h2>
         </div>
       </div>
-
-      <div class="row">
+      
+       <div class="row">
         <div class="col-xs-12">
-            <form class="inputIcon">
+            <!-- <form class="inputIcon"> -->
               <input type="text" name="nome" placeholder="Usuário">
-              <i class="fas fa-user"></i>
-            </form>
+              <!-- <i class="fas fa-user"></i> -->
+            <!-- </form> -->
         </div>
       </div>
 <br>
     <div class="row">
       <div class="col-xs-12">
-          <form class="inputIcon">
+          <!-- <form class="inputIcon"> -->
             <input type="password" name="senha" placeholder="Senha">
-            <i class="fas fa-lock"></i>
-          </form>
+            <!-- <i class="fas fa-lock"></i> -->
+          <!-- </form> -->
       </div>
     </div>
     
 <br>
     <div class="row">
       <div class="col-xs-10">
-          <a href="homeProf.html"><button class="btn btn-block" id="btnEntrar">Entrar</button></a>
+         <button class="btn btn-block" type="submit" name="submit" id="btnEntrar">Entrar</button></a>
       </div>
     </div>
+    </form>
 <br>
     <div class="row">
       <div class="col-xs-10">
