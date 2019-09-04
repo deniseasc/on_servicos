@@ -2,7 +2,7 @@
 function validacaoLogin(){
   var formulariologin = document.forms["formlogin"]
   if (formulariologin.nome.value == ""){
-  alert("Digie seu nome de Usuário");
+  alert("Digite seu nome de Usuário");
   return false;
   }
 
@@ -11,138 +11,152 @@ function validacaoLogin(){
   return false;
   }
 
-}
- //fim de validação de login//
+}//fim de validação de login//
 
 
  //validação do usuário//
  
  //dados pessoais usuario
-function validacaoUsuario(){
+ function validacaoUsuario(){
   var cadastrousuario = document.forms["cadastrousu"]
+  var senha = cadastrousuario.senha.value;
+  var confirmarsenha = cadastrousuario.confirmarsenha.value;
+  
   if (cadastrousuario.nome.value == ""){
   alert("Preencha todos os campos!");
   return false;
   }
-  if (cadastrousuario.email.value == ""){
+    if (cadastrousuario.email.value == ""){
   alert("Preencha todos os campos!");
   return false;
   }
-  if (cadastrousuario.celular.value.length < 11){
-  alert("Digite um Celular válido!");
-  return false;
-  }
-  if (cadastrousuario.login.value == ""){
+    if (cadastrousuario.celular.value == ""){
   alert("Preencha todos os campos!");
   return false;
   }
-  if (cadastrousuario.senha.value == ""){
+    if (cadastrousuario.login.value == ""){
   alert("Preencha todos os campos!");
   return false;
   }
-  if (cadastrousuario.senha.value.length < 6) {
+    if (senha == ""){
+  alert("Preencha todos os campos!");
+  return false;
+  }
+    if (confirmarsenha == ""){
+  alert("Preencha todos os campos!");
+  return false;
+  }
+    if (cadastrousuario.senha.value.length < 6) {
   alert("A senha deve conter no minímo 6 digitos!");
   document.formulario.senha.focus();
   return false;
   }
-
- 
-
-}
-//dados pessoais usuario//
+   if(senha != confirmarsenha) {
+        alert("Senhas diferentes!");
+  return false; 
+   }
+}//fim dos dados pessoais usuario//
 
 //endereco usuario
-  function validacaoenderecousuario(){
+function validacaoenderecousuario(){
   var enderecousu = document.forms["enderecousuario"]
-  if (enderecousu.cep.value == ""){
+    if (enderecousu.cep.value == ""){
   alert("Preencha todos os campos!");
   return false;
   }
-  if (enderecousu.estado.value == ""){
+    if (enderecousu.estado.value == ""){
   alert("Preencha todos os campos!");
   return false;
   }
-  if (enderecousu.cidade.value == ""){
+    if (enderecousu.cidade.value == ""){
   alert("Preencha todos os campos!");
   return false;
   }
-  if (enderecousu.bairro.value == ""){
+    if (enderecousu.bairro.value == ""){
   alert("Preencha todos os campos!");
   return false;
   }
-  if (enderecousu.endereco.value == ""){
+    if (enderecousu.endereco.value == ""){
   alert("Preencha todos os campos!");
   return false;
   }
-  if (enderecousu.numero.value == ""){
+    if (enderecousu.numero.value == ""){
   alert("Preencha todos os campos!");
   return false;
   }
-  }
-//endereco usuario//
+}//fim do endereco usuario//
 //fim da Validação do Cadastro de Usuário
+
 
 //Validação Cadastro de Profissional//
 
 //dados pessoais do profissional
 function validacaoProfissional(){
   var cadastroProfissional = document.forms["cadastroprof"]
-  if (cadastroProfissional.nome.value == ""){
+  var senha = cadastroProfissional.senha.value;
+  var confirmarsenha = cadastroProfissional.confirmarsenha.value;
+
+    if (cadastroProfissional.nome.value == ""){
   alert("Preencha todos os campos!");
   return false;
   }
-  if (cadastroProfissional.cpf.value == ""){
+    if (cadastroProfissional.cpf.value == ""){
   alert("Preencha todos os campos!");
   return false;
   }
-  if (cadastroProfissional.email.value == ""){
+    if (cadastroProfissional.email.value == ""){
   alert("Preencha todos os campos!");
   return false;
   }
-  if (cadastroProfissional.celular.value == ""){
+    if (cadastroProfissional.celular.value == ""){
   alert("Preencha todos os campos!");
   return false;
   }
-  if (cadastroProfissional.login.value == ""){
+    if (cadastroProfissional.login.value == ""){
   alert("Preencha todos os campos!");
   return false;
   }
-  if (cadastroProfissional.senha.value == ""){
+    if (cadastroProfissional.senha.value == ""){
   alert("Preencha todos os campos!");
   return false;
   }
-  if (cadastroProfissional.senha.value.length < 6) {
+    if (cadastroProfissional.senha.value.length < 6) {
   alert("A senha deve conter no minímo 6 digitos!");
   document.formulario.senha.focus();
   return false;
   }
+   if(senha != confirmarsenha) {
+        alert("Senhas diferentes!");
+  return false; 
+   }
 
 }
 //fim dos dados pessoais do profissional//
-//endereco usuario
+
+//endereco profissional
   function validacaoenderecoprof(){
   var enderecoprof = document.forms["enderecoprof"]
-  if (enderecoprof.cep.value == ""){
+    if (enderecoprof.cep.value == ""){
   alert("Preencha todos os campos!");
   return false;
   }
-  if (enderecoprof.estado.value == ""){
+    if (enderecoprof.estado.value == ""){
   alert("Preencha todos os campos!");
   return false;
   }
-  if (enderecoprof.cidade.value == ""){
+    if (enderecoprof.cidade.value == ""){
   alert("Preencha todos os campos!");
   return false;
   }
-  if (enderecoprof.bairro.value == ""){
+    if (enderecoprof.bairro.value == ""){
   alert("Preencha todos os campos!");
   return false;
   }
-  if (enderecoprof.endereco.value == ""){
+    if (enderecoprof.endereco.value == ""){
   alert("Preencha todos os campos!");
   return false;
   }
-  if (enderecoprof.numero.value == ""){
+    if (enderecoprof.numero.value == ""){
   alert("Preencha todos os campos!");
   return false;
   }
@@ -155,11 +169,8 @@ function validacaoProfissional(){
 
 function validacaoservico(){
   var validacaoservico = document.forms["cadastroservico"]
-  if (validacaoservico.profissao.value == ""){
-    alert("Preencha todos os campos!")
-    return false;
+    if (validacaoservico.profissao.value == ""){
+  alert("Preencha todos os campos!")
+  return false;
   }
 }
-
-
-
