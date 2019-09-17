@@ -10,6 +10,26 @@ function validacaoLogin(){
   alert("Digite sua Senha");
   return false;
   }
+    return true
+}
+  // Validação de Login
+function Login() {
+   var done=0;
+  var usuario = document.getElementsByName('usuario')[0].value;
+  usuario=usuario.toLowerCase();
+  var senha= document.getElementsByName('senha')[0].value;
+  senha=senha.toLowerCase();
+  if (usuario=="usuario" && senha=="123456") {
+    window.location="home.html";
+    done=1;
+  }
+   if (usuario=="profissional" && senha=="123456") {
+    window.location="homeProf.html";
+    done=1;
+  }
+  if (done==0) { alert("Dados incorretos, tente novamente!"); }
+}
+// Fim validação de login
 
 }//fim de validação de login//
 
@@ -174,3 +194,4 @@ function validacaoservico(){
   return false;
   }
 }
+
