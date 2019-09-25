@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
   <script src="components/loader.js"></script>
   <script src="lib/onsenui/js/onsenui.min.js"></script>
-  <script type="text/javascript" src="components/acao.js"></script>
+  <script type="text/javascript" src="components/acaoprof.js"></script>
 
   <script src="components/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -21,15 +21,15 @@
 <body style="background-color: #e7e9eb;">
 
   <div class="container">
+     <form name="cadastroservico" method="post" action="index.html"  onsubmit="return validacaoservico();">
 
     <div class="row">
       <div class="col-xs-12">
-        <img src="img/logo.png" id="logo2"><br><br><br>
+        <img src="img/logo.png" id="logo"><br><br><br>
       </div>
     </div>
 
     <br><div class="box">
-  <form name="cadastroservico" method="post" action="index.html"  onsubmit="return validacaoservico();">
 
    <div class="row">
       <div class="col-xs-12">
@@ -42,11 +42,19 @@
       <label>Profissão:</label>
       <select name="profissao" id="escolhaProfissao">
         <option value="text" disabled selected>Escolha</option>
-        <option value="text">Pedreiro</option>
-        <option value="text">Piscineiro</option>
-        <option value="text">Jardineiro</option>
-        <option value="text">Pintor</option>
-        <option value="text">Encanador</option>
+        <option value="pedreiro">Pedreiro</option>
+        <option value="pintor">Pintor</option>
+        <option value="encanador">Encanador</option>
+        <option value="piscineiro">Piscineiro</option> 
+        <option value="marceneiro">Marceneiro</option>
+        <option value="mecanico">Mecânico</option> 
+        <option value="eletricista">Eletricista</option>
+        <option value="vidraceiro">Vidraceiro</option> 
+        <option value="dedetizador">Dedetizador</option> 
+        <option value="jardineiro">Jardineiro</option>
+        <option value="chaveiro">Chaveiro</option> 
+        <option value="desentupidor">Desentupidor</option>
+        <option value="tec eletrodomestico">Téc. Eletrodomésticos</option> 
       </select>
     </div>
   </div>
@@ -54,45 +62,45 @@
   <div class="row">
     <div class="col-xs-12">
       <label>Serviços que realiza:</label>
-      <input type="text" name="sevico" placeholder="ex:Limpeza de terrenos">
+      <input type="text" name="servico" placeholder="ex:Limpeza de terrenos">
     </div>
   </div>
 
   <div class="row">
     <div class="col-xs-12">
       <label>Mais detalhes:</label>
-      <textarea name="comentário" rows="3" cols="5" placeholder="ex: Aos domingos estou disponível apenas até 15h. "></textarea>
+      <textarea name="comentario" rows="3" cols="5" placeholder="ex: Aos domingos estou disponível apenas até 15h. "></textarea>
     </div>
   </div>
 
      <label>Dias em que trabalha:</label>
      <div class="row">
       <div class="col-xs-1">
-         <input type="checkbox" name="semana" value="on">S
+         <input type="checkbox" name="semana" value="1">S
             </p>
       </div>
       <div class="col-xs-1">
-         <input type="checkbox" name="semana" value="on">T
+         <input type="checkbox" name="semana" value="2">T
             </p>
       </div>
       <div class="col-xs-1">
-         <input type="checkbox" name="semana" value="on">Q
+         <input type="checkbox" name="semana" value="3">Q
             </p>
       </div>
       <div class="col-xs-1">
-         <input type="checkbox" name="semana" value="on">Q
+         <input type="checkbox" name="semana" value="4">Q
             </p>
       </div>
       <div class="col-xs-1">
-         <input type="checkbox" name="semana" value="on">S
+         <input type="checkbox" name="semana" value="5">S
             </p>
       </div>
       <div class="col-xs-1">
-         <input type="checkbox" name="semana" value="on">S
+         <input type="checkbox" name="semana" value="6">S
             </p>
       </div>
       <div class="col-xs-1">
-         <input type="checkbox" name="semana" value="on">D
+         <input type="checkbox" name="semana" value="7">D
             </p>
       </div>
     </div>
@@ -106,6 +114,7 @@
          <button class="btn btn-block" type="submit" id="btnFinalizar">Finalizar</button></a>
       </div>
     </div>
+      </form>
   </div>
   </div><!-- Fim container -->
 </body>

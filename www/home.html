@@ -11,7 +11,6 @@
   <script src="components/main.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <script src="components/bootstrap.js"></script>
-
   <script src="https://kit.fontawesome.com/be184030a6.js"></script><!-- link font awesome-->
   <link rel="stylesheet" href="components/loader.css">
   <link rel="stylesheet" href="css/menu.css">
@@ -71,19 +70,19 @@
       </div>
 
     <form class="pesquisa">
-      <input type="search" id="texto" placeholder="Pesquisar">
+      <input type="search" id="texto" name="pesquisa" placeholder="Pesquisar" return "pesquisa();">
       <img src="img/lupa.png" class="btn">
     </form><br>
 
-    <h4>Serviços mais procurados:</h4>
+    <h4>Principais Serviços:</h4>
       
       <div class="row">
         <div class="col-xs-6">
-          <a href="listaServicos.html"><button class="btn btn-warning btn-block" id="b1"><i class="fas fa-hard-hat" id="icon"></i><br>Pedreiro</button></a>
+          <a href="listaserv.html"><button class="btn btn-warning btn-block" id="b1"><i class="fas fa-hard-hat" id="icon"></i><br>Pedreiro</button></a>
         </div>
 
         <div class="col-xs-6">
-          <button class="btn btn-danger btn-block" id="b2"><i class="fas fa-key" id="icon"></i><br>Chaveiro</button>
+        <a href="listaserv.html"><button class="btn btn-warning btn-block" id="b2"> <i class="fas fa-paint-roller" id="icon"></i><br>Pintor</button>
         </div>
       </div><br>
 
@@ -93,7 +92,7 @@
         </div>
 
         <div class="col-xs-6">
-          <button class="btn btn-primary btn-block" id="b4"><i class="fas fa-paint-roller" id="icon"></i><br>Pintor</button>
+          <button class="btn btn-primary btn-block" id="b4"><i class="fas fa-paint-roller" id="icon"></i><br>Jardineiro</button>
         </div>
       </div><br>
 
@@ -103,9 +102,10 @@
         </div>
 
         <div class="col-xs-6">
-          <button class="btn btn-primary btn-block" id="b6"><i class="fab fa-pagelines" id="icon"></i><br>Jardineiro</button>
+           <a href="maisServicos.html"><button class="btn btn-primary btn-block" id="b6"><i class="fab fa-pagelines" id="icon"></i><br>Outros</button></a>
         </div>
       </div>
+      
       
 
     </div>

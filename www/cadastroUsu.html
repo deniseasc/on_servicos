@@ -48,14 +48,14 @@
     <div class="row">
       <div class="col-xs-12">
         <label>E-mail:</label>
-        <input type="text"name="email" placeholder="E-mail">
+        <input type="text"name="email"  onblur="checarEmail();" maxlength="60" placeholder="E-mail">
       </div>
     </div>
 
     <div class="row">
       <div class="col-xs-12">
         <label>Celular:</label>
-        <input type="number" name="celular" placeholder="Celular" max="11">
+        <input type="number" name="celular" onkeypress="mascara(this, '## #####-####')" maxlength="13" placeholder="Celular">
       </div>
     </div>
 

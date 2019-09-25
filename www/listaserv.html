@@ -11,7 +11,6 @@
   <script src="components/main.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <script src="components/bootstrap.js"></script>
-
   <script src="https://kit.fontawesome.com/be184030a6.js"></script><!-- link font awesome-->
   <link rel="stylesheet" href="components/loader.css">
   <link rel="stylesheet" href="css/menu.css">
@@ -30,21 +29,22 @@
 
           <div class="row">
             <div class="col-xs-12">
-              <a href="perfilProf.html"><button class="btn btn-info btn-block" id="btn" style="margin-top: 20px;"> Meu Perfil </button></a>
+              <a href="perfil.html"><button class="btn btn-info btn-block" id="btn" style="margin-top: 20px;"> Meu Perfil </button></a>
                 <hr id="hr">
             </div>
           </div>
 
           <div class="row">
             <div class="col-xs-12">
-              <a href="servicos.html"><button class="btn btn-info btn-block" id="btn"> Meus Serviços </button></a>
+              <a href="chat.html"><button class="btn btn-info btn-block" id="btn">Mensagens</button></a>
                 <hr id="hr">
             </div>
           </div>
 
-           <div class="row">
+               <div class="row">
             <div class="col-xs-12">
-              <a href="index.html"><button class="btn btn-info btn-block" id="btn"> Sair </button> <hr id="hr"> </a>
+              <a href="index.html"><button class="btn btn-info btn-block" id="btn"> Sair </button></a>
+                <hr id="hr">
             </div>
           </div>
     </div>
@@ -73,9 +73,12 @@
 
       <div class="box"><!-- Box 1-->
         <div class="row">
-          <div class="col-xs-12">
-            <img src="img/user.png" width="30%" id="prof">
-          </div><br><br><br><br><br>
+          <div class="circle">
+        <img src="img/pedreiro1.jpeg">
+        </div>
+         <div class="col-xs-12">
+            <label id="nomeprof" name="nomeprof">Antonio Costa</label>
+          </div>
           <div class="col-xs-12">
             <labeL>Especialidade:</labeL>
             <h6>Reboco paredes e faço texturas</h6>
@@ -88,11 +91,10 @@
             <labeL>Disponibilidade:</labeL>
             <h6>Segunda a Sexta</h6>
           </div>
-        </div><br>
-
+        </div>
         <div class="row">
           <div class="col-xs-12">
-            <button class="btn btn-danger btn-block" id="btnConta">Contatar</button>
+           <a href="chat.html"><button class="btn btn-danger btn-block" id="btnConta" name="btnContatar">Contatar</button></a>
           </div>
         </div>
 
@@ -100,9 +102,13 @@
 
       <div class="box"><!-- Box 2-->
         <div class="row">
-          <div class="col-xs-12">
-            <img src="img/user.png" width="30%" id="prof">
-          </div><br><br><br><br><br>
+           <div class="circle">
+           <img src="img/pedreiro2.jpg">
+            <!-- <img src="img/user.png" width="30%" id="prof"> -->
+          </div>
+           <div class="col-xs-12">
+            <label id="nomeprof" name="nomeprof">Marco Antonio</label>
+          </div>
           <div class="col-xs-12">
             <labeL>Especialidade:</labeL>
             <h6>Coloco telhado e faço lajes</h6>
@@ -115,11 +121,10 @@
             <labeL>Disponibilidade:</labeL>
             <h6>Todos os dias</h6>
           </div>
-        </div><br>
-
+        </div>
         <div class="row">
           <div class="col-xs-12">
-            <button class="btn btn-danger btn-block" id="btnConta">Contatar</button>
+            <button class="btn btn-danger btn-block" id="btnConta" name="btnContatar">Contatar</button>
           </div>
         </div>
 
