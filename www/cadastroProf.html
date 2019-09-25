@@ -2,7 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic  j-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
   <script src="components/loader.js"></script>
   <script src="lib/onsenui/js/onsenui.min.js"></script>
   <script src="components/acaoprof.js"></script> 
@@ -20,7 +21,6 @@
 <body style="background-color: #e7e9eb;">
 
   <div class="container">
- <form name="cadastroprof" method="post" action="endProf.html"  onsubmit="return validacaoProfissional();">
 
     <div class="row">
       <div class="col-xs-12">
@@ -29,6 +29,7 @@
     </div>
 
     <div class="box">
+<form name="cadastroprof" method="post" action="endProf.html"  onsubmit="return validacaoProfissional();">
    <div class="row">
       <div class="col-xs-12">
         <h3>Dados Pessoais:</h3>
@@ -45,7 +46,7 @@
      <div class="row">
       <div class="col-xs-6">
         <label>CPF:</label>
-        <input type="number" name="cpf" onsubmit="validaCPF" placeholder="CPF">
+        <input type="number" name="cpf" placeholder="CPF">
       </div>
       
       <div class="col-xs-6">
@@ -70,30 +71,30 @@
       </div>
     </div>
 
-    <div class="row">
-       <div class="col-xs-6">
-         <label>Senha:</label>
-         <input type="password"  name="senha" placeholder="Senha">
-  </div>
+           <div class="row">
+          <div class="col-xs-6">
+        <label>Senha:</label>
+        <input type="password"  name="senha" placeholder="Senha">
+      </div>
 
-    <div class="col-xs-6">
-      <label>Conf senha:</label>
-      <input type="password"  name="confirmarsenha" placeholder="confirma Senha">
+          <div class="col-xs-6">
+        <label>Conf senha:</label>
+        <input type="password"  name="confirmarsenha" placeholder="confirma Senha">
       </div>
     <br>
-  </div>
+        </div>
    
     <br><div class="row">
       <div class="col-xs-6">
-          <a href="index.html"><button class="btn btn-block" id="btnCancelar">Cancelar</button></a>
+          <a href="index.html"><button class="btn btn-block" id="btnCancelar" type="button">Cancelar</button></a>
       </div>
 
       <div class="col-xs-6">
           <button class="btn btn-block" type="submit" id="btnProximo">Continuar</button></a>
       </div>
     </div>
-    </form>
   </div>
+  </form>
   </div><!-- Fim container -->
 </body>
 </html>

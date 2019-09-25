@@ -56,3 +56,9 @@ $(function(){
   /* Click menu*/
 
 })
+
+//Alerta sair
+
+$(document).on('click','#n1',function(){
+  navigator.notification.alert("Hello Wolrd!");
+});

@@ -39,7 +39,6 @@ function validacaoProfissional(){
         alert("Senhas diferentes!");
   return false; 
    }
-
 }
 // fim dos dados pessoais do profissional//
 
@@ -87,30 +86,5 @@ function validacaoservico(){
     if (cadastroservico.profissao.value == "text"){
   alert("Preencha todos os campos!");
   return false;
-  }
-    if (cadastroservico.semana.value ==""){
-		alert("Selecione um dia da semana.");
-		return false;
-  }
-    if (cadastroservico.semana.value == "1"){
-		return true;
-  }
-   if (cadastroservico.semana.value == "2 "){
-		return true;
-  }
-  if (cadastroservico.semana.value == "3"){
-		return true;
-  }
-   if (cadastroservico.semana.value == "4"){
-		return true;
-  }
-   if (cadastroservico.semana.value == "5"){
-		return true;
-  }
-   if (cadastroservico.semana.value == "6"){
-		return true;
-  }
-   if (cadastroservico.semana.value == "7"){
-		return true;
   }
 }

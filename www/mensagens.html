@@ -11,10 +11,9 @@
   <script src="components/main.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <script src="components/bootstrap.js"></script>
-
   <script src="https://kit.fontawesome.com/be184030a6.js"></script><!-- link font awesome-->
   <link rel="stylesheet" href="components/loader.css">
-  <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/mensagens.css">
 
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -29,22 +28,22 @@
           <i class="fas fa-user-circle" id="user"></i>
 
           <div class="row">
-            <div class="col-xs-12">
-              <a href="perfilProf.html"><button class="btn btn-info btn-block" id="btn" style="margin-top: 20px;"> Meu Perfil </button></a>
+            <div class="col-xs-12"> <a href="home.html"><button class="btn btn-info btn-block" id="btn" style="margin-top: 20px;"> Home </button></a>
                 <hr id="hr">
             </div>
           </div>
 
           <div class="row">
             <div class="col-xs-12">
-              <a href="servicos.html"><button class="btn btn-info btn-block" id="btn"> Meus Serviços </button></a>
+             <a href="perfil.html"><button class="btn btn-info btn-block" id="btn" style="margin-top: 20px;"> Meu Perfil </button></a>
                 <hr id="hr">
             </div>
           </div>
 
-           <div class="row">
+               <div class="row">
             <div class="col-xs-12">
-          <a href="#" data-toggle="modal" data-target="#myModal"><button class="btn btn-info btn-block" id="btn"> Sair </button></a>
+              <a href="#" data-toggle="modal" data-target="#myModal"><button class="btn btn-info btn-block" id="btn"> Sair </button></a>
+                <hr id="hr">
             </div>
           </div>
     </div>
@@ -63,78 +62,33 @@
     <!-- Conteudo app -->
     <div class="box-content w100 left">
 
-      <h3>Meus Serviços:</h3>
+      <div class="row">
+        <div class="col-xs-12">
+          <img src="img/logo.png" id="logo"><br><br>
+        </div>
+      </div>
+
+      <h3>Mensagens:</h3><br>
 
       <div class="box"><!-- Box 1-->
         <div class="row">
-
-          <div class="col-xs-12">
-            <labeL>Serviços que realiza:</labeL>
-            <input type="text" disabled placeholder="Pinto e faço gesso">
-          </div>
-          <div class="col-xs-12">
-            <labeL>Descrição:</labeL><br>
-            <input type="text" disabled placeholder="Tenho 2h de almoço">
-          </div>
-          <div class="col-xs-12">
-            <labeL>Dias em que trabalha:</labeL>
-            <input type="text" disabled placeholder="Segunda a Sábado">
-          </div>
-        </div><br>
-
-        <div class="row">
-          <div class="col-xs-6">
-          <button class="btn btn-info btn-block" id="">Editar</button>
-      </div>
-
-      <div class="col-xs-6">
-        <button class="btn btn-danger btn-block" id="btnExcluir">Excluir</button>
-      </div>
+          <div class="col-xs-3">
+          <div class="circle">
+        <img src="img/pedreiro1.jpeg">
         </div>
+          </div>
+         <div class="col-xs-9">
+            <label id="nomeprof" name="nomeprof">Antonio Costa</label>
+          </div>
+          </div>
 
+          <div class="row">
+            <div class="col-xs-12">
+           <p><b>Antonio:</b> Boa noite, amanhã estarei ai.</p>
+          </div>
+          </div>
       </div><br><!-- Final box 1 -->
-
-      <div class="box"><!-- Box 2-->
-        <div class="row">
-
-          <div class="col-xs-12">
-            <labeL>Serviços que realiza:</labeL>
-            <input type="text" disabled placeholder="Reformas em geral">
-          </div>
-          <div class="col-xs-12">
-            <labeL>Descrição:</labeL><br>
-            <input type="text" disabled placeholder="Trabalho até as 17h">
-          </div>
-          <div class="col-xs-12">
-            <labeL>Dias em que trabalha:</labeL>
-            <input type="text" disabled placeholder="Todos os dias">
-          </div>
-        </div><br>
-
-        <div class="row">
-          <div class="col-xs-6">
-          <button class="btn btn-info btn-block" id="">Editar</button>
-      </div>
-
-      <div class="col-xs-6">
-        <button class="btn btn-danger btn-block" id="btnExcluir">Excluir</button>
-      </div>
-        </div>
-
-      </div><br><!-- Final box 2 -->
-
-      <div class="row">
-        <div class="col-xs-6">
-          <a href="cadastraSer.html"><button class="btn btn-info btn-block" id="btnVoltar">Adicionar</button></a>
-        </div>
-        <div class="col-xs-6">
-          <a href="homeProfissional.html"><button class="btn btn-info btn-block" id="btnVoltar">Voltar</button></a>
-        </div>
-      </div>
-
     </div>
-    <!-- Fim do Conteudo app -->
-
        <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog modal-sm" role="document">
@@ -154,6 +108,7 @@
     </div>
   </div>
 </div>
+    <!-- Fim do Conteudo app -->
     <div class="clear"></div>
   </div>
   

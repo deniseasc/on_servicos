@@ -55,20 +55,16 @@ function Login() {
   alert("Preencha todos os campos!");
   return false;
   }
-    if (cadastrousuario.senha.value.length < 6) {
+     if (cadastrousuario.senha.value.length < 6) {
   alert("A senha deve conter no minímo 6 digitos!");
-  document.formulario.senha.focus();
-  return false;
-  }
-    if (cadastrousuario.celular.value > 11){
-  alert("Digite um celular válido!");
   return false;
   }
    if(senha != confirmarsenha) {
         alert("Senhas diferentes!");
   return false; 
    }
-}//fim dos dados pessoais usuario//
+}
+//fim dos dados pessoais usuario//
 
 //endereco usuario
 function validacaoenderecousuario(){

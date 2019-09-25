@@ -1,11 +1,9 @@
-/* Página cadastroUsua.html e cadastroProf.html*/
 .box {
   position: absolute;
-  top: 25%;
-  left: 4.5rem;
-  /* transform: translate(-50%,-50%); */
-  width: 300px;
-  padding: 30px;
+  top: 5%;
+  left: 5%;
+  width: 350px;
+  padding: 10px;
   box-sizing: border-box;
   border: 5px solid #0e97a5;
   border-radius: 0px 35px;
@@ -90,4 +88,25 @@ input[type="text"]:focus,
 }
 ::-webkit-input-placeholder {
    color: black; /* cor do placeholder*/
+}
+.circle {
+  background-color: #aaa;
+  border-radius: 50%;
+  width: 40px;
+  height:40px;
+  margin-top: 1%;
+  margin-left: 10%;
+  overflow: hidden;
+  position: relative;
+}
+
+.circle img {
+  position: left;
+  bottom: 0;
+  width: 180%;
+
+}
+#nomeprof{
+  margin-top: 1%;
+  margin-left:-15%;
 }
