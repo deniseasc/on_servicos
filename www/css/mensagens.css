@@ -271,6 +271,55 @@ h3, h5{
   width: 180%;
 
 }
+.circleu {
+  background-color: #aaa;
+  border-radius: 50%;
+  width: 40px;
+  height:40px;
+  margin-top: 1%;
+  margin-left: 10%;
+  overflow: hidden;
+  position: relative;
+}
+
+.circleu img {
+  position: left;
+  bottom: 0;
+  width: 146%;
+
+}
+.circleusu {
+  background-color: #aaa;
+  border-radius: 50%;
+  width: 70px;
+  height:70px;
+  margin-top: 3%;
+  margin-left: 34%;
+  overflow: hidden;
+  position: relative;
+}
+.circleusu img {
+  position: absolute;
+  bottom: 0;
+  width: 135%;
+
+}
+.circleicon {
+  background-color: #aaa;
+  border-radius: 50%;
+  width: 70px;
+  height:70px;
+  margin-top: 3%;
+  margin-left: 34%;
+  overflow: hidden;
+  position: relative;
+}
+.circleicon img {
+  position: center;
+  bottom: 0;
+  width: 180%;
+
+}
 #nomeprof{
   margin-top: 1%;
   margin-left:-15%;

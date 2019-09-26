@@ -65,7 +65,7 @@ function validacaoProfissional(){
   alert("Preencha todos os campos!");
   return false;
   }
-    if (enderecoprof.numero.value == ""){
+    if (enderecoprof.numerocasa.value == ""){
   alert("Preencha todos os campos!");
   return false;
   }
@@ -86,5 +86,8 @@ function validacaoservico(){
     if (cadastroservico.profissao.value == "text"){
   alert("Preencha todos os campos!");
   return false;
+  }else{    
+    alert("Cadastro realizado!");
+    return true;
   }
 }

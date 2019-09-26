@@ -18,11 +18,6 @@ function Login() {
 }
 
 // Fim validação de login
-
-//fim de validação de login//
-
-
- //validação do usuário//
  
  //dados pessoais usuario
  function validacaoUsuario(){
@@ -38,7 +33,6 @@ function Login() {
   alert("Preencha todos os campos!");
   return false;
   }
-
     if (cadastrousuario.celular.value == ""){
   alert("Preencha todos os campos!");
   return false;
@@ -63,7 +57,7 @@ function Login() {
         alert("Senhas diferentes!");
   return false; 
    }
-}
+ }
 //fim dos dados pessoais usuario//
 
 //endereco usuario
@@ -89,19 +83,11 @@ function validacaoenderecousuario(){
   alert("Preencha todos os campos!");
   return false;
   }
-    if (enderecousu.numero.value == ""){
+    if (enderecousu.numerocasa.value == ""){
   alert("Preencha todos os campos!");
   return false;
+  }else{    
+    alert("Cadastro realizado!");
+    return true;
   }
-}//fim do endereco usuario//
-//fim da Validação do Cadastro de Usuário
-
-// function checarEmail(){
-// if( document.forms[0].email.value=="" 
-//    || document.forms[0].email.value.indexOf('@')==-1 
-//      || document.forms[0].email.value.indexOf('.')==-1 )
-// 	{
-// 	  alert( "Informe um e-mail válido!" );
-// 	  return false;
-// 	}
-// }
+}   

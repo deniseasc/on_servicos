@@ -62,23 +62,13 @@ input[type="text"]:focus,
   color: white;
   text-decoration: none;
 }
-#btnCancelar{
-  background: linear-gradient(to right, #0e97a5, #20b6b9);
-  border: none;
-  color: white;
-  text-decoration: none;
-}
-#btnContinuar{
-  background: linear-gradient(to right, #0e97a5, #20b6b9);
-  border: none;
-  color: white;
-  text-decoration: none;
-}
 #btnVolt{
   background: linear-gradient(to right, #0e97a5, #20b6b9);
   border: none;
   color: white;
+  margin-left: -1%;
   text-decoration: none;
+  margin-top: 150%;
 }
 #btnFinalizar{
   background: linear-gradient(to right, #0e97a5, #20b6b9);
@@ -92,9 +82,9 @@ input[type="text"]:focus,
 .circle {
   background-color: #aaa;
   border-radius: 50%;
-  width: 40px;
-  height:40px;
-  margin-top: 1%;
+  width: 53px;
+  height:53px;
+  margin-top: 3%;
   margin-left: 10%;
   overflow: hidden;
   position: relative;
@@ -107,6 +97,27 @@ input[type="text"]:focus,
 
 }
 #nomeprof{
-  margin-top: 1%;
-  margin-left:-15%;
+  margin-top: 7%;
+  margin-left:-9%;
+  font-size: 22px;
 }
+#hr{
+  color: #0e97a5;
+      background-color: #0e97a5;
+      margin-left: -3%;
+      height: 4px;
+      width: 106%;
+}
+#voce{
+  background-color: #edeeee;
+   height: 20px;
+   margin-left: 1%;
+   margin-top: 3%;
+   }
+
+#eu{
+  background-color: #bedddd;
+   height: 20px;
+   margin-left: 1%;
+   margin-top: 3%;
+   }

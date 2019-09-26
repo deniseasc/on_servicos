@@ -219,6 +219,9 @@ input[type="number"] {
 h3, h5{
   text-align: center;
 }
+#altera{
+  margin-left: 34%;
+}
 
 .box{
   border: 2px solid #20b6b9;
@@ -263,11 +266,57 @@ h3, h5{
   overflow: hidden;
   position: relative;
 }
-
 .circle img {
   position: center;
   bottom: 0;
   width: 180%;
+}
+.circleicon {
+  background-color: #aaa;
+  border-radius: 50%;
+  width: 70px;
+  height:70px;
+  margin-top: 3%;
+  margin-left: 34%;
+  overflow: hidden;
+  position: relative;
+}
+.circleicon img {
+  position: center;
+  bottom: 0;
+  width: 180%;
+
+}
+.circleusu {
+  background-color: #aaa;
+  border-radius: 50%;
+  width: 70px;
+  height:70px;
+  margin-top: 3%;
+  margin-left: 34%;
+  overflow: hidden;
+  position: relative;
+}
+.circleusu img {
+  position: absolute;
+  bottom: 0;
+  width: 135%;
+
+}
+.perfil {
+  background-color: #aaa;
+  border-radius: 50%;
+  width: 100px;
+  height:100px;
+  margin-top: 1%;
+  margin-left: 34%;
+  overflow: hidden;
+  position: relative;
+}
+.perfil img {
+  position: absolute;
+  bottom: 0;
+  width: 130%;
 
 }
 #nomeprof{
