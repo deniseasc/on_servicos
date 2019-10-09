@@ -3,16 +3,16 @@
   background-color: #e7e9eb;
 }
 #logo{
-  margin-top: 20px;
-  width: 50%;
-  margin-left: 25%;
+  margin-top: 3rem;
+  width: 18rem;
+  margin-left: 8.5rem;
 }
 h3{
   text-align: center;
 }
 .box {
   position: absolute;
-  top: 50%;
+  top: 37rem;
   left: 50%;
   transform: translate(-50%,-50%);
   width: 300px;
