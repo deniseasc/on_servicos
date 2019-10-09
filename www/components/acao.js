@@ -1,93 +1,108 @@
-  // Validação de Login
-function Login() {
-  var done=0;
-  var usuario = document.getElementsByName('usuario')[0].value;
-  usuario=usuario.toLowerCase();
-  var senha= document.getElementsByName('senha')[0].value;
-  senha=senha.toLowerCase();
-  if (usuario=="profissional" && senha=="123456") {
-    window.location="homeProf.html";
-    done=1;
-  }
-  if (usuario=="usuario" && senha=="123456") {
-    window.location="home.html";
-    done=1;
-  }
-  if (done==0) { alert("Dados incorretos, tente novamente");
-  }
-}
+// This is a JavaScript file
 
-// Fim validação de login
- 
- //dados pessoais usuario
- function validacaoUsuario(){
-  var cadastrousuario = document.forms["cadastrousu"]
-  var senha = cadastrousuario.senha.value;
-  var confirmarsenha = cadastrousuario.confirmarsenha.value;
-  
-  if (cadastrousuario.nome.value == ""){
-  alert("Preencha todos os campos!");
-  return false;
-  }
-    if (cadastrousuario.email.value == ""){
-  alert("Preencha todos os campos!");
-  return false;
-  }
-    if (cadastrousuario.celular.value == ""){
-  alert("Preencha todos os campos!");
-  return false;
-  }
-    if (cadastrousuario.login.value == ""){
-  alert("Preencha todos os campos!");
-  return false;
-  }
-    if (senha == ""){
-  alert("Preencha todos os campos!");
-  return false;
-  }
-    if (confirmarsenha == ""){
-  alert("Preencha todos os campos!");
-  return false;
-  }
-     if (cadastrousuario.senha.value.length < 6) {
-  alert("A senha deve conter no minímo 6 digitos!");
-  return false;
-  }
-   if(senha != confirmarsenha) {
-        alert("Senhas diferentes!");
-  return false; 
-   }
- }
-//fim dos dados pessoais usuario//
+// Cadastrar
+$(document).on("click","#cadastraDados",function(){
+    var parametros = {
+      "nome": $("#nome").val(),
+      "email": $("#email").val(),
+      "celular": $("#celular").val(),
+      "login": $("#login").val(),
+      "senha": $("#senha").val()
+    };
+    $.ajax({
+      type:"post", //como enviar
+      url:"https://ju3ds2.000webhostapp.com/onserv/cadastra.php", //para onde enviar
+      data:parametros, //o que enviar
+      //se der certo
+      success: function(data){
+        navigator.notification.alert(data);
+        $("#nome").val("");
+        $("#email").val("");
+        $("#celular").val("");
+        $("#login").val("");
+        $("#senha").val("");
+      },
+      //se der errado
+      error: function(data){
+        navigator.notification.alert(data);
+      }
+    });
+});
+// // Cadastrar
 
-//endereco usuario
-function validacaoenderecousuario(){
-  var enderecousu = document.forms["enderecousuario"]
-    if (enderecousu.cep.value == ""){
-  alert("Preencha todos os campos!");
-  return false;
-  }
-    if (enderecousu.estado.value == ""){
-  alert("Preencha todos os campos!");
-  return false;
-  }
-    if (enderecousu.cidade.value == ""){
-  alert("Preencha todos os campos!");
-  return false;
-  }
-    if (enderecousu.bairro.value == ""){
-  alert("Preencha todos os campos!");
-  return false;
-  }
-    if (enderecousu.endereco.value == ""){
-  alert("Preencha todos os campos!");
-  return false;
-  }
-    if (enderecousu.numerocasa.value == ""){
-  alert("Preencha todos os campos!");
-  return false;
-  }else{    
-    alert("Cadastro realizado!");
-    return true;
-  }
-}   
+
+
+//endereco
+
+$(document).on("click","#cadastraEnd",function(){
+    var parametros = {
+      "cep": $("#cep").val(),
+      "estado": $("#estado").val(),
+      "cidade": $("#cidade").val(),
+      "bairro": $("#bairro").val(),
+      "logradouro": $("#logradouro").val(),
+      "numero": $("#numero").val(),
+      "complemento": $("#complemento").val(),
+    };
+
+    $.ajax({
+      type:"post", //como enviar
+      url:"https://bd-barcode-soaresmju.c9users.io/cadastra.php", //para onde enviar
+      data:parametros, //o que enviar
+      //se der certo
+      success: function(data){
+        navigator.notification.alert(data);
+        $("#cep").val("");
+        $("#estado").val("");
+        $("#cidade").val("");
+        $("#bairro").val("");
+        $("#logradouro").val("");
+        $("#numero").val("");
+        $("#complemento").val("");
+      },
+      //se der errado
+      error: function(data){
+        navigator.notification.alert(data);
+      }
+    });
+});
+
+//endereco
+
+
+//servico
+
+$(document).on("click","#cadastraServ",function(){
+    var parametros = {
+      "servico": $("#servico").val(),
+      "detalhes": $("#comentario").val(),
+      "dias": $("#semana").val(),
+    };
+    
+
+    $.ajax({
+      type:"post", //como enviar
+      url:"https://bd-barcode-soaresmju.c9users.io/cadastra.php", //para onde enviar
+      data:parametros, //o que enviar
+      //se der certo
+      success: function(data){
+        navigator.notification.alert(data);
+        $("#servico").val("");
+        $("#detalhes").val("");
+        $("#dias").val("");
+      },
+      //se der errado
+      error: function(data){
+        navigator.notification.alert(data);
+      }
+    });
+});
+//servico
+
+
+
+
+
+
+
+

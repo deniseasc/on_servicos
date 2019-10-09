@@ -4,15 +4,15 @@
   top: 25%;
   left: 4.5rem;
   /* transform: translate(-50%,-50%); */
-  width: 300px;
+  width: 30rem;
   padding: 30px;
   box-sizing: border-box;
   border: 5px solid #0e97a5;
   border-radius: 0px 35px;
 }
 #logo{
-  width: 45%;
-  margin-left: 27%;
+  width: 18rem;
+  margin-left: 9rem;
   margin-top: 10%;
 }
 h2 {
