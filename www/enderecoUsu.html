@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
   <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
-  <script src="components/loader.js"></script>
-  <script src="lib/onsenui/js/onsenui.min.js"></script>
-  <script type="text/javascript" src="components/acao.js"></script>
-
   <script src="components/jquery-3.4.1.min.js"></script>
+  <script src="components/acao.js"></script>
+  <script src="lib/onsenui/js/onsenui.min.js"></script>
+
+  <script src="components/loader.js"></script> 
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <script src="components/bootstrap.js"></script>
 
@@ -29,7 +29,6 @@
     </div>
 
     <div class="box">
-      <form name="enderecousuario" method="post" action="index.html"  onsubmit="return validacaoenderecousuario();">
 
     <div class="row">
       <div class="col-xs-12">
@@ -64,12 +63,12 @@
     <div class="row">
       <div class="col-xs-6">
         <label>Logradouro:</label>
-        <input type="text" name="logradouro" placeholder="ex: Rua das Palmeiras">
+        <input type="text" name="rua" placeholder="ex: Rua das Palmeiras">
       </div>
 
       <div class="col-xs-6">
         <label>Número:</label>
-        <input type="number" name="numerocasa" placeholder="Número">
+        <input type="number" name="numero" placeholder="Número">
        </div>
     </div>
 
@@ -86,10 +85,9 @@
       </div>
 
       <div class="col-xs-6">
-        <button class="btn btn-info btn-block" type="submit" id="btnSalvar">Salvar</button></a>
+        <button class="btn btn-info btn-block" name="btnSalvar" type="submit" id="btnSalvar">Salvar</button></a>
       </div>
     </div>
-
   </div>
   </div><!-- Fim container -->
 </body>
