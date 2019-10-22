@@ -8,34 +8,53 @@
  var login = "";
  var senha = "";
 
-$(document).on('click','#btnSalvar', function(){
-  alert(nome);
+$(document).on('click','#btnProximo', function(){
   var parametros = {
-      "cep": $("#cep").val(),
-      "estado": $("#estado").val(),
-      "cidade": $("#cidade").val(),
-      "bairro": $("#bairro").val(),
-      "rua": $("#rua").val(),
-      "numero": $("#numero").val(),
-      "complemento": $("#complemento").val()
+      "nome": $("#nome").val(),
+      "cpf": $("#cpf").val(),
+      "email": $("#email").val(),
+      "celular": $("#celular").val(),
+      "login": $("#login").val(),
+      "senha": $("#senha").val(),
+      // "cep": $("#cep").val(),
+      // "estado": $("#estado").val(),
+      // "cidade": $("#cidade").val(),
+      // "bairro": $("#bairro").val(),
+      // "rua": $("#rua").val(),
+      // "numero": $("#numero").val(),
+      // "complemento": $("#complemento").val()
     };
     $.ajax({
       type:"post", //como enviar
-      url:"https://ju3ds2.000webhostapp.com/cadastra.php", //para onde enviar
+      url:"https://onservicos.000webhostapp.com/cadastra.php", //para onde enviar
       data:parametros, //o que enviar
       //se der certo
       success: function(data){
-         $("#cep").val("");
-         $("#estado").val("");
-         $("#cidade").val("");
-         $("#bairro").val("");
-         $("#rua").val("");
-         $("#numero").val("");
-         $("#complemento").val("");
+         alert("FUNFOUUUUUU!!!!!!!!");
       },
       //se der errado
       error: function(data){
-        navigator.notification.alert("deu erro");
+        alert("deu erro");
+      }
+    });
+});
+
+$(document).on('click','#btnEntrar', function(){
+  var parametros = {
+      "login": $("#login").val(),
+      "senha": $("#senha").val(),
+    };
+    $.ajax({
+      type:"post", //como enviar
+      url:"https://onservicos.000webhostapp.com/login.php", //para onde enviar
+      data:parametros, //o que enviar
+      //se der certo
+      success: function(data){
+        location.href="home.html";
+      },
+      //se der errado
+      error: function(data){
+        navigator.notification.alert("Usuário ou Senha inválidos!");
       }
     });
 });
