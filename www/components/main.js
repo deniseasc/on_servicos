@@ -59,6 +59,10 @@ $(function(){
 
 //Alerta sair
 
-$(document).on('click','#n1',function(){
-  navigator.notification.alert("Hello Wolrd!");
+$(document).on('click','#btnSair',function(){
+  navigator.notification.confirm("Terceiro alerta", retorno2,"Janela",["Ok","Sair"]);
 });
+
+// $(document).on('click','#btnSair',function(){
+//   navigator.vibrate(2000);
+// });

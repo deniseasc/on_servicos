@@ -1,93 +1,72 @@
 // This is a JavaScript file
 
 //dados pessoais do profissional
- 
-function validacaoProfissional(){
-  var cadastroProfissional = document.forms["cadastroprof"]
-  var senha = cadastroProfissional.senha.value;
-  var confirmarsenha = cadastroProfissional.confirmarsenha.value;
+$(document).on('click','#btnSalvar2', function(){
+  var parametros = {
+      "nome": $("#nome").val(),
+      "cpf": $("#cpf").val(),
+      "email": $("#email").val(),
+      "celular": $("#celular").val(),
+      "login": $("#login").val(),
+      "senha": $("#senha").val(),
 
-    if (cadastroProfissional.nome.value == ""){
-  alert("Preencha todos os campos!");
-  return false;
-  }
-    if (cadastroProfissional.cpf.value == ""){
-  alert("Preencha todos os campos!");
-  return false;
-  }
-    if (cadastroProfissional.email.value == ""){
-  alert("Preencha todos os campos!");
-  return false;
-  }
-    if (cadastroProfissional.celular.value == ""){
-  alert("Preencha todos os campos!");
-  return false;
-  }
-    if (cadastroProfissional.login.value == ""){
-  alert("Preencha todos os campos!");
-  return false;
-  }
-    if (cadastroProfissional.senha.value == ""){
-  alert("Preencha todos os campos!");
-  return false;
-  }
-    if (cadastroProfissional.senha.value.length < 6) {
-  alert("A senha deve conter no minímo 6 digitos!");
-  return false;
-  }
-   if(senha != confirmarsenha) {
-        alert("Senhas diferentes!");
-  return false; 
-   }
-}
-// fim dos dados pessoais do profissional//
+      "cep": $("#cep").val(),
+      "estado": $("#estado").val(),
+      "cidade": $("#cidade").val(),
+      "bairro": $("#bairro").val(),
+      "rua": $("#rua").val(),
+      "numero": $("#numero").val(),
+      "complemento": $("#complemento").val()
+    };
+    $.ajax({
+      type:"post", //como enviar
+      url:"https://onservicos.000webhostapp.com/cadastraProfissional.php", //para onde enviar
+      data:parametros, //o que enviar
+      //se der certo
+      success: function(data){
+         alert("Cadastro realizado com sucesso!");
+         location.href="loginProfissional.html";
+      },
+      //se der errado
+      error: function(data){
+        alert("erro ao cadastrar");
+      }
+    });
+});
 
-//endereco profissional
-  function validacaoenderecoprof(){
-  var enderecoprof = document.forms["enderecoprof"]
-    if (enderecoprof.cep.value == ""){
-  alert("Preencha todos os campos!");
-  return false;
-  }
-    if (enderecoprof.estado.value == ""){
-  alert("Preencha todos os campos!");
-  return false;
-  }
-    if (enderecoprof.cidade.value == ""){
-  alert("Preencha todos os campos!");
-  return false;
-  }
-    if (enderecoprof.bairro.value == ""){
-  alert("Preencha todos os campos!");
-  return false;
-  }
-    if (enderecoprof.endereco.value == ""){
-  alert("Preencha todos os campos!");
-  return false;
-  }
-    if (enderecoprof.numerocasa.value == ""){
-  alert("Preencha todos os campos!");
-  return false;
-  }
-  }
-//endereco profissional//
-//cadastro de serviços
+//login profissional
+$(document).on('click','#btnEntrar', function(){
+  var parametros = {
+    "login": $("#login").val(),
+    "senha": $("#senha").val(),
+  };
 
-function validacaoservico(){
-  var validacaoservico = document.forms["cadastroservico"]
-  if(cadastroservico.servico.value == ""){
-  alert("Preencha todos os campos!");
-  return false;
-  }
-    if (cadastroservico.comentario.value == ""){
-  alert("Preencha todos os campos!");
-  return false;
-  }
-    if (cadastroservico.profissao.value == "text"){
-  alert("Preencha todos os campos!");
-  return false;
-  }else{    
-    alert("Cadastro realizado!");
-    return true;
-  }
-}
+  $.ajax({
+    type: "POST", //como enviar
+    url: "https://onservicos.000webhostapp.com/loginProf.php", //para onde enviar
+    data: parametros, //o que enviar
+    dataType: 'json',
+    //se der certo
+    success: function(data)
+    {
+      let acesso = data.profissional.nivel;
+
+      if (acesso == 2){
+        location.href="homeProf.html";
+      }else{
+        alert('Usuário');
+      }
+    },
+    //se der errado
+    error: function(data)
+    {
+      alert("Login ou senha inválidas!");
+    }
+  });
+});
+
+ // Alerta Sair
+
+// $(document).on('click','#btnSair',function(){
+//   navigator.notification.confirm("Terceiro alerta", retorno2,"Janela",["Ok","Sair"]);
+// });

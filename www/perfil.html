@@ -21,7 +21,15 @@
 
 </head>
 <body style="background-color: #e7e9eb;">
+  
+<!-- <script>
+$(document).ready(function(){
+  $.post('components/acao.js', function(lista){
 
+  });
+}) -->
+
+</script>
   <div class="menu">
     <div class="menu-wrapper">
       <!-- conteúdo sidebar -->
@@ -80,44 +88,52 @@
     <div class="row">
       <div class="col-xs-12">
         <label>Nome:</label>
-        <input type="text" readonly="true" placeholder="Liz Almeida">
+        <input type="text" readonly="true" id="nome">
       </div>
     </div>
+
+        <div class="row">
+      <div class="col-xs-12">
+        <label>Cpf:</label>
+        <input type="text" readonly="true" id="nome">
+      </div>
+    </div>
+
 
     <div class="row">
       <div class="col-xs-12">
         <label>Celular:</label>
-        <input type="number" placeholder="(12) 34567-8910">
+        <input type="number" id="celular">
       </div>
     </div>
 
     <div class="row">
       <div class="col-xs-12">
         <label>E-mail:</label>
-        <input type="text" placeholder="liz@gmail.com">
+        <input type="text" id="email">
       </div>
     </div>
 
     <div class="row">
       <div class="col-xs-6">
         <label>Login:</label>
-        <input type="text" placeholder="liza12">
+        <input type="text" id="login">
       </div>
       <div class="col-xs-6">
         <label>Senha:</label>
-        <input type="password" placeholder="******">
+        <input type="password" id="senha">
       </div>
     </div>
 
-    <div class="row">
+    <div class="row"> 
       <div class="col-xs-6">
         <label>CEP:</label>
-        <input type="number" placeholder="12345-670">
+        <input type="number" id="cep">
       </div>
   
       <div class="col-xs-6">
         <label>Estado:</label>
-        <input type="text" placeholder="São Paulo">
+        <input type="text" id="estado">
       </div>
     </div>
 
@@ -150,7 +166,7 @@
         <label>Complemento:</label>
         <input type="text" placeholder="Casa">
       </div>
-    </div><br>
+    </div><br> 
 
     <div class="row">
       <div class="col-xs-4">

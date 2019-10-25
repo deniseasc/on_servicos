@@ -64,6 +64,12 @@ input[type="text"]:focus,
   color: white;
   text-decoration: none;
 }
+#btnSalvar2{
+  background: linear-gradient(to right, #0e97a5, #20b6b9);
+  border: none;
+  color: white;
+  text-decoration: none;
+}
 #btnCancelar{
   background: linear-gradient(to right, #0e97a5, #20b6b9);
   border: none;

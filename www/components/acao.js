@@ -1,14 +1,6 @@
 // This is a JavaScript file
-// Cadastrar
-
- var nome = "";
- var email = "";
- var cpf = "";
- var celular = "";
- var login = "";
- var senha = "";
-
-$(document).on('click','#btnProximo', function(){
+// Cadastrar usuário
+$(document).on('click','#btnSalvar', function(){
   var parametros = {
       "nome": $("#nome").val(),
       "cpf": $("#cpf").val(),
@@ -16,13 +8,14 @@ $(document).on('click','#btnProximo', function(){
       "celular": $("#celular").val(),
       "login": $("#login").val(),
       "senha": $("#senha").val(),
-      // "cep": $("#cep").val(),
-      // "estado": $("#estado").val(),
-      // "cidade": $("#cidade").val(),
-      // "bairro": $("#bairro").val(),
-      // "rua": $("#rua").val(),
-      // "numero": $("#numero").val(),
-      // "complemento": $("#complemento").val()
+
+      "cep": $("#cep").val(),
+      "estado": $("#estado").val(),
+      "cidade": $("#cidade").val(),
+      "bairro": $("#bairro").val(),
+      "rua": $("#rua").val(),
+      "numero": $("#numero").val(),
+      "complemento": $("#complemento").val()
     };
     $.ajax({
       type:"post", //como enviar
@@ -30,31 +23,43 @@ $(document).on('click','#btnProximo', function(){
       data:parametros, //o que enviar
       //se der certo
       success: function(data){
-         alert("FUNFOUUUUUU!!!!!!!!");
+         alert("Cadastro realizado com sucesso!");
+         location.href="index.html";
       },
       //se der errado
       error: function(data){
-        alert("deu erro");
+        alert("Erro ao cadastrar");
       }
     });
 });
 
+//login usuario
 $(document).on('click','#btnEntrar', function(){
   var parametros = {
-      "login": $("#login").val(),
-      "senha": $("#senha").val(),
-    };
-    $.ajax({
-      type:"post", //como enviar
-      url:"https://onservicos.000webhostapp.com/login.php", //para onde enviar
-      data:parametros, //o que enviar
-      //se der certo
-      success: function(data){
+    "login": $("#login").val(),
+    "senha": $("#senha").val(),
+  };
+
+  $.ajax({
+    type: "POST", //como enviar
+    url: "https://onservicos.000webhostapp.com/loginUsu.php", //para onde enviar
+    data: parametros, //o que enviar
+    dataType: 'json',
+    //se der certo
+    success: function(data)
+    {
+      let acesso = data.usuario.nivel;
+
+      if (acesso == 1){
         location.href="home.html";
-      },
-      //se der errado
-      error: function(data){
-        navigator.notification.alert("Usuário ou Senha inválidos!");
+      }else{
+        alert('Usuário');
       }
-    });
+    },
+    //se der errado
+    error: function(data)
+    {
+      alert("Login ou senha invalidas!");
+    }
+  });
 });

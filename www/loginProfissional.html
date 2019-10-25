@@ -4,14 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
   <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
-  <script src="components/loader.js"></script>
-  <script src="lib/onsenui/js/onsenui.min.js"></script>
-  <script src="components/acao.js"></script> 
 
   <script src="components/jquery-3.4.1.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-   <script tyoe="text/javascript" src="components/acao.js"></script> 
-  <script src="components/bootstrap.js"></script>
+   <script src="components/acaoprof.js"></script> 
 
   <script src="https://kit.fontawesome.com/be184030a6.js"></script><!-- link font awesome-->
   <link rel="stylesheet" href="components/loader.css">
@@ -40,7 +35,7 @@
        <div class="row">
         <div class="col-xs-12">
             <form class="inputIcon">
-              <input type="text" name="usuario" placeholder="Usuário">
+              <input type="text" id="login" placeholder="Usuário">
               <i class="fas fa-user"></i>
             </form>
         </div>
@@ -49,7 +44,7 @@
     <div class="row">
       <div class="col-xs-12">
           <form class="inputIcon">
-            <input type="password" name="senha" placeholder="Senha">
+            <input type="password" id="senha" placeholder="Senha">
             <i class="fas fa-lock"></i>
           </form>
       </div>
@@ -58,13 +53,13 @@
 <br>
     <div class="row">
       <div class="col-xs-10">
-         <button class="btn btn-block" onclick="Login()" type="submit" name="submit" id="btnEntrar">Entrar</button></a>
+         <button class="btn btn-block" type="button" id="btnEntrar">Entrar</button>
       </div>
     </div>
 <br>
     <div class="row">
       <div class="col-xs-10">
-          <a href="cadastroProf.html"<button class="btn btn-info btn-block" id="cadastra">Cadastrar Profissional</button></a>
+          <a href="cadastroProf.html"><button class="btn btn-info btn-block" id="cadastra">Cadastrar Profissional</button></a>
       </div>
     </div>
 <br>

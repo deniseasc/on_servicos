@@ -4,14 +4,30 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
   <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
-  <script src="components/jquery.js"></script>
+
+  <script src="components/jquery-3.4.1.min.js"></script>
   <script src="components/acao.js"></script>
 
   <script src="https://kit.fontawesome.com/be184030a6.js"></script><!-- link font awesome-->
   <link rel="stylesheet" href="css/cadastro.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
 
+  <script>
+  $(document).ready(function(){
+
+    $("#etapa1").show();
+    $("#etapa2").hide();
+
+  $("#btnProximo").click(function(){
+    $("#etapa1").hide();
+    $("#etapa2").show();
+  });
+});
+
+</script>
+
 </head>
+
 <body style="background-color: #e7e9eb;">
 
   <div class="container">
@@ -24,6 +40,8 @@
 
     <div class="box">
 
+
+   <div id="etapa1">
     <div class="row">
       <div class="col-xs-12">
         <h2>Dados Pessoais:</h2>
@@ -33,46 +51,46 @@
     <div class="row">
       <div class="col-xs-12">
         <label>Nome:</label>
-        <input type="text" name="nome" id="nome" placeholder="Nome">
+        <input type="text" id="nome" placeholder="Nome">
       </div>
     </div>
 
     <div class="row">
       <div class="col-xs-12">
         <label>CPF:</label>
-        <input type="text" name="email" id="cpf" maxlength="60" placeholder="CPF">
+        <input type="number" id="cpf" maxlength="60" placeholder="CPF">
       </div>
     </div>
 
      <div class="row">
       <div class="col-xs-12">
         <label>E-mail:</label>
-        <input type="text" name="cpf" id="email" maxlength="60" placeholder="E-mail">
+        <input type="text" id="email" maxlength="60" placeholder="E-mail">
       </div>
     </div>
 
     <div class="row">
       <div class="col-xs-6">
         <label>Celular:</label>
-        <input type="number" name="celular" id="celular"  placeholder="Celular">
+        <input type="number" id="celular"  placeholder="Celular">
       </div>
   
 
       <div class="col-xs-6">
         <label>Login:</label>
-        <input type="text" name="login" id="login" placeholder="Login">
+        <input type="text" id="login" placeholder="Login">
       </div>
       </div>
 
         <div class="row">
           <div class="col-xs-6">
         <label>Senha:</label>
-        <input type="password"  name="senha" id="senha" placeholder="Senha">
+        <input type="password" id="senha" placeholder="Senha">
       </div>
 
           <div class="col-xs-6">
         <label>Conf senha:</label>
-        <input type="password"  name="confirmarsenha" placeholder="confirma Senha">
+        <input type="password"  placeholder="confirma Senha">
       </div>
     <br>
         </div>
@@ -86,10 +104,69 @@
        <button class="btn btn-block" type="button" name="btnProximo" id="btnProximo">Continuar</button>
       </div>
     </div>
+  </div> <!-- Etapa1 -->
+<div id="etapa2">
+  <div class="row">
+      <div class="col-xs-12">
+        <h2>Endereço:</h2>
+      </div>
+    </div>
+
+       <div class="row">
+         <div class="col-xs-6">
+        <label>CEP:</label>
+      <input type="number" id="cep" placeholder="CEP">
+      </div>
+
+      <div class="col-xs-6">
+        <label>Estado:</label>
+        <input type="text" id="estado" placeholder="Estado">
+      </div>
+      </div>
+
+      <div class="row">
+      <div class="col-xs-6">
+        <label>Cidade:</label>
+        <input type="text" id="cidade" placeholder="Cidade">
+      </div>
+
+      <div class="col-xs-6">
+        <label>Bairro:</label>
+        <input type="text" id="bairro" placeholder="Bairro">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-6">
+        <label>Logradouro:</label>
+        <input type="text" id="rua" placeholder="ex: Rua das Palmeiras">
+      </div>
+
+      <div class="col-xs-6">
+        <label>Número:</label>
+        <input type="number" id="numero" placeholder="Número">
+       </div>
+    </div>
+
+      <div class="row">
+      <div class="col-xs-12">
+        <label>Complemento:</label>
+        <input type="text" id="complemento" placeholder="Complemeto">
+      </div>
+    </div>
+
+    <br><div class="row">
+      <div class="col-xs-6">
+          <a href="cadastroUsu.html"><button type="button" class="btn btn-info btn-block" id="btnCancelar">Voltar</button></a>
+      </div>
+
+      <div class="col-xs-6">
+        <button class="btn btn-info btn-block" name="btnSalvar" type="button" id="btnSalvar">Salvar</button>
+      </div>
+    </div>
   </div>
-  <!-- Box-->
+  </div> <!-- Etapa2 -->
+    </div><!-- Box -->
   </div><!-- Fim container hehe -->
-
-
 </body>
 </html>
