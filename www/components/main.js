@@ -57,12 +57,25 @@ $(function(){
 
 })
 
-//Alerta sair
+//Excluir Serviço
+$(document).on("click","#btnExcluir",function(){
+    $.ajax({
+        type:"POST", //como enviar
+        url:"https://onservicos.000webhostapp.com/excluirServico.php",//para onde enviar
+        data:"id="+$("#codigo").val(),
+        //se der certo
+        success: function(data){
+            navigator.notification.alert(data);
+            location.reload();//recarrega a pagina
+        },
+        //se der errado
+        error: function(data){
+             navigator.notification.alert(data);
+        }
+    }); 
+});
 
+//Alerta sair
 $(document).on('click','#btnSair',function(){
   navigator.notification.confirm("Terceiro alerta", retorno2,"Janela",["Ok","Sair"]);
 });
-
-// $(document).on('click','#btnSair',function(){
-//   navigator.vibrate(2000);
-// });

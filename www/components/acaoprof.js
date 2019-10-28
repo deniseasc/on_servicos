@@ -20,7 +20,7 @@ $(document).on('click','#btnSalvar2', function(){
     };
     $.ajax({
       type:"post", //como enviar
-      url:"https://onservicos.000webhostapp.com/cadastraProfissional.php", //para onde enviar
+      url:"https://onservicos.000webhostapp.com/cadastraProf.php", //para onde enviar
       data:parametros, //o que enviar
       //se der certo
       success: function(data){
@@ -34,14 +34,13 @@ $(document).on('click','#btnSalvar2', function(){
     });
 });
 
-//login profissional
+//login usuario
 $(document).on('click','#btnEntrar', function(){
   var parametros = {
     "login": $("#login").val(),
     "senha": $("#senha").val(),
   };
-
-  $.ajax({
+    $.ajax({
     type: "POST", //como enviar
     url: "https://onservicos.000webhostapp.com/loginProf.php", //para onde enviar
     data: parametros, //o que enviar
@@ -54,7 +53,7 @@ $(document).on('click','#btnEntrar', function(){
       if (acesso == 2){
         location.href="homeProf.html";
       }else{
-        alert('Usuário');
+        alert('Profissional');
       }
     },
     //se der errado
@@ -65,8 +64,6 @@ $(document).on('click','#btnEntrar', function(){
   });
 });
 
- // Alerta Sair
-
-// $(document).on('click','#btnSair',function(){
-//   navigator.notification.confirm("Terceiro alerta", retorno2,"Janela",["Ok","Sair"]);
-// });
+function pedreiro(){
+  location.href = "listaserv.html";
+}

@@ -4,15 +4,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
   <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
-
+  
   <script src="components/jquery-3.4.1.min.js"></script>
+  <script src="components/acao.js"></script>
   <script src="components/main.js"></script>
   <script src="https://kit.fontawesome.com/be184030a6.js"></script><!-- link font awesome-->
   <link rel="stylesheet" href="css/menu.css">
-
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
+      <script>
+    $(document).ready(function(){
+      listar();
+      bloquear();
+    });
+  </script>
 </head>
 <body style="background-color: #e7e9eb;">
 
@@ -28,7 +33,7 @@
 
           <div class="row">
             <div class="col-xs-12">
-              <a href="perfil.html"><button class="btn btn-info btn-block" id="btn" style="margin-top: 20px;"> Meu Perfil </button></a>
+              <button class="btn btn-info btn-block" id="btn" onclick="perfil()" style="margin-top: 20px;"> Meu Perfil </button>
                 <hr id="hr">
             </div>
           </div>
@@ -41,9 +46,8 @@
           </div>
 
                <div class="row">
-            <div class="col-xs-12">
-              <a href="#" data-toggle="modal" data-target="#myModal"><button class="btn btn-info btn-block" id="btnSair"> Sair </button></a>
-                <hr id="hr">
+            <div class="col-xs-1>
+                <button class="btn btn-info btn-block" type="button" onclick="sair()">Sair </button> <hr id="hr">
             </div>
           </div>
     </div>
@@ -77,31 +81,31 @@
       
       <div class="row">
         <div class="col-xs-6">
-          <a href="listaserv.html"><button class="btn btn-warning btn-block" id="b1"><i class="fas fa-hard-hat" id="icon"></i><br>Pedreiro</button></a>
+         <button class="btn btn-warning btn-block" onclick="tabela()" id="b1"><i class="fas fa-hard-hat" id="icon" ></i><br>Pedreiro</button>
         </div>
 
         <div class="col-xs-6">
-        <a href="listaserv.html"><button class="btn btn-warning btn-block" id="b2"> <i class="fas fa-paint-roller" id="icon"></i><br>Pintor</button>
-        </div>
-      </div><br>
-
-      <div class="row">
-        <div class="col-xs-6">
-          <button class="btn btn-info btn-block" id="b3"><i class="fas fa-wrench" id="icon"></i><br>Encanador</button>
-        </div>
-
-        <div class="col-xs-6">
-          <button class="btn btn-primary btn-block" id="b4"><i class="fas fa-seedling" id="icon"></i><br>Jardineiro</button>
+        <button class="btn btn-warning btn-block" onclick="pintor()" id="b2"> <i class="fas fa-paint-roller" id="icon"></i><br>Pintor</button>
         </div>
       </div><br>
 
       <div class="row">
         <div class="col-xs-6">
-          <button class="btn btn-info btn-block" id="b5"><i class="fas fa-swimming-pool" id="icon"></i><br>Piscineiro</button>
+          <button class="btn btn-info btn-block" onclick="encanador()" id="b3"><i class="fas fa-wrench" id="icon"></i><br>Encanador</button>
         </div>
 
         <div class="col-xs-6">
-           <a href="maisServicos.html"><button class="btn btn-primary btn-block" id="b6"><i class="fas fa-plus-circle" id="icon"></i><br>Mais Serviços</button></a>
+          <button class="btn btn-primary btn-block" onclick="jardineiro()" id="b4"><i class="fas fa-seedling" id="icon"></i><br>Jardineiro</button>
+        </div>
+      </div><br>
+
+      <div class="row">
+        <div class="col-xs-6">
+          <button class="btn btn-info btn-block" onclick="piscineiro()" id="b5"><i class="fas fa-swimming-pool" id="icon"></i><br>Piscineiro</button>
+        </div>
+
+        <div class="col-xs-6">
+          <button class="btn btn-primary btn-block" onclick="mais()" id="b6"><i class="fas fa-plus-circle" id="icon"></i><br>Mais Serviços</button>
         </div>
       </div>
 
@@ -119,11 +123,11 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
-        <a class="btn btn-primary" href="index.html">Sim</a>
+        <button type="button"class="btn btn-default" data-dismiss="modal">Sim</button>
       </div>
     </div>
   </div>
-</div>
+ </div> 
       
 
     </div>
