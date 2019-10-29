@@ -92,7 +92,7 @@ $(document).on("change","#listaperfil",function(){
 });
 
 
-//////////////BOTÕES COM REDIRECIONAMENTO
+//BOTÕES COM REDIRECIONAMENTO
 function perfil(){
   location.href = "perfil.html";
 }

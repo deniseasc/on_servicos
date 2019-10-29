@@ -12,12 +12,7 @@
   <link rel="stylesheet" href="css/menu.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-      <script>
-    $(document).ready(function(){
-      listar();
-      bloquear();
-    });
-  </script>
+
 </head>
 <body style="background-color: #e7e9eb;">
 
@@ -40,14 +35,14 @@
 
           <div class="row">
             <div class="col-xs-12">
-              <a href="mensagens.html"><button class="btn btn-info btn-block" id="btn">Mensagens</button></a>
+              <button class="btn btn-info btn-block" id="btn">Mensagens</button>
                 <hr id="hr">
             </div>
           </div>
 
                <div class="row">
             <div class="col-xs-1>
-                <button class="btn btn-info btn-block" type="button" onclick="sair()">Sair </button> <hr id="hr">
+                <button class="btn btn-info btn-block" id="btn" onclick="sair()">Sair </button> <hr id="hr">
             </div>
           </div>
     </div>
@@ -81,7 +76,7 @@
       
       <div class="row">
         <div class="col-xs-6">
-         <button class="btn btn-warning btn-block" onclick="tabela()" id="b1"><i class="fas fa-hard-hat" id="icon" ></i><br>Pedreiro</button>
+         <button class="btn btn-warning btn-block" onclick="pedreiro()" id="b1"><i class="fas fa-hard-hat" id="icon" ></i><br>Pedreiro</button>
         </div>
 
         <div class="col-xs-6">

@@ -48,6 +48,12 @@ $(document).on('click','#btnEntrar', function(){
     //se der certo
     success: function(data)
     {
+      let codigo = data.profissional.codigoProf;
+
+      localStorage.setItem('cdProf', codigo);
+
+      alert(localStorage.getItem('cdProf'));
+
       let acesso = data.profissional.nivel;
 
       if (acesso == 2){
@@ -74,4 +80,3 @@ function voltar(){
 function cadastraServico(){
   location.href = "addServico.html";
 }
-
