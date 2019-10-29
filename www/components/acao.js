@@ -8,7 +8,7 @@ $(document).on('click','#btnSalvar', function(){
       "celular": $("#celular").val(),
       "login": $("#login").val(),
       "senha": $("#senha").val(),
-
+      
       "cep": $("#cep").val(),
       "estado": $("#estado").val(),
       "cidade": $("#cidade").val(),
@@ -72,10 +72,9 @@ $(document).on("change","#listaperfil",function(){
   var parametro ={
     "codigo":$("option:codigo",("#listaperfil")).val()
   }
-  
   $.ajax({
       type:"post", //como enviar
-      url:"",//para onde enviar
+      url:"https://onservicos.000webhostapp.com/listarperfil.php",//para onde enviar
       data:parametro,
       dataType:'json',//o que enviar
       //se der certo

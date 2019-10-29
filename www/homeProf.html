@@ -4,18 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
   <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
-
+  
   <script src="components/jquery-3.4.1.min.js"></script>
+  <script src="components/acaoprof.js"></script>
   <script src="components/main.js"></script>
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <script src="components/bootstrap.js"></script>
-
   <script src="https://kit.fontawesome.com/be184030a6.js"></script><!-- link font awesome-->
   <link rel="stylesheet" href="css/menu.css">
-
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
 </head>
 <body style="background-color: #e7e9eb;">
 
@@ -80,7 +76,7 @@
       <h3>Meus Serviços:</h3><br>
             <div class="row">
           <div class="col-xs-12"> 
-          <button class="btn btn-block" type="button" id="btnServico">Cadastrar Serviço</button>
+          <button class="btn btn-block" type="button" onclick="cadastraServico()" id="btnServico">Cadastrar Serviço</button>
          </div>
           </div>
           <br>

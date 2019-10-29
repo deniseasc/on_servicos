@@ -64,6 +64,14 @@ $(document).on('click','#btnEntrar', function(){
   });
 });
 
+
 function pedreiro(){
   location.href = "listaserv.html";
 }
+function voltar(){
+  location.href = "homeProf.html";
+}
+function cadastraServico(){
+  location.href = "addServico.html";
+}
+
