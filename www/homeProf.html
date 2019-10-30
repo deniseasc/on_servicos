@@ -12,6 +12,14 @@
   <link rel="stylesheet" href="css/menu.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <script>
+    $(document).ready(function(){
+
+          listarServico();
+   });
+  </script>
+
 </head>
 <body style="background-color: #e7e9eb;">
   <div class="menu">
@@ -82,65 +90,7 @@
 
     <br>
 
-      <div class="box"><!-- Box 1-->
-        <div class="row">
-
-          <div class="col-xs-12">
-            <labeL>Serviços que realiza:</labeL>
-            <input type="text" id="servico" disabled placeholder="Pinto e faço gesso">
-          </div>
-
-          <div class="col-xs-12">
-            <labeL>Descrição:</labeL><br>
-            <input type="text" id="descricao" disabled placeholder="Tenho 2h de almoço">
-          </div>
-          <div class="col-xs-12">
-            <labeL>Dias em que trabalha:</labeL>
-            <input type="text" id="dias" disabled placeholder="Segunda a Sábado">
-          </div>
-        </div><br>
-
-        <div class="row">
-          <div class="col-xs-6">
-          <button class="btn btn-info btn-block" id="editar">Editar</button>
-      </div>
-
-      <div class="col-xs-6">
-        <button class="btn btn-danger btn-block" id="btnExcluir">Excluir</button>
-      </div>
-        </div>
-
-      </div><br><!-- Final box 1 -->
-
-      <div class="box"><!-- Box 2-->
-        <div class="row">
-
-          <div class="col-xs-12">
-            <labeL>Serviços que realiza:</labeL>
-            <input type="text" disabled placeholder="Reformas em geral">
-          </div>
-          <div class="col-xs-12">
-            <labeL>Descrição:</labeL><br>
-            <input type="text" disabled placeholder="Trabalho até as 17h">
-          </div>
-          <div class="col-xs-12">
-            <labeL>Dias em que trabalha:</labeL>
-            <input type="text" disabled placeholder="Todos os dias">
-          </div>
-        </div><br>
-
-        <div class="row">
-          <div class="col-xs-6">
-          <button class="btn btn-info btn-block" id="editar">Editar</button>
-      </div>
-
-      <div class="col-xs-6">
-        <button class="btn btn-danger btn-block" id="btnExcluir">Excluir</button>
-      </div>
-        </div>
-
-      </div><br><!-- Final box 2 -->
-      
+    <div id="lista"></div>
 
     </div>
          <!-- Modal -->

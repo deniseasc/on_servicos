@@ -93,8 +93,6 @@ $(document).on('click','#btnFinalizar', function(){
     dias += " "+$('#dom:checked').val();
   }
 
-  alert(dias);
-
   var parametros = {
       "profissao": $("option:selected", ("#profissao")).val(),
       "especialidade": $("#especialidade").val(),
@@ -119,6 +117,7 @@ $(document).on('click','#btnFinalizar', function(){
     });
 });
 
+//Perfil
 function preencherPerfil(){
   $.ajax({
       type:"post", //como enviar
@@ -148,26 +147,33 @@ function preencherPerfil(){
   });
 }
 
+//Serviço Cadastrado
+function listarServico(){
 
-// function listarServico(){
-//    $.ajax({
-//         type:"post", //como enviar
-//         url:"https://onservicos.000webhostapp.com/exibeServ.php",//para onde enviar
-//         dataType:"json",
-//         //se der certo
-//         success: function(data){
-//             var itemlista = "";
-            // $.each(data.profissao,function(i,dados){
-            //   itemlista += '<div class="box"><!-- Box 2--><div class="row"><div class="col-xs-12"><labeL>Serviços que realiza:</labeL><input type="text" disabled value="'+data.profissao.servico+'" placeholder="Reformas em geral"></div><div class="col-xs-12"><labeL>Descrição:</labeL><br><input type="text" disabled value="'+data.profissao.descricao+'" placeholder="Trabalho até as 17h"></div><div class="col-xs-12"><labeL>Dias em que trabalha:</labeL><input type="text" disabled value="'+data.profissao.dias+'" placeholder="Todos os dias"></div></div><br><div class="row"><div class="col-xs-6"><button class="btn btn-info btn-block" id="editar">Editar</button></div>'; 
-            // });
-        //$("#lista").html(itemlista);
-//         },
-//         //se der errado
-//         error: function(data){
-//              navigator.notification.alert(data);
-//         }
-//     });    
-// }
+   $.ajax({
+        type:"post", //como enviar
+        url:"https://onservicos.000webhostapp.com/exibeServ.php",//para onde enviar
+        dataType:'json',
+        //se der certo
+        success: function(data)
+        {
+          var itemlista = "";
+
+          $.each(data.profissional,function(i,dados){
+            itemlista += '<div class="row"><div class="col-xs-12"><labeL>Serviços que realiza:</labeL><input type="text" disabled value="'+dados.servico+'"></div><div class="col-xs-12"><labeL>Descrição:</labeL><br><input type="text" disabled value="'+dados.descricao+'"></div><div class="col-xs-12"><labeL>Dias em que trabalha:</labeL><input type="text" disabled value="'+dados.dias+'" ></div></div><br><div class="row"><div class="col-xs-12"><br><button class="btn btn-info btn-block" id="editar">Editar</button></div><br><br>';
+          });
+
+          $("#lista").html(itemlista);
+
+        },
+        //se der errado
+        error: function(data)
+        {
+          navigator.notification.alert(data);
+        }
+    });  
+      
+}
 
 function perfil(){
   location.href = "perfilProf.html";
