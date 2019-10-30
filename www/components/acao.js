@@ -108,6 +108,10 @@ function preencherPerfil(){
   });
 }
 //BOTÕES COM REDIRECIONAMENTO
+function home(){
+  location.href = "home.html";
+}
+
 function perfil(){
   location.href = "perfil.html";
 }

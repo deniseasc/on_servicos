@@ -175,6 +175,9 @@ function listarServico(){
       
 }
 
+function homeProf(){
+  location.href = "homeProf.html";
+}
 function perfil(){
   location.href = "perfilProf.html";
 }
@@ -186,5 +189,8 @@ function voltar(){
   location.href = "homeProf.html";
 }
 function cadastraServico(){
+  location.href = "addServico.html";
+}
+function addServico(){
   location.href = "addServico.html";
 }

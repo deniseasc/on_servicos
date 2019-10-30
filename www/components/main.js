@@ -74,8 +74,3 @@ $(document).on("click","#btnExcluir",function(){
         }
     }); 
 });
-
-//Alerta sair
-$(document).on('click','#btnSair',function(){
-  navigator.notification.confirm("Terceiro alerta", retorno2,"Janela",["Ok","Sair"]);
-});

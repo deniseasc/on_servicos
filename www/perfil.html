@@ -15,34 +15,28 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-</head>
-<body style="background-color: #e7e9eb;">
-  
- <script>
+  <script>
       $(document).ready(function(){
         preencherPerfil();
       });
   </script>
+
+</head>
+<body style="background-color: #e7e9eb;">
+  
   <div class="menu">
     <div class="menu-wrapper">
       <!-- conteúdo sidebar -->
       
           <div class="row">
           <div class="circleusu">
-        <img src="img/lari.jpg">
+        <img src="img/user.png">
         </div>
             </div>
 
           <div class="row">
             <div class="col-xs-12">
-              <a href="home.html"><button class="btn btn-info btn-block" id="btn" style="margin-top: 20px;"> Home </button></a>
-                <hr id="hr">
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-xs-12">
-              <a href="mensagens.html"><button class="btn btn-info btn-block" id="btn">Mensagens</button></a>
+              <button class="btn btn-info btn-block" id="btn" onclick="home()" style="margin-top: 20px;"> Home </button>
                 <hr id="hr">
             </div>
           </div>
@@ -73,7 +67,7 @@
 
     <div class="row">
           <div class="perfil">
-        <img src="img/lari.jpg">
+        <img src="img/user.png">
         </div>
             </div>
         <h6 id="alterarFoto"><b>Alterar Foto</b></h6>
