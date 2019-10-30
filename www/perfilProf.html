@@ -4,8 +4,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
   <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
-    <script src="components/loader.js"></script>
-  <script src="lib/onsenui/js/onsenui.min.js"></script>
 
   <script src="components/jquery-3.4.1.min.js"></script>
   <script src="components/main.js"></script>
@@ -13,14 +11,17 @@
   <script src="components/bootstrap.js"></script>
 
   <script src="https://kit.fontawesome.com/be184030a6.js"></script><!-- link font awesome-->
-  <link rel="stylesheet" href="components/loader.css">
   <link rel="stylesheet" href="css/menu.css">
-
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 </head>
 <body style="background-color: #e7e9eb;">
+ <script>
+      $(document).ready(function(){
+        preencherPerfil();
+      });
+  </script>
 
   <div class="menu">
     <div class="menu-wrapper">
@@ -80,82 +81,82 @@
     <div class="row">
       <div class="col-xs-12">
         <label>Nome:</label>
-        <input type="text" readonly="true" placeholder="Antonio Costa">
+        <input type="text" readonly="true" id="nome" placeholder="Antonio Costa">
       </div>
     </div>
 
     <div class="row">
       <div class="col-xs-12">
         <label>CPF:</label>
-        <input type="number" placeholder="123.789.456-11">
+        <input type="number" id="cpf" placeholder="123.789.456-11">
       </div>
     </div>
 
     <div class="row">
       <div class="col-xs-12">
         <label>Celular:</label>
-        <input type="number" placeholder="(21) 76543-1089">
+        <input type="number" id="celular" placeholder="(21) 76543-1089">
       </div>
     </div>
 
     <div class="row">
       <div class="col-xs-12">
         <label>E-mail:</label>
-        <input type="text" placeholder="paulo28@hotmail.com">
+        <input type="text" id="email" placeholder="paulo28@hotmail.com">
       </div>
     </div>
 
     <div class="row">
       <div class="col-xs-6">
         <label>Login:</label>
-        <input type="text" placeholder="paulinho">
+        <input type="text" id="login" placeholder="paulinho">
       </div>
       <div class="col-xs-6">
         <label>Senha:</label>
-        <input type="password" placeholder="******">
+        <input type="password" id="senha" placeholder="******">
       </div>
     </div>
 
     <div class="row">
       <div class="col-xs-6">
         <label>CEP:</label>
-        <input type="number" placeholder="12987-012">
+        <input type="number" id="cep" placeholder="12987-012">
       </div>
   
       <div class="col-xs-6">
         <label>Estado:</label>
-        <input type="text" placeholder="São Paulo">
+        <input type="text" id="estado" placeholder="São Paulo">
       </div>
     </div>
 
     <div class="row">
       <div class="col-xs-6">
         <label>Cidade:</label>
-        <input type="text" placeholder="Mongaguá">
+        <input type="text" id="cidade" placeholder="Mongaguá">
       </div>
 
       <div class="col-xs-6">
         <label>Bairro:</label>
-        <input type="text" placeholder="Agenor de Campos">
+        <input type="text" id="bairro" placeholder="Agenor de Campos">
       </div>
     </div>
 
     <div class="row">
       <div class="col-xs-6">
         <label>Endereço:</label>
-        <input type="text" placeholder="Rua Santa Cruz">
+        <input type="text" id="endereco" placeholder="Rua Santa Cruz">
       </div>
 
       <div class="col-xs-6">
         <label>Número:</label>
-        <input type="number" placeholder="465">
+        <input type="number" id="numero" placeholder="465">
        </div>
     </div>
 
       <div class="row">
       <div class="col-xs-12">
         <label>Complemento:</label>
-        <input type="text" placeholder="Casa">
+        <input type="text" id="complemento" placeholder="Casa">
       </div>
     </div><br>
 
@@ -197,6 +198,6 @@
     <!-- Fim do Conteudo app -->
     <div class="clear"></div>
   </div>
-  
+    <script src="components/acaoprof.js"></script>
 </body>
 </html>

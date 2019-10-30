@@ -18,14 +18,11 @@
 </head>
 <body style="background-color: #e7e9eb;">
   
-<!-- <script>
-$(document).ready(function(){
-  $.post('components/acao.js', function(lista){
-
-  });
-}) -->
-
-</script>
+ <script>
+      $(document).ready(function(){
+        preencherPerfil();
+      });
+  </script>
   <div class="menu">
     <div class="menu-wrapper">
       <!-- conteúdo sidebar -->
@@ -91,7 +88,7 @@ $(document).ready(function(){
         <div class="row">
       <div class="col-xs-12">
         <label>Cpf:</label>
-        <input type="text" readonly="true" id="nome">
+        <input type="text" readonly="true" id="cpf">
       </div>
     </div>
 
@@ -136,31 +133,31 @@ $(document).ready(function(){
     <div class="row">
       <div class="col-xs-6">
         <label>Cidade:</label>
-        <input type="text" placeholder="Itanhaem">
+        <input type="text" id="cidade" placeholder="Itanhaem">
       </div>
 
       <div class="col-xs-6">
         <label>Bairro:</label>
-        <input type="text" placeholder="Gaivota">
+        <input type="text" id="bairro" placeholder="Gaivota">
       </div>
     </div>
 
     <div class="row">
       <div class="col-xs-6">
         <label>Endereço:</label>
-        <input type="text" placeholder="Rua Brigadeiro">
+        <input type="text" id="endereco" placeholder="Rua Brigadeiro">
       </div>
 
       <div class="col-xs-6">
         <label>Número:</label>
-        <input type="number" placeholder="123">
+        <input type="number" id="numero" placeholder="123">
        </div>
     </div>
 
       <div class="row">
       <div class="col-xs-12">
         <label>Complemento:</label>
-        <input type="text" placeholder="Casa">
+        <input type="text" id="complemento" placeholder="Casa">
       </div>
     </div><br> 
 

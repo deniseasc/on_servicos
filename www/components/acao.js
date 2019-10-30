@@ -1,4 +1,13 @@
 // This is a JavaScript file
+
+// $(document).ready(function(){
+
+//   if(localStorage.getItem('codProf') != 0){
+//     location.href="index.html";
+//   }
+
+// })
+
 // Cadastrar usuário
 $(document).on('click','#btnSalvar', function(){
   var parametros = {
@@ -48,8 +57,12 @@ $(document).on('click','#btnEntrar', function(){
     //se der certo
     success: function(data)
     {
-      let acesso = data.usuario.nivel;
 
+      //codigo juliana 
+      let acesso = data.usuario.nivel;
+      var idUsuario = data.usuario.codigo;
+      localStorage.setItem('cdUsuario', idUsuario);
+      // var oi = '<div class="box"><!-- Box 2--><div class="row"><div class="col-xs-12"><labeL>Serviços que realiza:</labeL><input type="text" disabled placeholder="Reformas em geral"></div><div class="col-xs-12"><labeL>Descrição:</labeL><br><input type="text" disabled placeholder="Trabalho até as 17h"></div><div class="col-xs-12"><labeL>Dias em que trabalha:</labeL><input type="text" disabled placeholder="Todos os dias"></div></div><br><div class="row"><div class="col-xs-6"><button class="btn btn-info btn-block" id="editar">Editar</button></div>';
       if (acesso == 1){
         location.href="home.html";
         }
@@ -65,33 +78,35 @@ $(document).on('click','#btnEntrar', function(){
     }
   });
 });
-
-
-
-$(document).on("change","#listaperfil",function(){
-  var parametro ={
-    "codigo":$("option:codigo",("#listaperfil")).val()
-  }
+////CODIGO JULIANA
+function preencherPerfil(){
   $.ajax({
       type:"post", //como enviar
       url:"https://onservicos.000webhostapp.com/listarperfil.php",//para onde enviar
-      data:parametro,
+      data:'id='+localStorage.getItem('cdUsuario'),
       dataType:'json',//o que enviar
       //se der certo
       success: function(data){
-          $("#nome").val(data.usuario.nome);
-          $("#email").val(data.usuario.email);
-          $("#senha").val(data.usuario.senha);
-          $("#celular").val(data.usuario.celular);
+          $("#nome").val(data.perfil.nome);
+          $("#cpf").val(data.perfil.cpf);
+          $("#celular").val(data.perfil.celular);
+          $("#email").val(data.perfil.email);
+          $("#login").val(data.perfil.login);
+          $("#senha").val(data.perfil.senha);
+          $("#cep").val(data.perfil.cep);
+          $("#estado").val(data.perfil.estado);
+          $("#cidade").val(data.perfil.cidade);
+          $("#bairro").val(data.perfil.bairro);
+          $("#endereco").val(data.perfil.endereco);
+          $("#numero").val(data.perfil.numero);
+          $("#complemento").val(data.perfil.complemento);
       },
       //se der errado
       error: function(data){
-          navigator.notification.alert(data);
+          alert('erro');
       }
   });
-});
-
-
+}
 //BOTÕES COM REDIRECIONAMENTO
 function perfil(){
   location.href = "perfil.html";
