@@ -98,12 +98,13 @@ $(document).on('click','#btnFinalizar', function(){
       "especialidade": $("#especialidade").val(),
       "descricao": $("#descricao").val(),
       "dias": dias,
-      "codigo": localStorage.getItem('cdProf')
+      // "codigo": localStorage.getItem('cdProf')
 
     };
     $.ajax({
       type:"post", //como enviar
       url:"https://onservicos.000webhostapp.com/cadastraServ.php", //para onde enviar
+      data: localStorage.setItem('cdProf', codigo),
       data:parametros, //o que enviar
       //se der certo
       success: function(data){
@@ -151,16 +152,17 @@ function preencherPerfil(){
 function listarServico(){
 
    $.ajax({
-        type:"post", //como enviar
+        type:"POST", //como enviar
         url:"https://onservicos.000webhostapp.com/exibeServ.php",//para onde enviar
-        dataType:'json',
+        data:'codigo='+localStorage.getItem('cdProf'),
+        dataType:'json',//o que enviar
         //se der certo
         success: function(data)
         {
           var itemlista = "";
 
           $.each(data.profissional,function(i,dados){
-            itemlista += '<div class="row"><div class="col-xs-12"><labeL>Serviços que realiza:</labeL><input type="text" disabled value="'+dados.servico+'"></div><div class="col-xs-12"><labeL>Descrição:</labeL><br><input type="text" disabled value="'+dados.descricao+'"></div><div class="col-xs-12"><labeL>Dias em que trabalha:</labeL><input type="text" disabled value="'+dados.dias+'" ></div></div><br><div class="row"><div class="col-xs-12"><br><button class="btn btn-info btn-block" id="editar">Editar</button></div><br><br>';
+            itemlista += '<div class="row"><div class="col-xs-12"><labeL>Serviços que realiza:</labeL><input type="text" disabled value="'+dados.servico+'"></div><div class="col-xs-12"><labeL>Descrição:</labeL><br><input type="text" disabled value="'+dados.descricao+'"></div><div class="col-xs-12"><labeL>Dias em que trabalha:</labeL><input type="text" disabled value="'+dados.dias+'"></div></div><br><div class="row"><div class="col-xs-6"><button class="btn btn-info btn-block" id="editar">Editar</button></div>';
           });
 
           $("#lista").html(itemlista);
@@ -169,7 +171,8 @@ function listarServico(){
         //se der errado
         error: function(data)
         {
-          navigator.notification.alert(data);
+          alert(data);
+          //navigator.notification.alert(data);
         }
     });  
       
@@ -194,3 +197,31 @@ function cadastraServico(){
 function addServico(){
   location.href = "addServico.html";
 }
+
+// function Servico(){
+
+//    $.ajax({
+//         type:"post", //como enviar
+//         url:"https://onservicos.000webhostapp.com/exibeServ.php",//para onde enviar
+//         data: 'id ='+ localStorage.getItem('cdProf'),
+//         dataType:'json',//o que enviar
+//         //se der certo
+//         success: function(data)
+//         {
+//           var itemlista = "";
+
+//           $.each(data.profissional,function(i,dados){
+//             itemlista += '<div class="row"><div class="col-xs-12"><labeL>Serviços que realiza:</labeL><input type="text" disabled value="'+dados.servico+'"></div><div class="col-xs-12"><labeL>Descrição:</labeL><br><input type="text" disabled value="'+dados.descricao+'"></div><div class="col-xs-12"><labeL>Dias em que trabalha:</labeL><input type="text" disabled value="'+dados.dias+'" ></div></div><br><div class="row"><div class="col-xs-12"><br><button class="btn btn-info btn-block" id="editar">Editar</button></div><br><br>';
+//           });
+
+//           $("#lista").html(itemlista);
+
+//         },
+//         //se der errado
+//         error: function(data)
+//         {
+//           navigator.notification.alert(data);
+//         }
+//     });  
+      
+// }

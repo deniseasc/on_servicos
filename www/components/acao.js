@@ -2,8 +2,8 @@
 
 // $(document).ready(function(){
 
-//   if(localStorage.getItem('codProf') != 0){
-//     location.href="index.html";
+//   if(localStorage.getItem('codProf') != ''){
+//     location.href="homeProf.html";
 //   }
 
 // })
