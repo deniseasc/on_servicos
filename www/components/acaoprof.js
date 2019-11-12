@@ -1,4 +1,37 @@
 // This is a JavaScript file
+//Select ESTADOS/CIDADES
+$(document).ready(function () {
+			$.getJSON('estados_cidades.json', function (data) {
+				var items = [];
+				var options = '<option value="">Escolha...</option>';	
+				$.each(data, function (key, val) {
+					options += '<option value="' + val.nome + '">' + val.nome + '</option>';
+				});					
+				$("#estado").html(options);				
+				
+				$("#estado").change(function () {				
+				
+					var options_cidade = '';
+					var str = "";					
+					
+					$("#estado option:selected").each(function () {
+						str += $(this).text();
+					});
+					
+					$.each(data, function (key, val) {
+						if(val.nome == str) {							
+							$.each(val.cidade, function (key_city, val_city) {
+								options_cidade += '<option value="' + val_city + '">' + val_city + '</option>';
+							});							
+						}
+					});
+					$("#cidade").html(options_cidade);
+					
+				}).change();		
+			
+			});
+		
+		});
 
 //Cadastro Profissional
 $(document).on('click','#btnSalvar2', function(){
@@ -30,6 +63,39 @@ $(document).on('click','#btnSalvar2', function(){
       //se der errado
       error: function(data){
         alert("Erro ao cadastrar");
+      }
+    });
+});
+
+//Salvar Alterações do perfil
+$(document).on('click','#btnSalvar', function(){
+  var parametros = {
+      "codigo": localStorage.getItem('cdProf'),
+      "nome": $("#nome").val(),
+      "cpf": $("#cpf").val(),
+      "email": $("#email").val(),
+      "celular": $("#celular").val(),
+      "login": $("#login").val(),
+
+      "cep": $("#cep").val(),
+      "estado": $("#estado").val(),
+      "cidade": $("#cidade").val(),
+      "bairro": $("#bairro").val(),
+      "rua": $("#rua").val(),
+      "numero": $("#numero").val(),
+      "complemento": $("#complemento").val()
+    };
+    $.ajax({
+      type:"post", //como enviar
+      url:"https://onservicos.000webhostapp.com/atualizarperfilprofissional.php", //para onde enviar
+      data:parametros, //o que enviar
+      //se der certo
+      success: function(data){
+         alert("Perfil atualizado com sucesso!");
+      },
+      //se der errado
+      error: function(data){
+        alert("Erro ao atualizar");
       }
     });
 });
@@ -98,13 +164,13 @@ $(document).on('click','#btnFinalizar', function(){
       "especialidade": $("#especialidade").val(),
       "descricao": $("#descricao").val(),
       "dias": dias,
-      // "codigo": localStorage.getItem('cdProf')
+      "codigo": localStorage.getItem('cdProf')
 
     };
     $.ajax({
       type:"post", //como enviar
       url:"https://onservicos.000webhostapp.com/cadastraServ.php", //para onde enviar
-      data: localStorage.setItem('cdProf', codigo),
+      // data: localStorage.setItem('cdProf'),
       data:parametros, //o que enviar
       //se der certo
       success: function(data){
@@ -132,7 +198,6 @@ function preencherPerfil(){
           $("#celular").val(data.perfil.celular);
           $("#email").val(data.perfil.email);
           $("#login").val(data.perfil.login);
-          $("#senha").val(data.perfil.senha);
           $("#cep").val(data.perfil.cep);
           $("#estado").val(data.perfil.estado);
           $("#cidade").val(data.perfil.cidade);
@@ -162,9 +227,9 @@ function listarServico(){
           var itemlista = "";
 
           $.each(data.profissional,function(i,dados){
-            itemlista += '<div class="row"><div class="col-xs-12"><labeL>Serviços que realiza:</labeL><input type="text" disabled value="'+dados.servico+'"></div><div class="col-xs-12"><labeL>Descrição:</labeL><br><input type="text" disabled value="'+dados.descricao+'"></div><div class="col-xs-12"><labeL>Dias em que trabalha:</labeL><input type="text" disabled value="'+dados.dias+'"></div></div><br><div class="row"><div class="col-xs-6"><button class="btn btn-info btn-block" id="editar">Editar</button></div>';
+            itemlista += '<div class="box"> <div class="row"> <div class="col-xs-12"> <labeL>Profissão:</labeL> <input type="text" id="profissao" value="'+dados.profissao+'" readonly> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" id="servico" value="'+dados.servico+'" readonly> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL><br> <input type="text" id="descricao" value="'+dados.descricao+'" readonly> </div> <div class="col-xs-12"> <labeL>Dias em que trabalha:</labeL> </div> </div><br><div class="row"> <div class="col-xs-6"> <button class="btn btn-info btn-block" id="editarServ">Editar</button> </div> <div class="col-xs-6"> <button class="btn btn-danger btn-block" id="btnExcluir" onclick="var codigo = '+dados.codigo+'; deletarServico(codigo); ">Excluir</button> </div> </div> </div><br>';
           });
-
+          //  <div class="row"> <div class="col-xs-1"> <input type="checkbox" id="seg" value="Segunda">S </div> <div class="col-xs-1"> <input type="checkbox" id="ter" value="Terça">T </div> <div class="col-xs-1"> <input type="checkbox" id="qua" value="Quarta">Q </div> <div class="col-xs-1"> <input type="checkbox" id="qui" value="Quinta">Q </div> <div class="col-xs-1"> <input type="checkbox" id="sex" value="Sexta">S </div> <div class="col-xs-1"> <input type="checkbox" id="sab" value="Sábado">S </div> <div class="col-xs-1"> <input type="checkbox" id="dom" value="Domingo">D </div> </div> 
           $("#lista").html(itemlista);
 
         },
@@ -178,6 +243,146 @@ function listarServico(){
       
 }
 
+
+
+// function salvarContato(botao) {
+//   var parametros = {
+//       "codigo": localStorage.getItem('cdProf'),
+//       "nome": $("#nome").val(),
+//       "cpf": $("#cpf").val(),
+
+//     };
+//     $.ajax({
+//       type:"post", //como enviar
+//       url:"https://onservicos.000webhostapp.com/atualizarperfilprofissional.php", //para onde enviar
+//       data:parametros, //o que enviar
+//       //se der certo
+//       success: function(data){
+//          alert("Perfil atualizado com sucesso!");
+//       },
+//       //se der errado
+//       error: function(data){
+//         alert("Erro ao atualizar");
+//       }
+//     });
+    
+//   botao.setAttribute("onclick","vincularContato(this);");
+// }
+
+
+
+// function verifica(str){
+
+//   if(str.match(/Segunda/))
+//   { 
+//     console.log('checked'); 
+//   }
+
+// }
+
+function deletarServico(codigo){
+  confirm("Deseja excluir?");
+  if(confirm){
+    $.ajax({
+        type:"POST", //como enviar
+        url:"https://onservicos.000webhostapp.com/excluirServico.php",//para onde enviar
+        data:'id='+codigo,
+        //se der certo
+        success: function(data)
+        {
+          location.reload();
+        },
+        //se der errado
+        error: function(data)
+        {
+          alert(data);
+          //navigator.notification.alert(data);
+        }
+    }); 
+  }
+}
+
+//Salvar Alterações do perfil
+$(document).on('click','#btnSalvar', function(){
+  var parametros = {
+      "codigo": localStorage.getItem('cdProf'),
+      "profissao": $("#profissao").val(),
+      "servico": $("#servico").val(),
+      "descricao": $("#descricao").val(),
+    };
+    $.ajax({
+      type:"post", //como enviar
+      url:"https://https://onservicos.000webhostapp.com/editarServico.php", //para onde enviar
+      data:parametros, //o que enviar
+      //se der certo
+      success: function(data){
+         alert("Perfil atualizado com sucesso!");
+      },
+      //se der errado
+      error: function(data){
+        alert("Erro ao atualizar");
+      }
+    });
+});
+
+$(document).on('click','#editarServ',function(){
+  habilitaServ();
+});
+
+$(document).on('click','#btnEditar',function(){
+  habilita();
+})
+
+$(document).on('click','#btnVoltar',function(){
+  desabilita();
+})
+
+function desabilita(){
+  $('#nome').prop('readonly', true);
+  $('#cpf').prop('readonly', true);
+  $('#celular').prop('readonly', true);
+  $('#email').prop('readonly', true);
+  $('#login').prop('readonly', true);
+  $('#senha').prop('readonly', true);
+  $('#cep').prop('readonly', true);
+  $('#estado').prop('readonly', true);
+  $('#cidade').prop('readonly', true);
+  $('#bairro').prop('readonly', true);
+  $('#endereco').prop('readonly', true);
+  $('#numero').prop('readonly', true);
+  $('#complemento').prop('readonly', true);
+  $('#profissao').prop('readonly', true);
+  $('#servico').prop('readonly', true);
+  $('#descricao').prop('readonly', true);
+}
+
+function habilita(){
+  $('#nome').prop('readonly', false);
+  $('#cpf').prop('readonly', false);
+  $('#celular').prop('readonly', false);
+  $('#email').prop('readonly', false);
+  $('#login').prop('readonly', false);
+  $('#senha').prop('readonly', false);
+  $('#cep').prop('readonly', false);
+  $('#estado').prop('readonly', false);
+  $('#cidade').prop('readonly', false);
+  $('#bairro').prop('readonly', false);
+  $('#endereco').prop('readonly', false);
+  $('#numero').prop('readonly', false);
+  $('#complemento').prop('readonly', false);
+}
+ function habilitaServ(){
+  $('#profissao').prop('readonly', false);
+  $('#servico').prop('readonly', false);
+  $('#descricao').prop('readonly', false);
+ }
+  function desabilitaServ(){
+  $('#profissao').prop('readonly', true);
+  $('#servico').prop('readonly', true);
+  $('#descricao').prop('readonly', true);
+ }
+
+//navegação páginas
 function homeProf(){
   location.href = "homeProf.html";
 }
@@ -197,31 +402,3 @@ function cadastraServico(){
 function addServico(){
   location.href = "addServico.html";
 }
-
-// function Servico(){
-
-//    $.ajax({
-//         type:"post", //como enviar
-//         url:"https://onservicos.000webhostapp.com/exibeServ.php",//para onde enviar
-//         data: 'id ='+ localStorage.getItem('cdProf'),
-//         dataType:'json',//o que enviar
-//         //se der certo
-//         success: function(data)
-//         {
-//           var itemlista = "";
-
-//           $.each(data.profissional,function(i,dados){
-//             itemlista += '<div class="row"><div class="col-xs-12"><labeL>Serviços que realiza:</labeL><input type="text" disabled value="'+dados.servico+'"></div><div class="col-xs-12"><labeL>Descrição:</labeL><br><input type="text" disabled value="'+dados.descricao+'"></div><div class="col-xs-12"><labeL>Dias em que trabalha:</labeL><input type="text" disabled value="'+dados.dias+'" ></div></div><br><div class="row"><div class="col-xs-12"><br><button class="btn btn-info btn-block" id="editar">Editar</button></div><br><br>';
-//           });
-
-//           $("#lista").html(itemlista);
-
-//         },
-//         //se der errado
-//         error: function(data)
-//         {
-//           navigator.notification.alert(data);
-//         }
-//     });  
-      
-// }

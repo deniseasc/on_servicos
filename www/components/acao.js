@@ -1,12 +1,38 @@
 // This is a JavaScript file
 
-// $(document).ready(function(){
-
-//   if(localStorage.getItem('codProf') != ''){
-//     location.href="homeProf.html";
-//   }
-
-// })
+//Select ESTADOS/CIDADES
+$(document).ready(function () {
+			$.getJSON('estados_cidades.json', function (data) {
+				var items = [];
+				var options = '<option value="">Escolha...</option>';	
+				$.each(data, function (key, val) {
+					options += '<option value="' + val.nome + '">' + val.nome + '</option>';
+				});					
+				$("#estado").html(options);				
+				
+				$("#estado").change(function () {				
+				
+					var options_cidade = '';
+					var str = "";					
+					
+					$("#estado option:selected").each(function () {
+						str += $(this).text();
+					});
+					
+					$.each(data, function (key, val) {
+						if(val.nome == str) {							
+							$.each(val.cidade, function (key_city, val_city) {
+								options_cidade += '<option value="' + val_city + '">' + val_city + '</option>';
+							});							
+						}
+					});
+					$("#cidade").html(options_cidade);
+					
+				}).change();		
+			
+			});
+		
+		});
 
 // Cadastrar usuário
 $(document).on('click','#btnSalvar', function(){
@@ -25,6 +51,7 @@ $(document).on('click','#btnSalvar', function(){
       "rua": $("#rua").val(),
       "numero": $("#numero").val(),
       "complemento": $("#complemento").val()
+      
     };
     $.ajax({
       type:"post", //como enviar
@@ -62,7 +89,7 @@ $(document).on('click','#btnEntrar', function(){
       let acesso = data.usuario.nivel;
       var idUsuario = data.usuario.codigo;
       localStorage.setItem('cdUsuario', idUsuario);
-      // var oi = '<div class="box"><!-- Box 2--><div class="row"><div class="col-xs-12"><labeL>Serviços que realiza:</labeL><input type="text" disabled placeholder="Reformas em geral"></div><div class="col-xs-12"><labeL>Descrição:</labeL><br><input type="text" disabled placeholder="Trabalho até as 17h"></div><div class="col-xs-12"><labeL>Dias em que trabalha:</labeL><input type="text" disabled placeholder="Todos os dias"></div></div><br><div class="row"><div class="col-xs-6"><button class="btn btn-info btn-block" id="editar">Editar</button></div>';
+  
       if (acesso == 1){
         location.href="home.html";
         }
@@ -78,7 +105,7 @@ $(document).on('click','#btnEntrar', function(){
     }
   });
 });
-////CODIGO JULIANA
+////listar perfil usuario
 function preencherPerfil(){
   $.ajax({
       type:"post", //como enviar
@@ -100,6 +127,7 @@ function preencherPerfil(){
           $("#endereco").val(data.perfil.endereco);
           $("#numero").val(data.perfil.numero);
           $("#complemento").val(data.perfil.complemento);
+          $("#foto").attr('src',data.perfil.foto);
       },
       //se der errado
       error: function(data){
@@ -107,6 +135,105 @@ function preencherPerfil(){
       }
   });
 }
+
+//Lista serviços
+function listarServico(){
+
+   $.ajax({
+        type:"POST", //como enviar
+        url:"https://onservicos.000webhostapp.com/listaServico.php",//para onde enviar
+        dataType:'json',//o que enviar
+        //se der certo
+        success: function(data)
+        {
+          var itemlista = "";
+          $.each(data.profissional,function(i,dados){
+            itemlista += '<div class="box"> <div class="row"><div class="circle" value="'+dados.foto+'"> </div></div><div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="'+dados.nome+'"> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text"style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="'+dados.servico+'"> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="'+dados.descricao+'"> </div> </div> <br> <div class="row"> <div class="col-xs-6"> <button class="btn btn-danger btn-block" id="btnContatar" data-toggle="modal" data-target="#modalExemplo">Contatar</button> </div> </div> </div><br>  <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <br><br><br><br><br><br><br><br><br> <div class="modal-dialog" role="document"> <div class="modal-content" id="modal" > <div class="modal-header"> <h5 class="modal-title" id="exampleModalLabel">Contatar Profissional</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" id="modal-dentro"> <div class="row"> <div class="col-xs-6"> <a href="tel:'+dados.celular+'"><img src="img/WhatsApp-icone.png" id="imgModal" alt=""></a> </div> <div class="col-xs-6"><a href="https://wa.me/5513996857881?text=sua%20mensagem"><img src="img/agenda.png" id="imgModal" alt=""></a></div> </div> </div> <div class="modal-footer"> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">Fechar</button> </div> </div> </div> </div> </center>';
+          });
+
+          $("#servicos").html(itemlista);
+
+        },
+        //se der errado
+        error: function(data)
+        {
+          alert(data);
+          //navigator.notification.alert(data);
+        }
+    });  
+      
+}
+
+//Salvar Alterações do perfil
+$(document).on('click','#salvarEdit', function(){
+  var parametros = {
+      "codigo": localStorage.getItem('cdUsuario'),
+      "nome": $("#nome").val(),
+      "cpf": $("#cpf").val(),
+      "email": $("#email").val(),
+      "celular": $("#celular").val(),
+      "login": $("#login").val(),
+      "cep": $("#cep").val(),
+      "estado": $("#estado").val(),
+      "cidade": $("#cidade").val(),
+      "bairro": $("#bairro").val(),
+      "rua": $("#rua").val(),
+      "numero": $("#numero").val(),
+      "complemento": $("#complemento").val()
+    };
+    $.ajax({
+      type:"post", //como enviar
+      url:"https://onservicos.000webhostapp.com/editarPerfilusuario.php", //para onde enviar
+      data:parametros, //o que enviar
+      //se der certo
+      success: function(data){
+         alert("Perfil atualizado com sucesso!");
+      },
+      //se der errado
+      error: function(data){
+        alert("Erro ao atualizar");
+      }
+    });
+});
+$(document).on('click','#btnEditar',function(){
+  habilita();
+})
+
+$(document).on('click','#btnVoltar',function(){
+  desabilita();
+})
+function desabilita(){
+  $('#nome').prop('readonly', true);
+  $('#cpf').prop('readonly', true);
+  $('#celular').prop('readonly', true);
+  $('#email').prop('readonly', true);
+  $('#login').prop('readonly', true);
+  $('#senha').prop('readonly', true);
+  $('#cep').prop('readonly', true);
+  $('#estado').prop('readonly', true);
+  $('#cidade').prop('readonly', true);
+  $('#bairro').prop('readonly', true);
+  $('#endereco').prop('readonly', true);
+  $('#numero').prop('readonly', true);
+  $('#complemento').prop('readonly', true);
+}
+
+function habilita(){
+  $('#nome').prop('readonly', false);
+  $('#cpf').prop('readonly', false);
+  $('#celular').prop('readonly', false);
+  $('#email').prop('readonly', false);
+  $('#login').prop('readonly', false);
+  $('#senha').prop('readonly', false);
+  $('#cep').prop('readonly', false);
+  $('#estado').prop('readonly', false);
+  $('#cidade').prop('readonly', false);
+  $('#bairro').prop('readonly', false);
+  $('#endereco').prop('readonly', false);
+  $('#numero').prop('readonly', false);
+  $('#complemento').prop('readonly', false);
+}
+
 //BOTÕES COM REDIRECIONAMENTO
 function home(){
   location.href = "home.html";

@@ -6,7 +6,6 @@
   <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
 
   <script src="components/jquery-3.4.1.min.js"></script>
-   <script src="components/acao.js"></script>
   <script src="components/main.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <script src="components/bootstrap.js"></script>
@@ -19,6 +18,14 @@
 
 </head>
 <body style="background-color: #e7e9eb;">
+  <script>
+    $(document).ready(function(){
+        listarServico();
+   });
+     $(document).ready(function(){
+        listaMarceneiro();
+   });
+  </script>
 
   <div class="menu">
     <div class="menu-wrapper">
@@ -75,61 +82,17 @@
       <h3>Serviços Encontrados:</h3><br>
 
       <table id="servicos">
-      <div class="box"><!-- Box 1-->
-        <div class="row">
-          <div class="circle">
-        <img src="img/user.png">
-        </div>
-         <div class="col-xs-12">
-           <labeL>Nome:</labeL>
-           <input type="text" class="form-control" id="nome">
-          </div>
-          <div class="col-xs-12">
-            <labeL>Especialidade:</labeL>
-          <input type="text" class="form-control" id="email">
-          </div>
-          <div class="col-xs-6">
-            <labeL>Descrição:</labeL>
-            <h6>Tenho 2h de almoço</h6>
-          </div>
-          <div class="col-xs-6">
-            <labeL>Disponibilidade:</labeL>
-            <h6>Segunda a Sexta</h6>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-           <a href="tel:13982040912"><button class="btn btn-danger btn-block" id="btnConta" name="btnContatar">Contatar</button></a>
-          </div>
-        </div>
-   </table>  
-      </div><br><!-- Final box 1 -->
 
-        
-        <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog modal-sm" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-        </button>
-        <h4 class="modal-title" id="myModalLabel">Atenção</h4>
-      </div>
-      <div class="modal-body">
-        Deseja sair?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
-        <a class="btn btn-primary" href="index.html">Sim</a>
-      </div>
-    </div>
-  </div>
-</div>
+   </table>  
+
+
+       <!-- Modal -->
+<!-- ss -->
 
     </div>
     <!-- Fim do Conteudo app -->
     <div class="clear"></div>
   </div>
-  
+     <script src="components/acao.js"></script>
 </body>
 </html>

@@ -210,6 +210,13 @@ input[type="number"] {
   color: white;
   text-decoration: none;
 }
+#btnContatar{
+  background: linear-gradient(to right, #106770, #23929e);
+  border: none;
+  color: white;
+  text-decoration: none;
+  margin-left: 109%;
+}
 #editar{
   background: linear-gradient(to right, #0e97a5, #20b6b9);
   border: none;
@@ -273,12 +280,15 @@ h3, h5{
   position: relative;
 }
 .circle img {
-  position: center;
+  position: relative;
   bottom: 0;
   width: 100px;
-  margin-top: 4%;
 }
-.circleicon {
+
+#btnContatar{
+
+}
+/* .circleicon {
   background-color: #aaa;
   border-radius: 50%;
   width: 70px;
@@ -287,11 +297,11 @@ h3, h5{
   margin-left: 34%;
   overflow: hidden;
   position: relative;
-}
+} */
 .circleicon img {
-  position: center;
+  position: absolute;
   bottom: 0;
-  width: 73px;
+  width: 100px;
 
 }
 .circleusu {
@@ -305,9 +315,9 @@ h3, h5{
   position: relative;
 }
 .circleusu img {
-  position: absolute;
+  position: center;
   bottom: 0;
-  width: 73px;
+  width: 100px;
 }
 .perfil {
   background-color: #aaa;
@@ -386,4 +396,17 @@ h3, h5{
   padding: 70px;
   box-sizing: border-box;
   border: 5px solid #0e97a5;
+}
+
+#imgModal{
+  width: 50%;
+}
+
+#modal{
+  background-color: #e7e9eb;
+
+}
+#modal-dentro{
+  background-color: #f1f1f1;
+
 }
