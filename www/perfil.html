@@ -1,196 +1,200 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-  <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+	<meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
 
-  <script src="components/jquery-3.4.1.min.js"></script>
-  <script src="components/main.js"></script>
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <script src="components/bootstrap.js"></script>
+	<script src="components/jquery-3.4.1.min.js"></script>
+	<script src="components/main.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script src="components/bootstrap.js"></script>
 
-  <script src="https://kit.fontawesome.com/be184030a6.js"></script><!-- link font awesome-->
-  <link rel="stylesheet" href="css/menu.css">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script src="https://kit.fontawesome.com/be184030a6.js"></script>
+	<!-- link font awesome-->
+	<link rel="stylesheet" href="css/menu.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-  <script>
-      $(document).ready(function(){
+	<script>
+		$(document).ready(function(){
         preencherPerfil();
       });
-  </script>
+	</script>
 
 </head>
+
 <body style="background-color: #e7e9eb;">
-  
-  <div class="menu">
-    <div class="menu-wrapper">
-      <!-- conteúdo sidebar -->
-      
-          <div class="row">
-          <div class="circleusu">
-        <img src="img/user.png">
-        </div>
-            </div>
 
-          <div class="row">
-            <div class="col-xs-12">
-              <button class="btn btn-info btn-block" id="btn" onclick="home()" style="margin-top: 20px;"> Home </button>
-                <hr id="hr">
-            </div>
-          </div>
+	<div class="menu">
+		<div class="menu-wrapper">
+			<!-- conteúdo sidebar -->
 
-          <div class="row">
-            <div class="col-xs-12">
-                <a href="#" data-toggle="modal" data-target="#myModal"><button class="btn btn-info btn-block" id="btn"> Sair </button></a>
-                <hr id="hr">
-            </div>
-          </div>
-    </div>
-  </div>
+			<div class="row">
+				<div class="circleusu">
+					<img src="" id="foto">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12">
+					<button class="btn btn-info btn-block" id="btn" onclick="home()" style="margin-top: 20px;"> Home </button>
+					<hr id="hr">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12">
+					<a href="#" data-toggle="modal" data-target="#myModal"><button class="btn btn-info btn-block" id="btn"> Sair </button></a>
+					<hr id="hr">
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<header>
-	  <div class="center">
-	    <div class="menu-btn">
-	      <i class="fas fa-bars"></i>
-	    </div>
-      <!--Conteudo barra -->
+		<div class="center">
+			<div class="menu-btn">
+				<i class="fas fa-bars"></i>
+			</div>
+			<!--Conteudo barra -->
 		</div>
 	</header>
 
-  <div class="content">
-    <!-- Conteudo app -->
-    <div class="box-content w100 left">
+	<div class="content">
+		<!-- Conteudo app -->
+		<div class="box-content w100 left">
 
-      <h3>Meu Perfil:</h3>
+			<h3>Meu Perfil:</h3>
 
-    <div class="row">
-          <div class="circle">
-        <img id="foto" src="">
-        </div>
-            </div>
+			<div class="row">
+				<div class="circle">
+					<img id="foto" src="">
+				</div>
+			</div>
 
-<h5><b>Dados pessoais:</b></h5>
-    <div class="row">
-      <div class="col-xs-12">
-        <label>Nome:</label>
-        <input type="text" readonly id="nome">
-      </div>
-    </div>
+			<h5><b>Dados pessoais:</b></h5>
+			<div class="row">
+				<div class="col-xs-12">
+					<label>Nome:</label>
+					<input type="text" readonly id="nome">
+				</div>
+			</div>
 
-        <div class="row">
-      <div class="col-xs-12">
-        <label>Cpf:</label>
-        <input type="text" readonly id="cpf">
-      </div>
-    </div>
+			<div class="row">
+				<div class="col-xs-12">
+					<label>Cpf:</label>
+					<input type="text" readonly id="cpf">
+				</div>
+			</div>
 
 
-    <div class="row">
-      <div class="col-xs-12">
-        <label>Celular:</label>
-        <input type="number" id="celular"  readonly>
-      </div>
-    </div>
+			<div class="row">
+				<div class="col-xs-12">
+					<label>Celular:</label>
+					<input type="number" id="celular" readonly>
+				</div>
+			</div>
 
-    <div class="row">
-      <div class="col-xs-12">
-        <label>E-mail:</label>
-        <input type="text" id="email" readonly>
-      </div>
-    </div>
+			<div class="row">
+				<div class="col-xs-12">
+					<label>E-mail:</label>
+					<input type="text" id="email" readonly>
+				</div>
+			</div>
 
-    <div class="row">
-      <div class="col-xs-8">
-        <label>Login:</label>
-        <input type="text" id="login" readonly>
-      </div>
-   </div>
-   <br>
-   <h5><b>Endereço:</b></h5>
-    <div class="row"> 
-      <div class="col-xs-6">
-        <label>CEP:</label>
-        <input type="number" id="cep" readonly>
-      </div>
-  
-      <div class="col-xs-6">
-        <label>Estado:</label>
-        <input type="text" id="estado" readonly>
-      </div>
-    </div>
+			<div class="row">
+				<div class="col-xs-8">
+					<label>Login:</label>
+					<input type="text" id="login" readonly>
+				</div>
+			</div>
+			<br>
+			<h5><b>Endereço:</b></h5>
+			<div class="row">
+				<div class="col-xs-6">
+					<label>CEP:</label>
+					<input type="number" id="cep" readonly>
+				</div>
 
-    <div class="row">
-      <div class="col-xs-6">
-        <label>Cidade:</label>
-        <input type="text" id="cidade" placeholder="Itanhaem" readonly>
-      </div>
+				<div class="col-xs-6">
+					<label>Estado:</label>
+					<input type="text" id="estado" readonly>
+				</div>
+			</div>
 
-      <div class="col-xs-6">
-        <label>Bairro:</label>
-        <input type="text" id="bairro" placeholder="Gaivota" readonly>
-      </div>
-    </div>
+			<div class="row">
+				<div class="col-xs-6">
+					<label>Cidade:</label>
+					<input type="text" id="cidade" placeholder="Itanhaem" readonly>
+				</div>
 
-    <div class="row">
-      <div class="col-xs-6">
-        <label>Endereço:</label>
-        <input type="text" id="rua" placeholder="Rua Brigadeiro" readonly>
-      </div>
+				<div class="col-xs-6">
+					<label>Bairro:</label>
+					<input type="text" id="bairro" placeholder="Gaivota" readonly>
+				</div>
+			</div>
 
-      <div class="col-xs-6">
-        <label>Número:</label>
-        <input type="number" id="numero" placeholder="123" readonly>
-       </div>
-    </div>
+			<div class="row">
+				<div class="col-xs-6">
+					<label>Endereço:</label>
+					<input type="text" id="rua" placeholder="Rua Brigadeiro" readonly>
+				</div>
 
-      <div class="row">
-      <div class="col-xs-12">
-        <label>Complemento:</label>
-        <input type="text" id="complemento" placeholder="Casa" readonly>
-      </div>
-    </div><br> 
+				<div class="col-xs-6">
+					<label>Número:</label>
+					<input type="number" id="numero" placeholder="123" readonly>
+				</div>
+			</div>
 
-    <div class="row">
-      <div class="col-xs-4">
-          <button class="btn btn-info btn-block" id="btnEditar">Editar</button>
-      </div>
+			<div class="row">
+				<div class="col-xs-12">
+					<label>Complemento:</label>
+					<input type="text" id="complemento" placeholder="Casa" readonly>
+				</div>
+			</div><br>
 
-      <div class="col-xs-4">
-        <button class="btn btn-info btn-block" id="salvarEdit">Salvar</button>
-      </div>
+			<div class="row">
+				<div class="col-xs-4">
+					<button class="btn btn-info btn-block" id="btnEditar">Editar</button>
+				</div>
 
-      <div class="col-xs-4">
-          <a href="home.html"><button class="btn btn-info btn-block" id="btnVoltar">Voltar</button></a>
-      </div>
-    </div>
-      
+				<div class="col-xs-4">
+					<button class="btn btn-info btn-block" id="salvarEdit">Salvar</button>
+				</div>
 
-    </div>
+				<div class="col-xs-4">
+					<a href="home.html"><button class="btn btn-info btn-block" id="btnVoltar">Voltar</button></a>
+				</div>
+			</div>
 
-     <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog modal-sm" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+
+		</div>
+
+		<!-- Modal -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog modal-sm" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
         </button>
-        <h4 class="modal-title" id="myModalLabel">Atenção</h4>
-      </div>
-      <div class="modal-body">
-        Deseja sair?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
-        <a class="btn btn-primary" href="index.html">Sim</a>
-      </div>
-    </div>
-  </div>
-</div>
-    <!-- Fim do Conteudo app -->
-    <div class="clear"></div>
-  </div>
-   <script src="components/acao.js"></script>
+							<h4 class="modal-title" id="myModalLabel">Atenção</h4>
+						</div>
+						<div class="modal-body">
+							Deseja sair?
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+							<a class="btn btn-primary" href="index.html">Sim</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		<!-- Fim do Conteudo app -->
+		<div class="clear"></div>
+	</div>
+	<script src="components/acao.js"></script>
 </body>
+
 </html>

@@ -210,6 +210,18 @@ input[type="number"] {
   color: white;
   text-decoration: none;
 }
+#editarServ{
+  background: linear-gradient(to right, #106770, #23929e);
+  border: none;
+  color: white;
+  text-decoration: none;
+}
+#salvarServ{
+  background: linear-gradient(to right, #106770, #23929e);
+  border: none;
+  color: white;
+  text-decoration: none;
+}
 #btnContatar{
   background: linear-gradient(to right, #106770, #23929e);
   border: none;

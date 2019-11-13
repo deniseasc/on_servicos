@@ -227,9 +227,9 @@ function listarServico(){
           var itemlista = "";
 
           $.each(data.profissional,function(i,dados){
-            itemlista += '<div class="box"> <div class="row"> <div class="col-xs-12"> <labeL>Profissão:</labeL> <input type="text" id="profissao" value="'+dados.profissao+'" readonly> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" id="servico" value="'+dados.servico+'" readonly> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL><br> <input type="text" id="descricao" value="'+dados.descricao+'" readonly> </div> <div class="col-xs-12"> <labeL>Dias em que trabalha:</labeL> </div> </div><br><div class="row"> <div class="col-xs-6"> <button class="btn btn-info btn-block" id="editarServ">Editar</button> </div> <div class="col-xs-6"> <button class="btn btn-danger btn-block" id="btnExcluir" onclick="var codigo = '+dados.codigo+'; deletarServico(codigo); ">Excluir</button> </div> </div> </div><br>';
+            itemlista += '<div class="box"> <div class="row"> <div class="col-xs-12"> <labeL>Profissão:</labeL> <input type="text" id="profissao" value="'+dados.profissao+'" readonly> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" id="servico" value="'+dados.servico+'" readonly> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL><br> <input type="text" id="descricao" value="'+dados.descricao+'" readonly> </div> </div><br><div class="row"> <div class="col-xs-4"> <button class="btn btn-info btn-block" id="editarServ">Editar</button> </div> <div class="col-xs-4"> <button class="btn btn-danger btn-block" id="salvarServ" onclick="var codigo = '+dados.codigo+'; alterarServico(codigo); "> Salvar</button> </div> <div class="col-xs-4"> <button class="btn btn-danger btn-block" id="btnExcluir" onclick="var codigo = '+dados.codigo+'; deletarServico(codigo); ">Excluir</button> </div> </div> </div><br>'
           });
-          //  <div class="row"> <div class="col-xs-1"> <input type="checkbox" id="seg" value="Segunda">S </div> <div class="col-xs-1"> <input type="checkbox" id="ter" value="Terça">T </div> <div class="col-xs-1"> <input type="checkbox" id="qua" value="Quarta">Q </div> <div class="col-xs-1"> <input type="checkbox" id="qui" value="Quinta">Q </div> <div class="col-xs-1"> <input type="checkbox" id="sex" value="Sexta">S </div> <div class="col-xs-1"> <input type="checkbox" id="sab" value="Sábado">S </div> <div class="col-xs-1"> <input type="checkbox" id="dom" value="Domingo">D </div> </div> 
+          //  <div class="row"> <div class="col-xs-12"> <labeL>Dias em que trabalha:</labeL> </div> </div> <div class="col-xs-1"> <input type="checkbox" id="seg" value="Segunda">S </div> <div class="col-xs-1"> <input type="checkbox" id="ter" value="Terça">T </div> <div class="col-xs-1"> <input type="checkbox" id="qua" value="Quarta">Q </div> <div class="col-xs-1"> <input type="checkbox" id="qui" value="Quinta">Q </div> <div class="col-xs-1"> <input type="checkbox" id="sex" value="Sexta">S </div> <div class="col-xs-1"> <input type="checkbox" id="sab" value="Sábado">S </div> <div class="col-xs-1"> <input type="checkbox" id="dom" value="Domingo">D </div> </div> 
           $("#lista").html(itemlista);
 
         },
@@ -242,6 +242,30 @@ function listarServico(){
     });  
       
 }
+
+//Salvar Alterações do Serviço
+function alterarServico(codigo){
+  var parametros = {
+      "codigo": $("#codigo").val(),
+      "profissão": $("#profissao").val(),
+      "servico": $("#servico").val(),
+      "descricao": $("#descricao").val()
+
+    };
+    $.ajax({
+      type:"post", //como enviar
+      url:"https://onservicos.000webhostapp.com/editarServico.php", //para onde enviar
+      data:parametros, //o que enviar
+      //se der certo
+      success: function(data){
+         alert("Serviço atualizado com sucesso!");
+      },
+      //se der errado
+      error: function(data){
+        alert("Erro ao atualizar");
+      }
+    });
+};
 
 
 

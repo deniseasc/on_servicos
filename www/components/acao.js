@@ -136,33 +136,6 @@ function preencherPerfil(){
   });
 }
 
-//Lista serviços
-function listarServico(){
-
-   $.ajax({
-        type:"POST", //como enviar
-        url:"https://onservicos.000webhostapp.com/listaServico.php",//para onde enviar
-        dataType:'json',//o que enviar
-        //se der certo
-        success: function(data)
-        {
-          var itemlista = "";
-          $.each(data.profissional,function(i,dados){
-            itemlista += '<div class="box"> <div class="row"><div class="circle" value="'+dados.foto+'"> </div></div><div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="'+dados.nome+'"> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text"style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="'+dados.servico+'"> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="'+dados.descricao+'"> </div> </div> <br> <div class="row"> <div class="col-xs-6"> <button class="btn btn-danger btn-block" id="btnContatar" data-toggle="modal" data-target="#modalExemplo">Contatar</button> </div> </div> </div><br>  <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <br><br><br><br><br><br><br><br><br> <div class="modal-dialog" role="document"> <div class="modal-content" id="modal" > <div class="modal-header"> <h5 class="modal-title" id="exampleModalLabel">Contatar Profissional</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" id="modal-dentro"> <div class="row"> <div class="col-xs-6"> <a href="tel:'+dados.celular+'"><img src="img/WhatsApp-icone.png" id="imgModal" alt=""></a> </div> <div class="col-xs-6"><a href="https://wa.me/5513996857881?text=sua%20mensagem"><img src="img/agenda.png" id="imgModal" alt=""></a></div> </div> </div> <div class="modal-footer"> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">Fechar</button> </div> </div> </div> </div> </center>';
-          });
-
-          $("#servicos").html(itemlista);
-
-        },
-        //se der errado
-        error: function(data)
-        {
-          alert(data);
-          //navigator.notification.alert(data);
-        }
-    });  
-      
-}
 
 //Salvar Alterações do perfil
 $(document).on('click','#salvarEdit', function(){
@@ -202,6 +175,50 @@ $(document).on('click','#btnEditar',function(){
 $(document).on('click','#btnVoltar',function(){
   desabilita();
 })
+
+
+//INPUT DE PESQUISA
+$(document).on('click','#pesquisa',function(){
+  var valorInput = document.getElementById('texto');
+      if ((valorInput.value) == "Pedreiro" || "pedreiro"){
+         location.href = "xPedreiro.html";
+      }
+      if ((valorInput.value) == "Pintor" || "pintor"){
+         location.href = "xPintor.html";
+      }
+      // if ((valorInput.value) == "Encanador"|| "encanador"){
+      //    location.href = "xEncanador.html";
+      // }
+      //    if ((valorInput.value) == "jardineiro"|| "Jardineiro"){
+      //    location.href = "xJardineiro.html";
+      // }
+      //    if ((valorInput.value) == "Piscineiro"|| "piscineiro"){
+      //    location.href = "xPiscineiro.html";
+      // }
+      //    if ((valorInput.value) == "marceneiro"|| "Marceneiro"){
+      //    location.href = "xMarceneiro.html";
+      // }
+      //    if ((valorInput.value) == "mecanico"|| "Mecanico" || "Mecânico"|| "mecânico"){
+      //    location.href = "xMecanico.html";
+      // }
+      //    if ((valorInput.value) == "Eletricista"|| "eletricista"){
+      //    location.href = "xEletricista.html";
+      // }
+      //    if ((valorInput.value) == "vidraceiro"|| "Vidraceiro"){
+      //    location.href = "xVidraceiro.html";
+      // }
+      //    if ((valorInput.value) == "Eletrodomésticos"|| "eletrodomésticos"|| "técnico eletrodomésticos"||  "Técnico eletrodomésticos" || "técnico de eletrodomésticos" || "Técnico de eletrodomésticos"){
+      //    location.href = "xTecnico.html";
+      // }
+      //    if ((valorInput.value) == "chaveiro"|| "Chaveiro"){
+      //    location.href = "xChaveiro.html";
+      // }
+      //    if ((valorInput.value) == "Dedetizador"|| "dedetizador"){
+      //    location.href = "xDedetizador.html";
+      // }
+
+})
+      
 function desabilita(){
   $('#nome').prop('readonly', true);
   $('#cpf').prop('readonly', true);
@@ -234,6 +251,345 @@ function habilita(){
   $('#complemento').prop('readonly', false);
 }
 
+//Lista serviços
+function listarPedreiro(){
+
+   $.ajax({
+        type:"POST", //como enviar
+        url:"https://onservicos.000webhostapp.com/servicos/pedreiro.php",//para onde enviar
+        dataType:'json',//o que enviar
+        //se der certo
+        success: function(data)
+        {
+          var itemlista = "";
+          $.each(data.profissional,function(i,dados){
+            itemlista += '<div class="box"> <div class="row"><div class="circle" value="'+dados.foto+'"> </div></div><div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="'+dados.nome+'"> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text"style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="'+dados.servico+'"> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="'+dados.descricao+'"> </div> </div> <br> <div class="row"> <div class="col-xs-6"> <button class="btn btn-danger btn-block" id="btnContatar" data-toggle="modal" data-target="#modalExemplo">Contatar</button> </div> </div> </div><br>  <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <br><br><br><br><br><br><br><br><br> <div class="modal-dialog" role="document"> <div class="modal-content" id="modal" > <div class="modal-header"> <h5 class="modal-title" id="exampleModalLabel">Contatar Profissional</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" id="modal-dentro"><center> <div class="row"> <div class="col-xs-6"> <a href="https://wa.me/55'+dados.celular+'?text=sua%20mensagem"><img src="img/WhatsApp-icone.png" id="imgModal" alt=""></a> </div> <div class="col-xs-6"><a href="tel:'+dados.celular+'?text=sua%20mensagem"><img src="img/agenda.png" id="imgModal" alt=""></a></div> </div></center> </div> <div class="modal-footer"> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">Fechar</button> </div> </div> </div> </div> </center>';
+          });
+
+          $("#pedreiros").html(itemlista);
+
+        },
+        //se der errado
+        error: function(data)
+        {
+          alert(data);
+          //navigator.notification.alert(data);
+        }
+    });  
+      
+}
+
+//Lista serviços
+function listarPintor(){
+
+   $.ajax({
+        type:"POST", //como enviar
+        url:"https://onservicos.000webhostapp.com/servicos/pintor.php",//para onde enviar
+        dataType:'json',//o que enviar
+        //se der certo
+        success: function(data)
+        {
+          var itemlista = "";
+      $.each(data.profissional,function(i,dados){
+            itemlista += '<div class="box"> <div class="row"><div class="circle" value="'+dados.foto+'"> </div></div><div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="'+dados.nome+'"> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text"style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="'+dados.servico+'"> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="'+dados.descricao+'"> </div> </div> <br> <div class="row"> <div class="col-xs-6"> <button class="btn btn-danger btn-block" id="btnContatar" data-toggle="modal" data-target="#modalExemplo">Contatar</button> </div> </div> </div><br>  <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <br><br><br><br><br><br><br><br><br> <div class="modal-dialog" role="document"> <div class="modal-content" id="modal" > <div class="modal-header"> <h5 class="modal-title" id="exampleModalLabel">Contatar Profissional</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" id="modal-dentro"><center> <div class="row"> <div class="col-xs-6"> <a href="https://wa.me/55'+dados.celular+'?text=sua%20mensagem"><img src="img/WhatsApp-icone.png" id="imgModal" alt=""></a> </div> <div class="col-xs-6"><a href="tel:'+dados.celular+'?text=sua%20mensagem"><img src="img/agenda.png" id="imgModal" alt=""></a></div> </div></center> </div> <div class="modal-footer"> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">Fechar</button> </div> </div> </div> </div> </center>';
+          });
+
+          $("#pintor").html(itemlista);
+
+        },
+        //se der errado
+        error: function(data)
+        {
+          alert(data);
+          //navigator.notification.alert(data);
+        }
+    });  
+      
+}
+
+//Lista serviços
+function listarEncanador(){
+
+   $.ajax({
+        type:"POST", //como enviar
+        url:"https://onservicos.000webhostapp.com/servicos/encanador.php",//para onde enviar
+        dataType:'json',//o que enviar
+        //se der certo
+        success: function(data)
+        {
+          var itemlista = "";
+         $.each(data.profissional,function(i,dados){
+            itemlista += '<div class="box"> <div class="row"><div class="circle" value="'+dados.foto+'"> </div></div><div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="'+dados.nome+'"> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text"style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="'+dados.servico+'"> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="'+dados.descricao+'"> </div> </div> <br> <div class="row"> <div class="col-xs-6"> <button class="btn btn-danger btn-block" id="btnContatar" data-toggle="modal" data-target="#modalExemplo">Contatar</button> </div> </div> </div><br>  <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <br><br><br><br><br><br><br><br><br> <div class="modal-dialog" role="document"> <div class="modal-content" id="modal" > <div class="modal-header"> <h5 class="modal-title" id="exampleModalLabel">Contatar Profissional</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" id="modal-dentro"><center> <div class="row"> <div class="col-xs-6"> <a href="https://wa.me/55'+dados.celular+'?text=sua%20mensagem"><img src="img/WhatsApp-icone.png" id="imgModal" alt=""></a> </div> <div class="col-xs-6"><a href="tel:'+dados.celular+'?text=sua%20mensagem"><img src="img/agenda.png" id="imgModal" alt=""></a></div> </div></center> </div> <div class="modal-footer"> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">Fechar</button> </div> </div> </div> </div> </center>';
+          });
+
+          $("#servicos").html(itemlista);
+
+        },
+        //se der errado
+        error: function(data)
+        {
+          alert(data);
+          //navigator.notification.alert(data);
+        }
+    });  
+      
+}
+
+//Lista serviços
+function listarJardineiro(){
+
+   $.ajax({
+        type:"POST", //como enviar
+        url:"https://onservicos.000webhostapp.com/servicos/jardineiro.php",//para onde enviar
+        dataType:'json',//o que enviar
+        //se der certo
+        success: function(data)
+        {
+          var itemlista = "";
+       $.each(data.profissional,function(i,dados){
+            itemlista += '<div class="box"> <div class="row"><div class="circle" value="'+dados.foto+'"> </div></div><div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="'+dados.nome+'"> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text"style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="'+dados.servico+'"> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="'+dados.descricao+'"> </div> </div> <br> <div class="row"> <div class="col-xs-6"> <button class="btn btn-danger btn-block" id="btnContatar" data-toggle="modal" data-target="#modalExemplo">Contatar</button> </div> </div> </div><br>  <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <br><br><br><br><br><br><br><br><br> <div class="modal-dialog" role="document"> <div class="modal-content" id="modal" > <div class="modal-header"> <h5 class="modal-title" id="exampleModalLabel">Contatar Profissional</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" id="modal-dentro"><center> <div class="row"> <div class="col-xs-6"> <a href="https://wa.me/55'+dados.celular+'?text=sua%20mensagem"><img src="img/WhatsApp-icone.png" id="imgModal" alt=""></a> </div> <div class="col-xs-6"><a href="tel:'+dados.celular+'?text=sua%20mensagem"><img src="img/agenda.png" id="imgModal" alt=""></a></div> </div></center> </div> <div class="modal-footer"> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">Fechar</button> </div> </div> </div> </div> </center>';
+          });
+
+          $("#servicos").html(itemlista);
+
+        },
+        //se der errado
+        error: function(data)
+        {
+          alert(data);
+          //navigator.notification.alert(data);
+        }
+    });  
+      
+}
+
+//Lista serviços
+function listarPiscineiro(){
+
+   $.ajax({
+        type:"POST", //como enviar
+        url:"https://onservicos.000webhostapp.com/servicos/piscineiro.php",//para onde enviar
+        dataType:'json',//o que enviar
+        //se der certo
+        success: function(data)
+        {
+          var itemlista = "";
+       $.each(data.profissional,function(i,dados){
+            itemlista += '<div class="box"> <div class="row"><div class="circle" value="'+dados.foto+'"> </div></div><div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="'+dados.nome+'"> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text"style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="'+dados.servico+'"> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="'+dados.descricao+'"> </div> </div> <br> <div class="row"> <div class="col-xs-6"> <button class="btn btn-danger btn-block" id="btnContatar" data-toggle="modal" data-target="#modalExemplo">Contatar</button> </div> </div> </div><br>  <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <br><br><br><br><br><br><br><br><br> <div class="modal-dialog" role="document"> <div class="modal-content" id="modal" > <div class="modal-header"> <h5 class="modal-title" id="exampleModalLabel">Contatar Profissional</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" id="modal-dentro"><center> <div class="row"> <div class="col-xs-6"> <a href="https://wa.me/55'+dados.celular+'?text=sua%20mensagem"><img src="img/WhatsApp-icone.png" id="imgModal" alt=""></a> </div> <div class="col-xs-6"><a href="tel:'+dados.celular+'?text=sua%20mensagem"><img src="img/agenda.png" id="imgModal" alt=""></a></div> </div></center> </div> <div class="modal-footer"> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">Fechar</button> </div> </div> </div> </div> </center>';
+          });
+
+          $("#servicos").html(itemlista);
+
+        },
+        //se der errado
+        error: function(data)
+        {
+          alert(data);
+          //navigator.notification.alert(data);
+        }
+    });  
+      
+}
+
+
+//Lista serviços
+function listarMarceneiro(){
+
+   $.ajax({
+        type:"POST", //como enviar
+        url:"https://onservicos.000webhostapp.com/servicos/marceneiro.php",//para onde enviar
+        dataType:'json',//o que enviar
+        //se der certo
+        success: function(data)
+        {
+          var itemlista = "";
+         $.each(data.profissional,function(i,dados){
+            itemlista += '<div class="box"> <div class="row"><div class="circle" value="'+dados.foto+'"> </div></div><div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="'+dados.nome+'"> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text"style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="'+dados.servico+'"> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="'+dados.descricao+'"> </div> </div> <br> <div class="row"> <div class="col-xs-6"> <button class="btn btn-danger btn-block" id="btnContatar" data-toggle="modal" data-target="#modalExemplo">Contatar</button> </div> </div> </div><br>  <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <br><br><br><br><br><br><br><br><br> <div class="modal-dialog" role="document"> <div class="modal-content" id="modal" > <div class="modal-header"> <h5 class="modal-title" id="exampleModalLabel">Contatar Profissional</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" id="modal-dentro"><center> <div class="row"> <div class="col-xs-6"> <a href="https://wa.me/55'+dados.celular+'?text=sua%20mensagem"><img src="img/WhatsApp-icone.png" id="imgModal" alt=""></a> </div> <div class="col-xs-6"><a href="tel:'+dados.celular+'?text=sua%20mensagem"><img src="img/agenda.png" id="imgModal" alt=""></a></div> </div></center> </div> <div class="modal-footer"> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">Fechar</button> </div> </div> </div> </div> </center>';
+          });
+
+          $("#servicos").html(itemlista);
+
+        },
+        //se der errado
+        error: function(data)
+        {
+          alert(data);
+          //navigator.notification.alert(data);
+        }
+    });  
+      
+}
+
+//Lista serviços
+function listarMecanico(){
+
+   $.ajax({
+        type:"POST", //como enviar
+        url:"https://onservicos.000webhostapp.com/servicos/mecanico.php",//para onde enviar
+        dataType:'json',//o que enviar
+        //se der certo
+        success: function(data)
+        {
+          var itemlista = "";
+        $.each(data.profissional,function(i,dados){
+            itemlista += '<div class="box"> <div class="row"><div class="circle" value="'+dados.foto+'"> </div></div><div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="'+dados.nome+'"> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text"style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="'+dados.servico+'"> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="'+dados.descricao+'"> </div> </div> <br> <div class="row"> <div class="col-xs-6"> <button class="btn btn-danger btn-block" id="btnContatar" data-toggle="modal" data-target="#modalExemplo">Contatar</button> </div> </div> </div><br>  <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <br><br><br><br><br><br><br><br><br> <div class="modal-dialog" role="document"> <div class="modal-content" id="modal" > <div class="modal-header"> <h5 class="modal-title" id="exampleModalLabel">Contatar Profissional</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" id="modal-dentro"><center> <div class="row"> <div class="col-xs-6"> <a href="https://wa.me/55'+dados.celular+'?text=sua%20mensagem"><img src="img/WhatsApp-icone.png" id="imgModal" alt=""></a> </div> <div class="col-xs-6"><a href="tel:'+dados.celular+'?text=sua%20mensagem"><img src="img/agenda.png" id="imgModal" alt=""></a></div> </div></center> </div> <div class="modal-footer"> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">Fechar</button> </div> </div> </div> </div> </center>';
+          });
+
+          $("#servicos").html(itemlista);
+
+        },
+        //se der errado
+        error: function(data)
+        {
+          alert(data);
+          //navigator.notification.alert(data);
+        }
+    });  
+      
+}
+
+//Lista serviços
+function listarEletricista(){
+
+   $.ajax({
+        type:"POST", //como enviar
+        url:"https://onservicos.000webhostapp.com/servicos/eletricista.php",//para onde enviar
+        dataType:'json',//o que enviar
+        //se der certo
+        success: function(data)
+        {
+          var itemlista = "";
+        $.each(data.profissional,function(i,dados){
+            itemlista += '<div class="box"> <div class="row"><div class="circle" value="'+dados.foto+'"> </div></div><div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="'+dados.nome+'"> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text"style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="'+dados.servico+'"> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="'+dados.descricao+'"> </div> </div> <br> <div class="row"> <div class="col-xs-6"> <button class="btn btn-danger btn-block" id="btnContatar" data-toggle="modal" data-target="#modalExemplo">Contatar</button> </div> </div> </div><br>  <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <br><br><br><br><br><br><br><br><br> <div class="modal-dialog" role="document"> <div class="modal-content" id="modal" > <div class="modal-header"> <h5 class="modal-title" id="exampleModalLabel">Contatar Profissional</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" id="modal-dentro"><center> <div class="row"> <div class="col-xs-6"> <a href="https://wa.me/55'+dados.celular+'?text=sua%20mensagem"><img src="img/WhatsApp-icone.png" id="imgModal" alt=""></a> </div> <div class="col-xs-6"><a href="tel:'+dados.celular+'?text=sua%20mensagem"><img src="img/agenda.png" id="imgModal" alt=""></a></div> </div></center> </div> <div class="modal-footer"> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">Fechar</button> </div> </div> </div> </div> </center>';
+          });
+
+          $("#servicos").html(itemlista);
+
+        },
+        //se der errado
+        error: function(data)
+        {
+          alert(data);
+          //navigator.notification.alert(data);
+        }
+    });  
+      
+}
+
+//Lista serviços
+function listarVidraceiro(){
+
+   $.ajax({
+        type:"POST", //como enviar
+        url:"https://onservicos.000webhostapp.com/servicos/vidraceiro.php",//para onde enviar
+        dataType:'json',//o que enviar
+        //se der certo
+        success: function(data)
+        {
+          var itemlista = "";
+         $.each(data.profissional,function(i,dados){
+            itemlista += '<div class="box"> <div class="row"><div class="circle" value="'+dados.foto+'"> </div></div><div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="'+dados.nome+'"> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text"style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="'+dados.servico+'"> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="'+dados.descricao+'"> </div> </div> <br> <div class="row"> <div class="col-xs-6"> <button class="btn btn-danger btn-block" id="btnContatar" data-toggle="modal" data-target="#modalExemplo">Contatar</button> </div> </div> </div><br>  <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <br><br><br><br><br><br><br><br><br> <div class="modal-dialog" role="document"> <div class="modal-content" id="modal" > <div class="modal-header"> <h5 class="modal-title" id="exampleModalLabel">Contatar Profissional</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" id="modal-dentro"><center> <div class="row"> <div class="col-xs-6"> <a href="https://wa.me/55'+dados.celular+'?text=sua%20mensagem"><img src="img/WhatsApp-icone.png" id="imgModal" alt=""></a> </div> <div class="col-xs-6"><a href="tel:'+dados.celular+'?text=sua%20mensagem"><img src="img/agenda.png" id="imgModal" alt=""></a></div> </div></center> </div> <div class="modal-footer"> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">Fechar</button> </div> </div> </div> </div> </center>';
+          });
+
+          $("#servicos").html(itemlista);
+
+        },
+        //se der errado
+        error: function(data)
+        {
+          alert(data);
+          //navigator.notification.alert(data);
+        }
+    });  
+      
+}
+
+//Lista serviços
+function listarTecnico(){
+
+   $.ajax({
+        type:"POST", //como enviar
+        url:"https://onservicos.000webhostapp.com/servicos/eletrodomestico.php",//para onde enviar
+        dataType:'json',//o que enviar
+        //se der certo
+        success: function(data)
+        {
+          var itemlista = "";
+       $.each(data.profissional,function(i,dados){
+            itemlista += '<div class="box"> <div class="row"><div class="circle" value="'+dados.foto+'"> </div></div><div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="'+dados.nome+'"> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text"style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="'+dados.servico+'"> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="'+dados.descricao+'"> </div> </div> <br> <div class="row"> <div class="col-xs-6"> <button class="btn btn-danger btn-block" id="btnContatar" data-toggle="modal" data-target="#modalExemplo">Contatar</button> </div> </div> </div><br>  <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <br><br><br><br><br><br><br><br><br> <div class="modal-dialog" role="document"> <div class="modal-content" id="modal" > <div class="modal-header"> <h5 class="modal-title" id="exampleModalLabel">Contatar Profissional</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" id="modal-dentro"><center> <div class="row"> <div class="col-xs-6"> <a href="https://wa.me/55'+dados.celular+'?text=sua%20mensagem"><img src="img/WhatsApp-icone.png" id="imgModal" alt=""></a> </div> <div class="col-xs-6"><a href="tel:'+dados.celular+'?text=sua%20mensagem"><img src="img/agenda.png" id="imgModal" alt=""></a></div> </div></center> </div> <div class="modal-footer"> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">Fechar</button> </div> </div> </div> </div> </center>';
+          });
+
+          $("#servicos").html(itemlista);
+
+        },
+        //se der errado
+        error: function(data)
+        {
+          alert(data);
+          //navigator.notification.alert(data);
+        }
+    });  
+      
+}
+
+//Lista serviços
+function listarChaveiro(){
+
+   $.ajax({
+        type:"POST", //como enviar
+        url:"https://onservicos.000webhostapp.com/servicos/chaveiro.php",//para onde enviar
+        dataType:'json',//o que enviar
+        //se der certo
+        success: function(data)
+        {
+          var itemlista = "";
+       $.each(data.profissional,function(i,dados){
+            itemlista += '<div class="box"> <div class="row"><div class="circle" value="'+dados.foto+'"> </div></div><div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="'+dados.nome+'"> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text"style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="'+dados.servico+'"> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="'+dados.descricao+'"> </div> </div> <br> <div class="row"> <div class="col-xs-6"> <button class="btn btn-danger btn-block" id="btnContatar" data-toggle="modal" data-target="#modalExemplo">Contatar</button> </div> </div> </div><br>  <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <br><br><br><br><br><br><br><br><br> <div class="modal-dialog" role="document"> <div class="modal-content" id="modal" > <div class="modal-header"> <h5 class="modal-title" id="exampleModalLabel">Contatar Profissional</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" id="modal-dentro"><center> <div class="row"> <div class="col-xs-6"> <a href="https://wa.me/55'+dados.celular+'?text=sua%20mensagem"><img src="img/WhatsApp-icone.png" id="imgModal" alt=""></a> </div> <div class="col-xs-6"><a href="tel:'+dados.celular+'?text=sua%20mensagem"><img src="img/agenda.png" id="imgModal" alt=""></a></div> </div></center> </div> <div class="modal-footer"> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">Fechar</button> </div> </div> </div> </div> </center>';
+          });
+
+          $("#servicos").html(itemlista);
+
+        },
+        //se der errado
+        error: function(data)
+        {
+          alert(data);
+          //navigator.notification.alert(data);
+        }
+    });  
+      
+}
+
+//Lista serviços
+function listarDedetizador(){
+
+   $.ajax({
+        type:"POST", //como enviar
+        url:"https://onservicos.000webhostapp.com/servicos/dedetizador.php",//para onde enviar
+        dataType:'json',//o que enviar
+        //se der certo
+        success: function(data)
+        {
+          var itemlista = "";
+       $.each(data.profissional,function(i,dados){
+            itemlista += '<div class="box"> <div class="row"><div class="circle" value="'+dados.foto+'"> </div></div><div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="'+dados.nome+'"> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text"style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="'+dados.servico+'"> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="'+dados.descricao+'"> </div> </div> <br> <div class="row"> <div class="col-xs-6"> <button class="btn btn-danger btn-block" id="btnContatar" data-toggle="modal" data-target="#modalExemplo">Contatar</button> </div> </div> </div><br>  <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <br><br><br><br><br><br><br><br><br> <div class="modal-dialog" role="document"> <div class="modal-content" id="modal" > <div class="modal-header"> <h5 class="modal-title" id="exampleModalLabel">Contatar Profissional</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" id="modal-dentro"><center> <div class="row"> <div class="col-xs-6"> <a href="https://wa.me/55'+dados.celular+'?text=sua%20mensagem"><img src="img/WhatsApp-icone.png" id="imgModal" alt=""></a> </div> <div class="col-xs-6"><a href="tel:'+dados.celular+'?text=sua%20mensagem"><img src="img/agenda.png" id="imgModal" alt=""></a></div> </div></center> </div> <div class="modal-footer"> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">Fechar</button> </div> </div> </div> </div> </center>';
+          });
+
+          $("#servicos").html(itemlista);
+
+        },
+        //se der errado
+        error: function(data)
+        {
+          alert(data);
+          //navigator.notification.alert(data);
+        }
+    });  
+      
+}
+
+
+
 //BOTÕES COM REDIRECIONAMENTO
 function home(){
   location.href = "home.html";
@@ -244,19 +600,19 @@ function perfil(){
 }
 
 function pedreiro(){
-  location.href = "listaserv.html";
+  location.href = "xPedreiro.html";
 }
 
 function pintor(){
-  location.href = "listaserv.html";
+  location.href = "xPintor.html";
 }
 
 function encanador(){
-  location.href = "listaserv.html";
+  location.href = "xEncanador.html";
 }
 
 function jardineiro(){
-  location.href = "listaserv.html";
+  location.href = "xJardineiro.html";
 }
 
 function piscineiro(){
@@ -272,29 +628,35 @@ function voltarHome(){
 }
 
 function marceneiro(){
-  location.href = "listaserv.html";
+  location.href = "xMarceneiro.html";
 }
 
 function mecanico(){
-  location.href = "listaserv.html";
+  location.href = "xMecanico.html";
 }
 
 function eletricista(){
-  location.href = "listaserv.html";
+  location.href = "xEletricista.html";
 }
 
 function vidraceiro(){
-  location.href = "listaserv.html";
+  location.href = "xVidraceiro.html";
 }
 
 function tecnico(){
-  location.href = "listaserv.html";
+  location.href = "xTecnico.html";
 }
 
 function chaveiro(){
-  location.href = "listaserv.html";
+  location.href = "xChaveiro.html";
 }
 
 function dedetizador(){
-  location.href = "listaserv.html";
+  location.href = "xDedetizador.html";
+}
+
+function pesquisa(){
+  if (pesquisa = value == "Pedreiro"){
+    location.href("xPedreiro.html")
+  }
 }
