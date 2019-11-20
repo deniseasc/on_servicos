@@ -68,7 +68,7 @@ $(document).on('click','#btnSalvar2', function(){
 });
 
 //Salvar Alterações do perfil
-$(document).on('click','#btnSalvar', function(){
+$(document).on('click','#salvarEdit', function(){
   var parametros = {
       "codigo": localStorage.getItem('cdProf'),
       "nome": $("#nome").val(),
@@ -76,7 +76,6 @@ $(document).on('click','#btnSalvar', function(){
       "email": $("#email").val(),
       "celular": $("#celular").val(),
       "login": $("#login").val(),
-
       "cep": $("#cep").val(),
       "estado": $("#estado").val(),
       "cidade": $("#cidade").val(),
@@ -87,7 +86,7 @@ $(document).on('click','#btnSalvar', function(){
     };
     $.ajax({
       type:"post", //como enviar
-      url:"https://onservicos.000webhostapp.com/atualizarperfilprofissional.php", //para onde enviar
+      url:"https://onservicos.000webhostapp.com/atualizarperfilProfissional.php", //para onde enviar
       data:parametros, //o que enviar
       //se der certo
       success: function(data){
@@ -202,7 +201,7 @@ function preencherPerfil(){
           $("#estado").val(data.perfil.estado);
           $("#cidade").val(data.perfil.cidade);
           $("#bairro").val(data.perfil.bairro);
-          $("#endereco").val(data.perfil.endereco);
+          $("#rua").val(data.perfil.rua);
           $("#numero").val(data.perfil.numero);
           $("#complemento").val(data.perfil.complemento);
       },
@@ -372,7 +371,7 @@ function desabilita(){
   $('#estado').prop('readonly', true);
   $('#cidade').prop('readonly', true);
   $('#bairro').prop('readonly', true);
-  $('#endereco').prop('readonly', true);
+  $('#rua').prop('readonly', true);
   $('#numero').prop('readonly', true);
   $('#complemento').prop('readonly', true);
   $('#profissao').prop('readonly', true);
@@ -391,7 +390,7 @@ function habilita(){
   $('#estado').prop('readonly', false);
   $('#cidade').prop('readonly', false);
   $('#bairro').prop('readonly', false);
-  $('#endereco').prop('readonly', false);
+  $('#rua').prop('readonly', false);
   $('#numero').prop('readonly', false);
   $('#complemento').prop('readonly', false);
 }

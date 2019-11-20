@@ -45,10 +45,25 @@
 
 			<div class="row">
 				<div class="col-xs-12">
+					<a href="#" data-toggle="modal" data-target="#modalSenha"><button class="btn btn-info btn-block" id="btn"> Alterar senha </button></a>
+					<hr id="hr">
+				</div>
+			</div>
+
+      <div class="row">
+				<div class="col-xs-12">
 					<a href="#" data-toggle="modal" data-target="#myModal"><button class="btn btn-info btn-block" id="btn"> Sair </button></a>
 					<hr id="hr">
 				</div>
 			</div>
+
+      <div class="row">
+				<div class="col-xs-12">
+					<a href="#" data-toggle="modal" data-target="#modalServico"><button class="btn btn-info btn-block" id="btn">excluir serviço</button></a>
+					<hr id="hr">
+				</div>
+			</div>
+
 		</div>
 	</div>
 
@@ -82,29 +97,24 @@
 			</div>
 
 			<div class="row">
-				<div class="col-xs-12">
+				<div class="col-xs-6">
 					<label>Cpf:</label>
 					<input type="text" readonly id="cpf">
 				</div>
-			</div>
 
-
-			<div class="row">
-				<div class="col-xs-12">
+				<div class="col-xs-6">
 					<label>Celular:</label>
 					<input type="number" id="celular" readonly>
 				</div>
 			</div>
 
 			<div class="row">
-				<div class="col-xs-12">
+				<div class="col-xs-8">
 					<label>E-mail:</label>
 					<input type="text" id="email" readonly>
 				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-xs-8">
+        
+				<div class="col-xs-4">
 					<label>Login:</label>
 					<input type="text" id="login" readonly>
 				</div>
@@ -126,31 +136,31 @@
 			<div class="row">
 				<div class="col-xs-6">
 					<label>Cidade:</label>
-					<input type="text" id="cidade" placeholder="Itanhaem" readonly>
+					<input type="text" id="cidade" readonly>
 				</div>
 
 				<div class="col-xs-6">
 					<label>Bairro:</label>
-					<input type="text" id="bairro" placeholder="Gaivota" readonly>
+					<input type="text" id="bairro" readonly>
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="col-xs-6">
 					<label>Endereço:</label>
-					<input type="text" id="rua" placeholder="Rua Brigadeiro" readonly>
+					<input type="text" id="rua" readonly>
 				</div>
 
 				<div class="col-xs-6">
 					<label>Número:</label>
-					<input type="number" id="numero" placeholder="123" readonly>
+					<input type="number" id="numero" readonly>
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="col-xs-12">
 					<label>Complemento:</label>
-					<input type="text" id="complemento" placeholder="Casa" readonly>
+					<input type="text" id="complemento" readonly>
 				</div>
 			</div><br>
 
@@ -171,7 +181,7 @@
 
 		</div>
 
-		<!-- Modal -->
+		<!-- Modal SAIR -->
 			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 				<div class="modal-dialog modal-sm" role="document">
 					<div class="modal-content">
@@ -184,8 +194,68 @@
 							Deseja sair?
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
-							<a class="btn btn-primary" href="index.html">Sim</a>
+							<a class="btn btn-primary" id="sairModal" href="index.html">Sim</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+	<!-- Modal SERVIÇO (ISSO É A PAG DO USUARIO NÃO CONFUNDIR PUFAVÔOOOOOOO) -->
+			<div class="modal fade" id="modalServico" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog modal-sm" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+        </button>
+							<h4 class="modal-title" id="myModalLabel">Excluir serviço</h4>
+						</div>
+						<div class="modal-body">
+						Deseja realmente excluir este serviço?
+						</div>
+						<div class="modal-footer">
+							<button type="button" id="fechaServico"class="btn btn-default" data-dismiss="modal">Cancelar</button>
+              	<button type="button" id="excluiServico" class="btn btn-default" data-dismiss="modal">Sim</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+      <!-- Modal ALTERAR SENHA -->
+			<div class="modal fade" id="modalSenha" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog modal-sm" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+        </button>
+							<h4 class="modal-title" id="myModalLabel">Alterar senha</h4>
+						</div>
+						<div class="senhaModal">
+							<div class="row">
+                <div class="col-xs-8">
+                  <br>
+                  <label>Senha atual:</label>
+                  <input id="" type="text"></input>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-8">
+                  <label>Nova senha:</label>
+                  <input id="newSenha" type="password"></input>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-8">
+                  <label>Confirmar nova senha:</label>
+                  <input id="conf" type="password"></input>
+                </div>
+              </div>
+              <br>
+						</div>
+						<div class="modal-footer">
+							<button type="button" id="fechaSenha" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+              <button type="button" id="alteraSenha" class="btn btn-default">Alterar</button>
 						</div>
 					</div>
 				</div>

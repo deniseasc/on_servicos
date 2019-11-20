@@ -174,67 +174,45 @@ input[type="number"] {
   border-left: 2px solid #0e97a5;
   border-right: 2px solid #0e97a5;
 }
-#btnEditar{
+
+#btnSalvar, #btnConta, #btnContatar, #editar, #editarServ, #salvarServ, #btnEditar, #salvarEdit {
   background: linear-gradient(to right, #0e97a5, #20b6b9);
   border: none;
   color: white;
   text-decoration: none;
 }
-#btnSalvar{
-  background: linear-gradient(to right, #0e97a5, #20b6b9);
-  border: none;
-  color: white;
-  text-decoration: none;
-}
-#btnVoltar{
-  background: linear-gradient(to right, #0e97a5, #20b6b9);
-  border: none;
-  color: white;
-  text-decoration: none;
-}
-#btnConta{
-  background: linear-gradient(to right, #0e97a5, #20b6b9);
-  border: none;
-  color: white;
-  text-decoration: none;
-}
-#btnServico{
-  background: linear-gradient(to right, #0e97a5, #20b6b9);
-  border: none;
-  color: white;
-  text-decoration: none;
-}
-#btnExcluir{
+
+#fechaSenha, #sairModal, #btnExcluir, #btnServico, #btnVoltar {
   background: linear-gradient(to right, #106770, #23929e);
   border: none;
   color: white;
   text-decoration: none;
 }
-#editarServ{
+
+#fechaSenha {
   background: linear-gradient(to right, #106770, #23929e);
   border: none;
   color: white;
   text-decoration: none;
+  width: 22%;
 }
-#salvarServ{
-  background: linear-gradient(to right, #106770, #23929e);
-  border: none;
-  color: white;
-  text-decoration: none;
-}
-#btnContatar{
-  background: linear-gradient(to right, #106770, #23929e);
-  border: none;
-  color: white;
-  text-decoration: none;
-  margin-left: 109%;
-}
-#editar{
+
+#alteraSenha{
   background: linear-gradient(to right, #0e97a5, #20b6b9);
   border: none;
   color: white;
   text-decoration: none;
+   width: 22%;
 }
+
+
+#s1{
+  margin-top:10%;
+  }
+  #j1{
+  margin-top:8%;
+  margin-left: -60%;
+  }
 #foto{
   margin-left: 35%;
 }
@@ -297,9 +275,6 @@ h3, h5{
   width: 100px;
 }
 
-#btnContatar{
-
-}
 /* .circleicon {
   background-color: #aaa;
   border-radius: 50%;
@@ -421,4 +396,7 @@ h3, h5{
 #modal-dentro{
   background-color: #f1f1f1;
 
+}
+.senhaModal{
+ margin-left: 25%;
 }

@@ -18,15 +18,11 @@
 h2 {
   text-align: center;
 }
-#btnProximo {
-  background: linear-gradient(to right, #0e97a5, #20b6b9);
-  border: none;
-  color: white;
-  text-decoration: none;
-}
+
 input[type="text"],
 input[type="password"],
 input[type="number"],
+input[type="file"],
 select,
 textarea {
   border-radius: 2px;
@@ -43,6 +39,9 @@ select {
   border-left: 2px solid #0e97a5;
   border-right: 2px solid #0e97a5;
 }
+input[type="file"] {
+  border: transparent;
+}
 textarea{
   border-top: 2px solid #0e97a5;
   border-bottom: 2px solid #0e97a5;
@@ -58,42 +57,21 @@ input[type="text"]:focus,
   border-left: 2px solid #20b6b9;
   border-right: 2px solid #20b6b9;
 }
-#btnSalvar{
+#btnCancelar, #btnVolt {
+  background: linear-gradient(to right, #106770, #23929e);
+  border: none;
+  color: white;
+  text-decoration: none;
+}
+
+#btnSalvar, #btnContinuar, #btnSalvar2 , #btnProximo , #btnFinalizar {
   background: linear-gradient(to right, #0e97a5, #20b6b9);
   border: none;
   color: white;
   text-decoration: none;
 }
-#btnSalvar2{
-  background: linear-gradient(to right, #0e97a5, #20b6b9);
-  border: none;
-  color: white;
-  text-decoration: none;
-}
-#btnCancelar{
-  background: linear-gradient(to right, #0e97a5, #20b6b9);
-  border: none;
-  color: white;
-  text-decoration: none;
-}
-#btnContinuar{
-  background: linear-gradient(to right, #0e97a5, #20b6b9);
-  border: none;
-  color: white;
-  text-decoration: none;
-}
-#btnVolt{
-  background: linear-gradient(to right, #0e97a5, #20b6b9);
-  border: none;
-  color: white;
-  text-decoration: none;
-}
-#btnFinalizar{
-  background: linear-gradient(to right, #0e97a5, #20b6b9);
-  border: none;
-  color: white;
-  text-decoration: none;
-}
+
+
 ::-webkit-input-placeholder {
    color: black; /* cor do placeholder*/
 }

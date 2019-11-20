@@ -74,3 +74,11 @@ $(document).on("click","#btnExcluir",function(){
         }
     }); 
 });
+
+//Alterar Senha
+$(document).on("click", "#alteraSenha", function(){
+
+  // $ajax({
+
+  // });
+});

@@ -31,18 +31,13 @@ h2 {
   color: white;
   text-decoration: none;
 }
-#cadastra {
+#cadastra, #cadastraDados {
   margin-left: 11%;
   background-color: transparent;
   color: #20b6b9;
   border-color: #0e97a5;
 }
-#cadastraDados {
-  margin-left: 11%;
-  background-color: transparent;
-  color: #20b6b9;
-  border-color: #0e97a5;
-}
+
 input[type="text"],
 input[type="password"],
 input[type = "number"] {
