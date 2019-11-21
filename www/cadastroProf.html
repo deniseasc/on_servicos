@@ -7,6 +7,7 @@
 
   <script src="components/jquery-3.4.1.min.js"></script>
   <script src="components/acaoprof.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 
   <script src="https://kit.fontawesome.com/be184030a6.js"></script><!-- link font awesome-->
   <link rel="stylesheet" href="css/cadastro.css">
@@ -24,6 +25,15 @@
   });
    });
 
+</script>
+
+<script>
+    $(document).ready(function () { 
+    
+        var $cpf = $("#cpf");
+        $cpf.mask('000.000.000-00', {reverse: false});
+        
+    });
 </script>
 
 </head>
@@ -58,7 +68,14 @@
     <div class="row">
       <div class="col-xs-12">
         <label>CPF:</label>
-        <input type="number" name="cpf" id="cpf" maxlength="60" placeholder="CPF">
+        <input type="text" name="cpf" id="cpf" placeholder="CPF">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <label>Escolha uma foto:</label>
+        <input type="file" id="caminho2">
       </div>
     </div>
 

@@ -34,37 +34,49 @@ $(document).ready(function () {
 		});
 
 //Cadastro Profissional
-$(document).on('click','#btnSalvar2', function(){
-  var parametros = {
-      "nome": $("#nome").val(),
-      "cpf": $("#cpf").val(),
-      "email": $("#email").val(),
-      "celular": $("#celular").val(),
-      "login": $("#login").val(),
-      "senha": $("#senha").val(),
+$(document).on("click","#btnSalvar2",function(){
+   
+    var prop = document.getElementById('caminho2').files[0];
+    var nome_imagem = prop.name;
+    var extensao_imagem = nome_imagem.split('.').pop().toLowerCase();
+    
+    if(jQuery.inArray(extensao_imagem,['png','jpg','jpeg']) == -1){
+        navigator.notification.alert("imagem invalida");
+    }else{
+      var form_data = new FormData();
+      form_data.append("foto",prop);
+      form_data.append("nome",$("#nome").val());
+      form_data.append("cpf",$("#cpf").val());
+      form_data.append("email",$("#email").val());
+      form_data.append("celular",$("#celular").val());
+      form_data.append("login",$("#login").val());
+      form_data.append("senha",$("#senha").val());
 
-      "cep": $("#cep").val(),
-      "estado": $("#estado").val(),
-      "cidade": $("#cidade").val(),
-      "bairro": $("#bairro").val(),
-      "rua": $("#rua").val(),
-      "numero": $("#numero").val(),
-      "complemento": $("#complemento").val()
-    };
-    $.ajax({
-      type:"post", //como enviar
-      url:"https://onservicos.000webhostapp.com/cadastraProf.php", //para onde enviar
-      data:parametros, //o que enviar
-      //se der certo
-      success: function(data){
-         alert("Cadastro realizado com sucesso!");
-         location.href="loginProfissional.html";
-      },
-      //se der errado
-      error: function(data){
-        alert("Erro ao cadastrar");
-      }
-    });
+      form_data.append("cep",$("#cep").val());
+      form_data.append("estado",$("#estado").val());
+      form_data.append("cidade",$("#cidade").val());
+      form_data.append("bairro",$("#bairro").val());
+      form_data.append("rua",$("#rua").val());
+      form_data.append("numero",$("#numero").val());
+      form_data.append("complemento",$("#complemento").val());
+
+      $.ajax({
+        url:"https://onservicos.000webhostapp.com/cadastraProf.php", //para onde enviar
+        method:'POST',
+        data:form_data,
+        contentType:false,
+        cache:false,
+        processData:false,
+        success:function(data){
+          alert("Cadastro realizado com sucesso!");
+          location.href="index.html";
+        },
+       //se der errado
+       error: function(data){
+         alert("Erro ao cadastrar");
+       }
+      });
+    }    
 });
 
 //Salvar Alterações do perfil

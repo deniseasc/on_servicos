@@ -59,42 +59,7 @@ function validarSenha()
    }
 }
 
-// Cadastrar usuário
-// $(document).on('click','#btnSalvar', function(){
-//   var parametros = {
-//       "nome": $("#nome").val(),
-//       "cpf": $("#cpf").val(),
-//       "email": $("#email").val(),
-//       "celular": $("#celular").val(),
-//       "login": $("#login").val(),
-//       "senha": $("#senha").val(),
-      
-//       "cep": $("#cep").val(),
-//       "estado": $("#estado").val(),
-//       "cidade": $("#cidade").val(),
-//       "bairro": $("#bairro").val(),
-//       "rua": $("#rua").val(),
-//       "numero": $("#numero").val(),
-//       "complemento": $("#complemento").val()
-      
-//     };
-//     $.ajax({
-//       type:"post", //como enviar
-//       url:"https://onservicos.000webhostapp.com/cadastraUsu.php", //para onde enviar
-//       data:parametros, //o que enviar
-//       //se der certo
-//       success: function(data){
-//          alert("Cadastro realizado com sucesso!");
-//          location.href="index.html";
-//       },
-//       //se der errado
-//       error: function(data){
-//         alert("Erro ao cadastrar");
-//       }
-//     });
-// });
-
-var urlImage;
+//Cadastrar Usuário
 $(document).on("click","#btnSalvar",function(){
    
     var prop = document.getElementById('caminho').files[0];
@@ -122,8 +87,8 @@ $(document).on("click","#btnSalvar",function(){
       form_data.append("complemento",$("#complemento").val());
 
       $.ajax({
-        url:"https://onservicos.000webhostapp.com/cadastra.php", //para onde enviar
-        type:'POST',
+        url:"https://onservicos.000webhostapp.com/cadastraUsu.php", //para onde enviar
+        method:'POST',
         data:form_data,
         contentType:false,
         cache:false,
@@ -134,11 +99,49 @@ $(document).on("click","#btnSalvar",function(){
         },
        //se der errado
        error: function(data){
-         alert("Erroooooooooooooooooooooooo");
+         alert("Erro ao cadastrar");
        }
       });
     }    
 });
+
+function validarCPF(){	
+  
+	cpf = cpf.replace(/[^\d]+/g,'');	
+	if(cpf == '') return false;	
+	// Elimina CPFs invalidos conhecidos	
+	if (cpf.length != 11 || 
+		cpf == "00000000000" || 
+		cpf == "11111111111" || 
+		cpf == "22222222222" || 
+		cpf == "33333333333" || 
+		cpf == "44444444444" || 
+		cpf == "55555555555" || 
+		cpf == "66666666666" || 
+		cpf == "77777777777" || 
+		cpf == "88888888888" || 
+		cpf == "99999999999")
+			return false;		
+	// Valida 1o digito	
+	add = 0;	
+	for (i=0; i < 9; i ++)		
+		add += parseInt(cpf.charAt(i)) * (10 - i);	
+		rev = 11 - (add % 11);	
+		if (rev == 10 || rev == 11)		
+			rev = 0;	
+		if (rev != parseInt(cpf.charAt(9)))		
+			return false;		
+	// Valida 2o digito	
+	add = 0;	
+	for (i = 0; i < 10; i ++)		
+		add += parseInt(cpf.charAt(i)) * (11 - i);	
+	rev = 11 - (add % 11);	
+	if (rev == 10 || rev == 11)	
+		rev = 0;	
+	if (rev != parseInt(cpf.charAt(10)))
+		return false;		
+	return true;   
+}
 
 //login usuario
 $(document).on('click','#btnEntrar', function(){
@@ -176,6 +179,7 @@ $(document).on('click','#btnEntrar', function(){
     }
   });
 });
+
 ////listar perfil usuario
 function preencherPerfil(){
   $.ajax({
@@ -206,6 +210,39 @@ function preencherPerfil(){
       }
   });
 }
+
+function desabilita(){
+  $('#nome').prop('readonly', true);
+  $('#cpf').prop('readonly', true);
+  $('#celular').prop('readonly', true);
+  $('#email').prop('readonly', true);
+  $('#login').prop('readonly', true);
+  $('#senha').prop('readonly', true);
+  $('#cep').prop('readonly', true);
+  $('#estado').prop('readonly', true);
+  $('#cidade').prop('readonly', true);
+  $('#bairro').prop('readonly', true);
+  $('#rua').prop('readonly', true);
+  $('#numero').prop('readonly', true);
+  $('#complemento').prop('readonly', true);
+}
+
+function habilita(){
+  $('#nome').prop('readonly', false);
+  $('#cpf').prop('readonly', false);
+  $('#celular').prop('readonly', false);
+  $('#email').prop('readonly', false);
+  $('#login').prop('readonly', false);
+  $('#senha').prop('readonly', false);
+  $('#cep').prop('readonly', false);
+  $('#estado').prop('readonly', false);
+  $('#cidade').prop('readonly', false);
+  $('#bairro').prop('readonly', false);
+  $('#rua').prop('readonly', false);
+  $('#numero').prop('readonly', false);
+  $('#complemento').prop('readonly', false);
+}
+
 //Salvar Alterações do perfil
 $(document).on('click','#salvarEdit', function(){
   var parametros = {
@@ -287,38 +324,6 @@ $(document).on('click','#pesquisa',function(){
       // }
 
 })
-      
-function desabilita(){
-  $('#nome').prop('readonly', true);
-  $('#cpf').prop('readonly', true);
-  $('#celular').prop('readonly', true);
-  $('#email').prop('readonly', true);
-  $('#login').prop('readonly', true);
-  $('#senha').prop('readonly', true);
-  $('#cep').prop('readonly', true);
-  $('#estado').prop('readonly', true);
-  $('#cidade').prop('readonly', true);
-  $('#bairro').prop('readonly', true);
-  $('#rua').prop('readonly', true);
-  $('#numero').prop('readonly', true);
-  $('#complemento').prop('readonly', true);
-}
-
-function habilita(){
-  $('#nome').prop('readonly', false);
-  $('#cpf').prop('readonly', false);
-  $('#celular').prop('readonly', false);
-  $('#email').prop('readonly', false);
-  $('#login').prop('readonly', false);
-  $('#senha').prop('readonly', false);
-  $('#cep').prop('readonly', false);
-  $('#estado').prop('readonly', false);
-  $('#cidade').prop('readonly', false);
-  $('#bairro').prop('readonly', false);
-  $('#rua').prop('readonly', false);
-  $('#numero').prop('readonly', false);
-  $('#complemento').prop('readonly', false);
-}
 
 //Lista serviços
 function listarPedreiro(){
@@ -332,7 +337,7 @@ function listarPedreiro(){
         {
           var itemlista = "";
           $.each(data.profissional,function(i,dados){
-            itemlista += '<div class="box"> <div class="row"><div class="circle" value="'+dados.foto+'"> </div></div><div class="row"><div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="'+dados.nome+'"> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text"style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="'+dados.servico+'"> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="'+dados.descricao+'"> </div> </div> <br> <div class="row"><div class ="col-xs-3"><a href="javascript:void(0)" onclick="Favoritar(1)"> <img src="img/core.png" id="s1"></a></div> <div class="col-xs-3"><a href="javascript:void(0)" onclick="Recomendar(1)"> <img src="img/joiaa2.png" id="j1"></a> </div> <div class="col-xs-6"> <button class="btn btn-danger btn-block" id="btnContatar" data-toggle="modal" data-target="#modalExemplo">Contatar</button> </div> </div> </div><br>  <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <br><br><br><br><br><br><br><br><br> <div class="modal-dialog" role="document"> <div class="modal-content" id="modal" > <div class="modal-header"> <h5 class="modal-title" id="exampleModalLabel">Contatar Profissional</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" id="modal-dentro"><center> <div class="row"> <div class="col-xs-6"> <a href="https://wa.me/55'+dados.celular+'"><img src="img/WhatsApp-icone.png" id="imgModal" alt=""></a> </div> <div class="col-xs-6"><a href="tel:'+dados.celular+'"><img src="img/agenda.png" id="imgModal" alt=""></a></div> </div></center> </div> <div class="modal-footer"> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">Fechar</button> </div> </div> </div> </div>';
+            itemlista += '<div class="box"> <div class="row"> <div class="circle" value="'+dados.foto+'"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="'+dados.nome+'"> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="'+dados.servico+'"> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="'+dados.descricao+'"> </div> </div> <br> <div class="row"> <div class="col-xs-3"><img src="img/core.png" onclick="Favoritar()" id="s1"></div> <div class="col-xs-3">  <img src="img/joiaa2.png" onclick="recomendar()"id="j1"> </div> <div class="col-xs-6"> <button class="btn btn-danger btn-block" id="btnContatar" data-toggle="modal" data-target="#modalExemplo">Contatar</button> </div> </div> </div><br> <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <br><br><br><br><br><br><br><br><br> <div class="modal-dialog" role="document"> <div class="modal-content" id="modal"> <div class="modal-header"> <h5 class="modal-title" id="exampleModalLabel">Contatar Profissional</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" id="modal-dentro"> <center> <div class="row"> <div class="col-xs-6"> <a href="https://wa.me/55'+dados.celular+'"><img src="img/WhatsApp-icone.png" id="imgModal" alt=""></a> </div> <div class="col-xs-6"><a href="tel:'+dados.celular+'"><img src="img/agenda.png" id="imgModal" alt=""></a></div> </div> </center> </div> <div class="modal-footer"> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">Fechar</button> </div> </div> </div> </div>';
           });
 
           $("#pedreiros").html(itemlista);
@@ -658,50 +663,67 @@ function listarDedetizador(){
 }
 
 //Favoritar
-function Favoritar() {
- var url = window.location;
- url = url.toString()
- url = url.split("xPedreiro.html");
- url = url[0];
+// function Favoritar() {
+//  var url = window.location;
+//  url = url.toString()
+//  url = url.split("xPedreiro.html");
+//  url = url[0];
 
- var s1 = document.getElementById("s1").src;
- var favorito = 0;
+//  var s1 = document.getElementById("s1").src;
+//  var favorito = 0;
 
-if (favorito == 0){ 
- if (s1 == url + "img/core.png") {
- document.getElementById("s1").src = "img/core2.png";
- favorito = 1;
- } 
-}
-else (favorito == 1)
- if (s1 == url + "img/core2.png") {
- document.getElementById("s1").src = "img/core.png";
- favorito = 0;
- } 
-}
+// if (favorito == 0){ 
+//  if (s1 == url + "img/core.png") {
+//  document.getElementById("s1").src = "img/core2.png";
+//  favorito = 1;
+//  } 
+// }
+// else (favorito == 1)
+//  if (s1 == url + "img/core2.png") {
+//  document.getElementById("s1").src = "img/core.png";
+//  favorito = 0;
+//  } 
+// }
 
 //Recomendar
-function Recomendar() {
- var url = window.location;
- url = url.toString()
- url = url.split("xPedreiro.html");
- url = url[0];
-
- var j1 = document.getElementById("j1").src;
- var recomenda = 0;
-
-if (recomenda == 0){ 
- if (j1 == url + "img/joiaa2.png") {
- document.getElementById("j1").src = "img/joiaa.png";
- recomenda = 1;
- } 
+  function recomendar(){
+  $.ajax({
+      type:"post", //como enviar
+      url:"https://onservicos.000webhostapp.com/recomendar.php",//para onde enviar
+      "codigo": localStorage.getItem('codigo'),
+      dataType:'json',//o que enviar
+      //se der certo
+      success: function(data){
+         (j1 == url + "img/joiaa.png");
+          alert ("FUNFOU ESSE CARAIO!");
+      },
+      //se der errado
+      error: function(data){
+          alert('erro');
+      }
+  });
 }
-else (recomenda == 1)
- if (j1 == url + "img/joiaa.png") {
- document.getElementById("j1").src = "img/joiaa2.png";
- recomenda = 0;
- } 
-}
+//  var url = window.location;
+//  url = url.toString()
+//  url = url.split("xPedreiro.html");
+//  url = url[0];
+
+//  var j1 = document.getElementById("j1").src;
+//  var recomenda = 0;
+
+// if (recomenda == 0){ 
+//  if (j1 == url + "img/joiaa2.png") {
+//  document.getElementById("j1").src = "img/joiaa.png";
+//  recomenda = 1;
+//  } 
+// }
+// else (recomenda == 1)
+//  if (j1 == url + "img/joiaa.png") {
+//  document.getElementById("j1").src = "img/joiaa2.png";
+//  recomenda = 0;
+//  } 
+// }
+
 //BOTÕES COM REDIRECIONAMENTO
 function home(){
   location.href = "home.html";
