@@ -8,7 +8,7 @@
   <script src="components/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="js/jquery-1.2.6.pack.js"></script>
   <script src="components/acao.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 
   <script src="https://kit.fontawesome.com/be184030a6.js"></script><!-- link font awesome-->
   <link rel="stylesheet" href="css/cadastro.css">
@@ -32,6 +32,12 @@
     
         var $cpf = $("#cpf");
         $cpf.mask('000.000.000-00', {reverse: false});
+        
+        var $celular = $("#celular");
+        $celular.mask('(00)00000-0000', {reverse: false});
+
+         var $cep = $("#cep");
+        $cep.mask('00000-000', {reverse: false});
         
     });
 </script>
@@ -68,7 +74,7 @@
     <div class="row">
       <div class="col-xs-12">
         <label>CPF:</label>
-        <input type="text" name="cpf" id="cpf" placeholder="CPF" onclick="VerificaCPF();">
+        <input type="text" name="cpf" id="cpf" placeholder="CPF" onblur="VerificaCPF();" pattern="[0-9]{11,}" title="O CPF deve conter apenas numbers" required>
       </div>
     </div>
 
@@ -89,7 +95,7 @@
     <div class="row">
       <div class="col-xs-6">
         <label>Celular:</label>
-        <input type="number" id="celular"  placeholder="Celular">
+        <input type="text" id="celular"  placeholder="Celular">
       </div>
   
 
@@ -133,7 +139,7 @@
        <div class="row">
          <div class="col-xs-6">
         <label>CEP:</label>
-      <input type="number" id="cep" placeholder="CEP">
+      <input type="text" id="cep" placeholder="CEP">
       </div>
 
       	<div class="col-xs-6">

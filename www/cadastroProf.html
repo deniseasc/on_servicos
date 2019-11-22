@@ -1,20 +1,22 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-  <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+	<meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
 
-  <script src="components/jquery-3.4.1.min.js"></script>
-  <script src="components/acaoprof.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+	<script src="components/jquery-3.4.1.min.js"></script>
+	<script src="components/acaoprof.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 
-  <script src="https://kit.fontawesome.com/be184030a6.js"></script><!-- link font awesome-->
-  <link rel="stylesheet" href="css/cadastro.css">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+	<script src="https://kit.fontawesome.com/be184030a6.js"></script>
+	<!-- link font awesome-->
+	<link rel="stylesheet" href="css/cadastro.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 
-   <script>
-  $(document).ready(function(){
+	<script>
+		$(document).ready(function(){
 
     $("#etapa1").show();
     $("#etapa2").hide();
@@ -25,167 +27,180 @@
   });
    });
 
-</script>
+	</script>
 
-<script>
-    $(document).ready(function () { 
+	<script>
+		$(document).ready(function () { 
     
         var $cpf = $("#cpf");
         $cpf.mask('000.000.000-00', {reverse: false});
+
+        var $celular = $("#celular");
+        $celular.mask('(00)00000-0000', {reverse: false});
+
+         var $cep = $("#cep");
+        $cep.mask('00000-000', {reverse: false});
         
     });
-</script>
+
+	</script>
 
 </head>
 
 <body style="background-color: #e7e9eb;">
 
-  <div class="container">
+	<div class="container">
 
-    <div class="row">
-      <div class="col-xs-12">
-        <img src="img/logo.png" id="logo"><br><br>
-      </div>
-    </div>
+		<div class="row">
+			<div class="col-xs-12">
+				<img src="img/logo.png" id="logo"><br><br>
+			</div>
+		</div>
 
-    <div class="box">
+		<div class="box">
 
 
-   <div id="etapa1">
-    <div class="row">
-      <div class="col-xs-12">
-        <h2>Dados Pessoais:</h2>
-      </div>
-    </div>
+			<div id="etapa1">
+				<div class="row">
+					<div class="col-xs-12">
+						<h2>Dados Pessoais:</h2>
+					</div>
+				</div>
 
-    <div class="row">
-      <div class="col-xs-12">
-        <label>Nome:</label>
-        <input type="text" name="nome" id="nome" placeholder="Nome">
-      </div>
-    </div>
+				<div class="row">
+					<div class="col-xs-12">
+						<label>Nome:</label>
+						<input type="text" name="nome" id="nome" placeholder="Nome">
+					</div>
+				</div>
 
-    <div class="row">
-      <div class="col-xs-12">
-        <label>CPF:</label>
-        <input type="text" name="cpf" id="cpf" placeholder="CPF">
-      </div>
-    </div>
+				<div class="row">
+					<div class="col-xs-12">
+						<label>CPF:</label>
+						<input type="text" name="cpf" id="cpf" placeholder="CPF">
+					</div>
+				</div>
 
-    <div class="row">
-      <div class="col-xs-12">
-        <label>Escolha uma foto:</label>
-        <input type="file" id="caminho2">
-      </div>
-    </div>
+				<div class="row">
+					<div class="col-xs-12">
+						<label>Escolha uma foto:</label>
+						<input type="file" id="caminho2">
+					</div>
+				</div>
 
-     <div class="row">
-      <div class="col-xs-12">
-        <label>E-mail:</label>
-        <input type="text" id="email" maxlength="60" placeholder="E-mail">
-      </div>
-    </div>
+				<div class="row">
+					<div class="col-xs-12">
+						<label>E-mail:</label>
+						<input type="text" id="email" maxlength="60" placeholder="E-mail">
+					</div>
+				</div>
 
-    <div class="row">
-      <div class="col-xs-6">
-        <label>Celular:</label>
-        <input type="number" name="celular" id="celular"  placeholder="Celular">
-      </div>
-  
+				<div class="row">
+					<div class="col-xs-6">
+						<label>Celular:</label>
+						<input type="text" name="celular" id="celular" placeholder="Celular">
+					</div>
 
-      <div class="col-xs-6">
-        <label>Login:</label>
-        <input type="text" name="login" id="login" placeholder="Login">
-      </div>
-      </div>
 
-        <div class="row">
-          <div class="col-xs-6">
-        <label>Senha:</label>
-        <input type="password"  name="senha" id="senha" placeholder="Senha">
-      </div>
+					<div class="col-xs-6">
+						<label>Login:</label>
+						<input type="text" name="login" id="login" placeholder="Login">
+					</div>
+				</div>
 
-          <div class="col-xs-6">
-        <label>Conf senha:</label>
-        <input type="password"  name="confirmarsenha" placeholder="confirma Senha">
-      </div>
-    <br>
-        </div>
-    <br>
-    <div class="row">
-      <div class="col-xs-6">
-          <a href="index.html"><button class="btn btn-block" id="btnCancelar" type="button">Cancelar</button></a>
-      </div>
+				<div class="row">
+					<div class="col-xs-6">
+						<label>Senha:</label>
+						<input type="password" name="senha" id="senha" placeholder="Senha">
+					</div>
 
-      <div class="col-xs-6">
-       <button class="btn btn-block" type="button" name="btnProximo" id="btnProximo">Continuar</button>
-      </div>
-    </div>
-  </div> <!-- Etapa1 -->
+					<div class="col-xs-6">
+						<label>Conf senha:</label>
+						<input type="password" name="confirmarsenha" placeholder="confirma Senha">
+					</div>
+					<br>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-xs-6">
+						<a href="index.html"><button class="btn btn-block" id="btnCancelar" type="button">Cancelar</button></a>
+					</div>
 
-<div id="etapa2">
-  <div class="row">
-      <div class="col-xs-12">
-        <h2>Endereço:</h2>
-      </div>
-    </div>
+					<div class="col-xs-6">
+						<button class="btn btn-block" type="button" name="btnProximo" id="btnProximo">Continuar</button>
+					</div>
+				</div>
+			</div>
+			<!-- Etapa1 -->
 
-       <div class="row">
-         <div class="col-xs-6">
-        <label>CEP:</label>
-      <input type="number" id="cep" placeholder="CEP">
-      </div>
-    	<div class="col-xs-6">
-            <label>Estado:</label>
+			<div id="etapa2">
+				<div class="row">
+					<div class="col-xs-12">
+						<h2>Endereço:</h2>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-6">
+						<label>CEP:</label>
+						<input type="text" id="cep" placeholder="CEP">
+					</div>
+					<div class="col-xs-6">
+						<label>Estado:</label>
 						<select id="estado">
 			     <option value="" type="text"></option>
 		      </select>
-					</div>    
+					</div>
 				</div>
 
-					<div class="row">
-						<div class="col-xs-6">
-              <label>Cidade:</label>
-							<select id="cidade">
+				<div class="row">
+					<div class="col-xs-6">
+						<label>Cidade:</label>
+						<select id="cidade">
 		         </select>
-            	</div>
-      <div class="col-xs-6">
-        <label>Bairro:</label>
-        <input type="text" id="bairro" placeholder="Bairro">
-      </div>
-    </div>
+					</div>
+					<div class="col-xs-6">
+						<label>Bairro:</label>
+						<input type="text" id="bairro" placeholder="Bairro">
+					</div>
+				</div>
 
-    <div class="row">
-      <div class="col-xs-6">
-        <label>Rua:</label>
-        <input type="text" id="rua" placeholder="ex: Rua das Palmeiras">
-      </div>
+				<div class="row">
+					<div class="col-xs-6">
+						<label>Rua:</label>
+						<input type="text" id="rua" placeholder="ex: Rua das Palmeiras">
+					</div>
 
-      <div class="col-xs-6">
-        <label>Número:</label>
-        <input type="number" id="numero" placeholder="Número">
-       </div>
-    </div>
+					<div class="col-xs-6">
+						<label>Número:</label>
+						<input type="number" id="numero" placeholder="Número">
+					</div>
+				</div>
 
-      <div class="row">
-      <div class="col-xs-12">
-        <label>Complemento:</label>
-        <input type="text" id="complemento" placeholder="Complemeto">
-      </div>
-    </div>
+				<div class="row">
+					<div class="col-xs-12">
+						<label>Complemento:</label>
+						<input type="text" id="complemento" placeholder="Complemeto">
+					</div>
+				</div>
 
-    <br><div class="row">
-      <div class="col-xs-6">
-          <a href="cadastroUsu.html"><button type="button" class="btn btn-info btn-block" id="btnCancelar">Voltar</button></a>
-      </div>
+				<br>
+				<div class="row">
+					<div class="col-xs-6">
+						<a href="cadastroUsu.html"><button type="button" class="btn btn-info btn-block" id="btnCancelar">Voltar</button></a>
+					</div>
 
-      <div class="col-xs-6">
-        <button class="btn btn-info btn-block" type="button" id="btnSalvar2">Salvar</button></a>
-      </div>
-    </div>
-  </div>
-  </div> <!-- Etapa2 -->
-    </div><!-- Box -->
-  </div><!-- Fim container hehe -->
+					<div class="col-xs-6">
+						<button class="btn btn-info btn-block" type="button" id="btnSalvar2">Salvar</button></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Etapa2 -->
+	</div>
+	<!-- Box -->
+	</div>
+	<!-- Fim container hehe -->
 </body>
+
 </html>

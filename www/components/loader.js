@@ -1484,3 +1484,267 @@ window.monaca.cloud = window.monaca.cloud || {};
 ;
 /*** <End:monaca-core-utils LoadJs:"components/monaca-core-utils/monaca-core-utils.js"> ***/
 /*** <End:monaca-core-utils> ***/
+
+/*** <Start:whatsapp-sharing> ***/
+/*** <Start:whatsapp-sharing LoadJs:"components/whatsapp-sharing/dist/whatsapp-button.js"> ***/
+(function(){"use strict";var root=this,WASHAREBTN=function(){this.buttons=[],this.isIos===!0&&this.cntLdd(window,this.crBtn)};WASHAREBTN.prototype.isIos=navigator.userAgent.match(/Android|iPhone/i)&&!navigator.userAgent.match(/iPod|iPad/i)?!0:!1,WASHAREBTN.prototype.cntLdd=function(win,fn){var done=!1,top=!0,doc=win.document,root=doc.documentElement,add=doc.addEventListener?"addEventListener":"attachEvent",rem=doc.addEventListener?"removeEventListener":"detachEvent",pre=doc.addEventListener?"":"on",init=function(e){("readystatechange"!==e.type||"complete"===doc.readyState)&&(("load"===e.type?win:doc)[rem](pre+e.type,init,!1),!done&&(done=!0)&&fn.call(win,e.type||e))},poll=function(){try{root.doScroll("left")}catch(e){return void setTimeout(poll,50)}init("poll")};if("complete"===doc.readyState)fn.call(win,"lazy");else{if(doc.createEventObject&&root.doScroll){try{top=!win.frameElement}catch(e){}top&&poll()}doc[add](pre+"DOMContentLoaded",init,!1),doc[add](pre+"readystatechange",init,!1),win[add](pre+"load",init,!1)}},WASHAREBTN.prototype.addStyling=function(){var s=document.createElement("style"),c="body,html{padding:0;margin:0;height:100%;width:100%}.wa_btn{background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkViZW5lXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDE2IDE2IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxnPg0KCQk8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbD0iI0ZGRkZGRiIgZD0iTTguMTI5LDAuOTQ1Yy0zLjc5NSwwLTYuODcyLDMuMDc3LTYuODcyLDYuODczDQoJCQljMCwxLjI5OCwwLjM2LDIuNTEyLDAuOTg2LDMuNTQ5bC0xLjI0LDMuNjg4bDMuODA1LTEuMjE5YzAuOTg0LDAuNTQ0LDIuMTE2LDAuODU0LDMuMzIxLDAuODU0YzMuNzk1LDAsNi44NzEtMy4wNzUsNi44NzEtNi44NzENCgkJCVMxMS45MjQsMC45NDUsOC4xMjksMC45NDV6IE04LjEyOSwxMy41MzhjLTEuMTYyLDAtMi4yNDQtMC4zNDgtMy4xNDctMC45NDZsLTIuMTk4LDAuNzA1bDAuNzE1LTIuMTI0DQoJCQljLTAuNjg2LTAuOTQ0LTEuMDktMi4xMDMtMS4wOS0zLjM1NGMwLTMuMTU1LDIuNTY2LTUuNzIyLDUuNzIxLTUuNzIyczUuNzIxLDIuNTY2LDUuNzIxLDUuNzIyUzExLjI4MywxMy41MzgsOC4xMjksMTMuNTM4eg0KCQkJIE0xMS4zNTIsOS4zNzljLTAuMTc0LTAuMDk0LTEuMDItMC41NS0xLjE3OC0wLjYxNUMxMC4wMTQsOC43LDkuODk4LDguNjY2LDkuNzc1LDguODM3QzkuNjUyLDkuMDA3LDkuMzAxLDkuMzksOS4xOTMsOS41MDUNCgkJCUM5LjA4OCw5LjYxNyw4Ljk4NCw5LjYyOSw4LjgxMiw5LjUzM2MtMC4xNzEtMC4wOTYtMC43My0wLjMtMS4zNzgtMC45MjNjLTAuNTA0LTAuNDg0LTAuODM0LTEuMDcyLTAuOTMtMS4yNTINCgkJCWMtMC4wOTUtMC4xOCwwLTAuMjcxLDAuMDkxLTAuMzU0QzYuNjc3LDYuOTI4LDYuNzc4LDYuODA1LDYuODcsNi43MDZjMC4wOTEtMC4xLDAuMTI0LTAuMTcxLDAuMTg3LTAuMjg2DQoJCQljMC4wNjItMC4xMTUsMC4wMzgtMC4yMTgtMC4wMDMtMC4zMDhDNy4wMTIsNi4wMjMsNi42OTQsNS4xNDYsNi41NjEsNC43OUM2LjQyOCw0LjQzNCw2LjI4LDQuNDg2LDYuMTc3LDQuNDgyDQoJCQlDNi4wNzUsNC40NzksNS45NTgsNC40NTksNS44NDEsNC40NTZDNS43MjQsNC40NTEsNS41MzMsNC40ODcsNS4zNjYsNC42NTdjLTAuMTY3LDAuMTctMC42MzcsMC41NzYtMC42NjksMS40MzkNCgkJCXMwLjU2NSwxLjcyMiwwLjY0OCwxLjg0MWMwLjA4NCwwLjEyMSwxLjE0LDEuOTkxLDIuODk3LDIuNzYyYzEuNzU2LDAuNzcsMS43NjYsMC41MzQsMi4wODgsMC41MTgNCgkJCWMwLjMyMi0wLjAxOCwxLjA1NS0wLjM4NiwxLjIxNS0wLjc4OWMwLjE2Mi0wLjQwNSwwLjE3Ni0wLjc1NSwwLjEzNS0wLjgzMUMxMS42MzksOS41MjEsMTEuNTIzLDkuNDc1LDExLjM1Miw5LjM3OXoiLz4NCgk8L2c+DQo8L2c+DQo8L3N2Zz4NCg==);border:1px solid rgba(0,0,0,.1);display:inline-block!important;position:relative;font-family:Arial,sans-serif;letter-spacing:.4px;cursor:pointer;font-weight:400;text-transform:none;color:#fff;border-radius:2px;background-color:#5cbe4a;background-repeat:no-repeat;line-height:1.2;text-decoration:none;text-align:left}.wa_btn_s{font-size:12px;background-size:16px;background-position:5px 2px;padding:3px 6px 3px 25px}.wa_btn_m{font-size:16px;background-size:20px;background-position:4px 2px;padding:4px 6px 4px 30px}.wa_btn_l{font-size:16px;background-size:20px;background-position:5px 5px;padding:8px 6px 8px 30px}";return s.type="text/css",s.styleSheet?s.styleSheet.cssText=c:s.appendChild(document.createTextNode(c)),s},WASHAREBTN.prototype.setButtonAttributes=function(b){var url=b.getAttribute("data-href"),text="?text="+encodeURIComponent(b.getAttribute("data-text"))+(b.getAttribute("data-text")?"%20":"");return text+=encodeURIComponent(url?url:document.URL),b.setAttribute("target","_top"),b.setAttribute("href",b.getAttribute("href")+text),b.setAttribute("onclick","window.parent."+b.getAttribute("onclick")),b},WASHAREBTN.prototype.setIframeAttributes=function(b){var i=document.createElement("iframe");return i.width=1,i.height=1,i.button=b,i.style.border=0,i.style.overflow="hidden",i.border=0,i.setAttribute("scrolling","no"),i.addEventListener("load",root.WASHAREBTN.iFrameOnload()),i},WASHAREBTN.prototype.iFrameOnload=function(){return function(){this.contentDocument.body.appendChild(this.button),this.contentDocument.getElementsByTagName("head")[0].appendChild(root.WASHAREBTN.addStyling());var meta=document.createElement("meta");meta.setAttribute("charset","utf-8"),this.contentDocument.getElementsByTagName("head")[0].appendChild(meta),this.width=Math.ceil(this.contentDocument.getElementsByTagName("a")[0].getBoundingClientRect().width),this.height=Math.ceil(this.contentDocument.getElementsByTagName("a")[0].getBoundingClientRect().height)}},WASHAREBTN.prototype.crBtn=function(){for(var b=[].slice.call(document.querySelectorAll(".wa_btn")),iframes=[],i=0;i<b.length;i++)root.WASHAREBTN.buttons.push(b[i]),b[i]=root.WASHAREBTN.setButtonAttributes(b[i]),iframes[i]=root.WASHAREBTN.setIframeAttributes(b[i]),b[i].parentNode.insertBefore(iframes[i],b[i])},root.WASHAREBTN=new WASHAREBTN}).call(this);
+;
+/*** <End:whatsapp-sharing LoadJs:"components/whatsapp-sharing/dist/whatsapp-button.js"> ***/
+/*** <Start:whatsapp-sharing LoadJs:"components/whatsapp-sharing/Gruntfile.js"> ***/
+module.exports = function (grunt) {
+    grunt.initConfig({
+        clean: {
+            build: {
+                src: ['build/']
+            },
+            all: {
+                src: ['build/', 'dist/']
+            }
+        },
+        dataUri: {
+            dist: {
+                src: ['src/*.css'],
+                dest: 'build/',
+                options: {
+                    target: ['**'],
+                    fixDirLevel: true
+                }
+            }
+        },
+        cssmin: {
+            combine: {
+                files: {
+                    'build/button.min.css': ['build/button.css']
+                }
+            }
+        },
+        concat: {
+            options: {
+                process: function (src, filepath) {
+                    var css = grunt.file.read('build/button.min.css');
+                    return src.replace('[[minified_css]]', css);
+                }
+            },
+            dist: {
+                src: ['src/button.js'],
+                dest: 'build/button.js'
+            }
+        },
+        uglify: {
+            options: {
+                mangle: false
+            },
+            dist: {
+                files: {
+                    'dist/whatsapp-button.js': ['build/button.js']
+                }
+            }
+        },
+        jshint: {
+            button: ['src/button.js']
+        }
+    });
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-data-uri');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.registerTask('default', ['jshint:button', 'clean:all', 'dataUri', 'cssmin', 'concat', 'uglify', 'clean:build']);
+};
+;
+/*** <End:whatsapp-sharing LoadJs:"components/whatsapp-sharing/Gruntfile.js"> ***/
+/*** <Start:whatsapp-sharing LoadJs:"components/whatsapp-sharing/src/button.js"> ***/
+/**
+ * WhatsApp Sharing Button
+ * https://github.com/kriskbx/whatsapp-sharing/
+ *
+ * Copyright (c) 2015 by kriskbx
+ *
+ * Licensed under the MIT license.
+ */
+
+(function () {
+
+    "use strict";
+    var root = this;
+
+    /**
+     * Constructor.
+     *
+     * @constructor
+     */
+    var WASHAREBTN = function () {
+        this.buttons = [];
+
+        if (this.isIos === true) {
+            this.cntLdd(window, this.crBtn);
+        }
+    };
+
+    /**
+     * Is iOS / Android?
+     *
+     * @type {boolean}
+     */
+    WASHAREBTN.prototype.isIos = ((navigator.userAgent.match(/Android|iPhone/i) && !navigator.userAgent.match(/iPod|iPad/i)) ? true : false);
+
+    /**
+     * Call a function when the content is loaded and the document is ready.
+     *
+     * @param win
+     * @param fn
+     */
+    WASHAREBTN.prototype.cntLdd = function (win, fn) {
+        var done = false,
+            top = true,
+            doc = win.document,
+            root = doc.documentElement,
+            add = doc.addEventListener ? "addEventListener" : "attachEvent",
+            rem = doc.addEventListener ? "removeEventListener" : "detachEvent",
+            pre = doc.addEventListener ? "" : "on",
+            init = function (e) {
+                if (e.type === "readystatechange" && doc.readyState !== "complete") {
+                    return;
+                }
+                (e.type === "load" ? win : doc)[rem](pre + e.type, init, false);
+                if (!done && (done = true)) {
+                    fn.call(win, e.type || e);
+                }
+            },
+            poll = function () {
+                try {
+                    root.doScroll("left");
+                } catch (e) {
+                    setTimeout(poll, 50);
+                    return;
+                }
+                init("poll");
+            };
+
+        if (doc.readyState === "complete") {
+            fn.call(win, "lazy");
+        } else {
+            if (doc.createEventObject && root.doScroll) {
+                try {
+                    top = !win.frameElement;
+                } catch (e) {
+                }
+                if (top) {
+                    poll();
+                }
+            }
+            doc[add](pre + "DOMContentLoaded", init, false);
+            doc[add](pre + "readystatechange", init, false);
+            win[add](pre + "load", init, false);
+        }
+    };
+
+    /**
+     * Returns CSS style element.
+     *
+     * @returns {HTMLElement}
+     */
+    WASHAREBTN.prototype.addStyling = function () {
+        var s = document.createElement("style"),
+            c = "[[minified_css]]";
+
+        s.type = "text/css";
+        if (s.styleSheet) {
+            s.styleSheet.cssText = c;
+        } else {
+            s.appendChild(document.createTextNode(c));
+        }
+        return s;
+    };
+
+    /**
+     * Set attributes on the given button element and returns it.
+     *
+     * @param b
+     * @returns {*}
+     */
+    WASHAREBTN.prototype.setButtonAttributes = function (b) {
+        var url = b.getAttribute("data-href");
+        var text = "?text=" + encodeURIComponent(b.getAttribute("data-text")) + (b.getAttribute("data-text") ? "%20" : "");
+
+        if (url) {
+            text += encodeURIComponent(url);
+        } else {
+            text += encodeURIComponent(document.URL);
+        }
+
+        b.setAttribute("target", "_top");
+        b.setAttribute("href", b.getAttribute("href") + text);
+        b.setAttribute("onclick", "window.parent." + b.getAttribute("onclick"));
+
+        return b;
+    };
+
+    /**
+     * Accepts a button and creates an iframe element around it.
+     * Adds an EventListener to append the button after the iframe was inserted in the DOM.
+     *
+     * @param b
+     * @returns {HTMLElement}
+     */
+    WASHAREBTN.prototype.setIframeAttributes = function (b) {
+        var i = document.createElement('iframe');
+
+        i.width = 1;
+        i.height = 1;
+        i.button = b;
+        i.style.border = 0;
+        i.style.overflow = "hidden";
+        i.border = 0;
+
+        i.setAttribute("scrolling", "no");
+        i.addEventListener('load', root.WASHAREBTN.iFrameOnload());
+
+        return i;
+    };
+
+    /**
+     * This function is toggled after the iframe was successfully inserted in the DOM.
+     * The button element as well as the style element are appended to the iframe.
+     */
+    WASHAREBTN.prototype.iFrameOnload = function () {
+        return function () {
+            this.contentDocument.body.appendChild(this.button);
+            this.contentDocument.getElementsByTagName('head')[0].appendChild(root.WASHAREBTN.addStyling());
+
+            var meta = document.createElement('meta');
+            meta.setAttribute('charset', 'utf-8');
+            this.contentDocument.getElementsByTagName('head')[0].appendChild(meta);
+
+            this.width = Math.ceil(this.contentDocument.getElementsByTagName('a')[0].getBoundingClientRect().width);
+            this.height = Math.ceil(this.contentDocument.getElementsByTagName('a')[0].getBoundingClientRect().height);
+        };
+    };
+
+    /**
+     * Create WASHAREBTNS from all elements with the className wa_btn.
+     */
+    WASHAREBTN.prototype.crBtn = function () {
+        var b = [].slice.call(document.querySelectorAll(".wa_btn"));
+        var iframes = [];
+
+        for (var i = 0; i < b.length; i++) {
+            root.WASHAREBTN.buttons.push(b[i]);
+
+            b[i] = root.WASHAREBTN.setButtonAttributes(b[i]);
+            iframes[i] = root.WASHAREBTN.setIframeAttributes(b[i]);
+
+            b[i].parentNode.insertBefore(iframes[i], b[i]);
+        }
+    };
+
+    /**
+     * Instance
+     */
+    root.WASHAREBTN = new WASHAREBTN();
+
+}).call(this);
+;
+/*** <End:whatsapp-sharing LoadJs:"components/whatsapp-sharing/src/button.js"> ***/
+/*** <End:whatsapp-sharing> ***/

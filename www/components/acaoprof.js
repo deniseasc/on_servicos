@@ -147,34 +147,34 @@ $(document).on('click','#btnEntrar', function(){
 //Cadastro Serviço
 $(document).on('click','#btnFinalizar', function(){
 
-  var dias = "";
-  if( $('#seg').is(':checked')){
-    dias += " "+$('#seg:checked').val();
-  }
-  if( $('#ter').is(':checked')){
-    dias += " "+$('#ter:checked').val();
-  }
-  if( $('#qua').is(':checked')){
-    dias += " "+$('#qua:checked').val();
-  }
-  if( $('#qui').is(':checked')){
-    dias += " "+$('#qui:checked').val();
-  }
-  if( $('#sex').is(':checked')){
-    dias += " "+$('#sex:checked').val();
-  }
-  if( $('#sab').is(':checked')){
-    dias += " "+$('#sab:checked').val();
-  }
-  if( $('#dom').is(':checked')){
-    dias += " "+$('#dom:checked').val();
-  }
+  // var dias = "";
+  // if( $('#seg').is(':checked')){
+  //   dias += " "+$('#seg:checked').val();
+  // }
+  // if( $('#ter').is(':checked')){
+  //   dias += " "+$('#ter:checked').val();
+  // }
+  // if( $('#qua').is(':checked')){
+  //   dias += " "+$('#qua:checked').val();
+  // }
+  // if( $('#qui').is(':checked')){
+  //   dias += " "+$('#qui:checked').val();
+  // }
+  // if( $('#sex').is(':checked')){
+  //   dias += " "+$('#sex:checked').val();
+  // }
+  // if( $('#sab').is(':checked')){
+  //   dias += " "+$('#sab:checked').val();
+  // }
+  // if( $('#dom').is(':checked')){
+  //   dias += " "+$('#dom:checked').val();
+  // }
 
   var parametros = {
       "profissao": $("option:selected", ("#profissao")).val(),
       "especialidade": $("#especialidade").val(),
       "descricao": $("#descricao").val(),
-      "dias": dias,
+      // "dias": dias,
       "codigo": localStorage.getItem('cdProf')
 
     };
@@ -278,43 +278,6 @@ function alterarServico(codigo){
     });
 };
 
-
-
-// function salvarContato(botao) {
-//   var parametros = {
-//       "codigo": localStorage.getItem('cdProf'),
-//       "nome": $("#nome").val(),
-//       "cpf": $("#cpf").val(),
-
-//     };
-//     $.ajax({
-//       type:"post", //como enviar
-//       url:"https://onservicos.000webhostapp.com/atualizarperfilprofissional.php", //para onde enviar
-//       data:parametros, //o que enviar
-//       //se der certo
-//       success: function(data){
-//          alert("Perfil atualizado com sucesso!");
-//       },
-//       //se der errado
-//       error: function(data){
-//         alert("Erro ao atualizar");
-//       }
-//     });
-    
-//   botao.setAttribute("onclick","vincularContato(this);");
-// }
-
-
-
-// function verifica(str){
-
-//   if(str.match(/Segunda/))
-//   { 
-//     console.log('checked'); 
-//   }
-
-// }
-
 function deletarServico(codigo){
   confirm("Deseja excluir?");
   if(confirm){
@@ -337,28 +300,28 @@ function deletarServico(codigo){
   }
 }
 
-//Salvar Alterações do perfil
-$(document).on('click','#btnSalvar', function(){
-  var parametros = {
-      "codigo": localStorage.getItem('cdProf'),
-      "profissao": $("#profissao").val(),
-      "servico": $("#servico").val(),
-      "descricao": $("#descricao").val(),
-    };
-    $.ajax({
-      type:"post", //como enviar
-      url:"https://https://onservicos.000webhostapp.com/editarServico.php", //para onde enviar
-      data:parametros, //o que enviar
-      //se der certo
-      success: function(data){
-         alert("Perfil atualizado com sucesso!");
-      },
-      //se der errado
-      error: function(data){
-        alert("Erro ao atualizar");
-      }
-    });
-});
+// //Salvar Alterações do perfil
+// $(document).on('click','#btnSalvar', function(){
+//   var parametros = {
+//       "codigo": localStorage.getItem('cdProf'),
+//       "profissao": $("#profissao").val(),
+//       "servico": $("#servico").val(),
+//       "descricao": $("#descricao").val(),
+//     };
+//     $.ajax({
+//       type:"post", //como enviar
+//       url:"https://https://onservicos.000webhostapp.com/editarServico.php", //para onde enviar
+//       data:parametros, //o que enviar
+//       //se der certo
+//       success: function(data){
+//          alert("Perfil atualizado com sucesso!");
+//       },
+//       //se der errado
+//       error: function(data){
+//         alert("Erro ao atualizar");
+//       }
+//     });
+// });
 
 $(document).on('click','#editarServ',function(){
   habilitaServ();
