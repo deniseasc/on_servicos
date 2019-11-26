@@ -8,7 +8,7 @@
 
 	<script src="components/jquery-3.4.1.min.js"></script>
 	<script src="components/acaoprof.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+	<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script> -->
 
 	<script src="https://kit.fontawesome.com/be184030a6.js"></script>
 	<!-- link font awesome-->
@@ -29,7 +29,7 @@
 
 	</script>
 
-	<script>
+	<!-- <script>
 		$(document).ready(function () { 
     
         var $cpf = $("#cpf");
@@ -43,7 +43,7 @@
         
     });
 
-	</script>
+	</script> -->
 
 </head>
 
@@ -77,7 +77,7 @@
 				<div class="row">
 					<div class="col-xs-12">
 						<label>CPF:</label>
-						<input type="text" name="cpf" id="cpf" placeholder="CPF">
+						<input type="text" name="cpf" id="cpf" placeholder="CPF" maxlength="11" onblur="VerificaCPF();" pattern="[0-9]{11,}" title="O CPF deve conter apenas numbers" required>
 					</div>
 				</div>
 

@@ -69,7 +69,7 @@ $(document).on("click","#btnSalvar2",function(){
         processData:false,
         success:function(data){
           alert("Cadastro realizado com sucesso!");
-          location.href="index.html";
+          location.href="loginProfissional.html";
         },
        //se der errado
        error: function(data){
@@ -78,6 +78,64 @@ $(document).on("click","#btnSalvar2",function(){
       });
     }    
 });
+
+//validar CPF
+function VerificaCPF () {
+
+		var inputCPF = document.getElementById('cpf');
+
+		if (vercpf(inputCPF.value)) 
+		{
+			inputCPF.style.border = "2px #0e97a5 solid";
+		}
+		else 
+		{
+			errors="1";
+
+			if (errors)
+			{
+        alert("CPF inválido");
+				inputCPF.style.border = "2px red solid";	
+			}
+		}
+
+	}
+
+	function vercpf (cpf) {
+
+		if (cpf.length != 11 || cpf == "00000000000" || cpf == "11111111111" || cpf == "22222222222" || cpf == "33333333333" || cpf == "44444444444" || cpf == "55555555555" || cpf == "66666666666" || cpf == "77777777777" || cpf == "88888888888" || cpf == "99999999999")
+
+			return false;
+
+			add = 0;
+
+		for (i=0; i < 9; i ++)
+		{
+
+			add += parseInt(cpf.charAt(i)) * (10 - i);
+			rev = 11 - (add % 11);
+		}
+		if (rev == 10 || rev == 11){
+			rev = 0;
+		}
+
+		if (rev != parseInt(cpf.charAt(9)))
+			return false;
+			add = 0;
+
+		for (i = 0; i < 10; i ++)
+		{
+			add += parseInt(cpf.charAt(i)) * (11 - i);
+			rev = 11 - (add % 11);
+		}
+			if (rev == 10 || rev == 11)
+				rev = 0;
+
+			if (rev != parseInt(cpf.charAt(10)))
+				return false;
+				//alert('O CPF INFORMADO É VÁLIDO.');
+				return true;
+	}
 
 //Salvar Alterações do perfil
 $(document).on('click','#salvarEdit', function(){
@@ -185,6 +243,8 @@ $(document).on('click','#btnFinalizar', function(){
       data:parametros, //o que enviar
       //se der certo
       success: function(data){
+          //  let codigo = data.servico.codigo;
+          //  localStorage.setItem('cdServ', codigo);
          alert("Cadastro realizado com sucesso!");
          location.href="homeProf.html";
       },
@@ -216,6 +276,9 @@ function preencherPerfil(){
           $("#rua").val(data.perfil.rua);
           $("#numero").val(data.perfil.numero);
           $("#complemento").val(data.perfil.complemento);
+          $("#foto").attr('src', 'https://onservicos.000webhostapp.com/'+data.perfil.foto); //barra lateral do menu PerfilProf.html
+          $("#img").attr('src', 'https://onservicos.000webhostapp.com/'+data.perfil.foto); //meu Perfil
+          $("#perfil").attr('src', 'https://onservicos.000webhostapp.com/'+data.perfil.foto); //barra lateral do menu homeProf.html
       },
       //se der errado
       error: function(data){
@@ -238,7 +301,7 @@ function listarServico(){
           var itemlista = "";
 
           $.each(data.profissional,function(i,dados){
-            itemlista += '<div class="box"> <div class="row"> <div class="col-xs-12"> <labeL>Profissão:</labeL> <input type="text" id="profissao" value="'+dados.profissao+'" readonly> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" id="servico" value="'+dados.servico+'" readonly> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL><br> <input type="text" id="descricao" value="'+dados.descricao+'" readonly> </div> </div><br><div class="row"> <div class="col-xs-4"> <button class="btn btn-info btn-block" id="editarServ">Editar</button> </div> <div class="col-xs-4"> <button class="btn btn-danger btn-block" id="salvarServ" onclick="var codigo = '+dados.codigo+'; alterarServico(codigo); "> Salvar</button> </div> <div class="col-xs-4"> <button class="btn btn-danger btn-block" id="btnExcluir" onclick="var codigo = '+dados.codigo+'; deletarServico(codigo); ">Excluir</button> </div> </div> </div><br>'
+            itemlista += '<div class="box"> <div class="row"> <div class="col-xs-12"> <labeL>Profissão:</labeL> <input type="text" id="profissao" value="'+dados.profissao+'" readonly> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" id="servico" value="'+dados.servico+'" readonly> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL><br> <input type="text" id="descricao" value="'+dados.descricao+'" readonly> </div> </div><br><div class="row"> <div class="col-xs-4"> <button class="btn btn-info btn-block" id="editarServ">Editar</button> </div> <div class="col-xs-4"> <button class="btn btn-danger btn-block" id="salvarServ" onclick="var codigo = '+dados.codigo+'; alterarServico(codigo); "> Salvar</button> </div> <div class="col-xs-4"> <a href="#" data-toggle="modal" data-target="#modalServico"><button class="btn btn-danger btn-block" id="btnExcluir">Excluir</button></a> </div> </div> </div><br>                                                       <div class="modal fade" id="modalServico" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"> <div class="modal-dialog modal-sm" role="document"> <div class="modal-content"> <div class="modal-header"> <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span> </button> <h4 class="modal-title" id="myModalLabel">Excluir serviço</h4> </div> <div class="modal-body"> Deseja realmente excluir este serviço? </div> <div class="modal-footer"> <button type="button" id="fechaServico"class="btn btn-default" data-dismiss="modal">Não</button> <button type="button" id="excluiServico"  onclick="var codigo = '+dados.codigo+'; deletarServico(codigo); " class="btn btn-primary">Sim</button> </div> </div> </div> </div>'
           });
           //  <div class="row"> <div class="col-xs-12"> <labeL>Dias em que trabalha:</labeL> </div> </div> <div class="col-xs-1"> <input type="checkbox" id="seg" value="Segunda">S </div> <div class="col-xs-1"> <input type="checkbox" id="ter" value="Terça">T </div> <div class="col-xs-1"> <input type="checkbox" id="qua" value="Quarta">Q </div> <div class="col-xs-1"> <input type="checkbox" id="qui" value="Quinta">Q </div> <div class="col-xs-1"> <input type="checkbox" id="sex" value="Sexta">S </div> <div class="col-xs-1"> <input type="checkbox" id="sab" value="Sábado">S </div> <div class="col-xs-1"> <input type="checkbox" id="dom" value="Domingo">D </div> </div> 
           $("#lista").html(itemlista);
@@ -255,9 +318,10 @@ function listarServico(){
 }
 
 //Salvar Alterações do Serviço
-function alterarServico(codigo){
+$(document).on('click','#salvarServ', function(){
   var parametros = {
-      "codigo": $("#codigo").val(),
+
+      "codigo": localStorage.getItem('codigo'),
       "profissão": $("#profissao").val(),
       "servico": $("#servico").val(),
       "descricao": $("#descricao").val()
@@ -276,11 +340,31 @@ function alterarServico(codigo){
         alert("Erro ao atualizar");
       }
     });
-};
+});
 
+//Salvar Alterações do perfil
+function alterarServico(codigo){
+  var parametros = {
+      "codigo": localStorage.getItem('codigo'),
+      "profissão": $("#profissao").val(),
+      "servico": $("#servico").val(),
+      "descricao": $("#descricao").val()
+    };
+    $.ajax({
+      type:"post", //como enviar
+      url:"https://onservicos.000webhostapp.com/editarServico.php", //para onde enviar
+      data:parametros, //o que enviar
+      //se der certo
+      success: function(data){
+         alert("Perfil atualizado com sucesso!");
+      },
+      //se der errado
+      error: function(data){
+        alert("Erro ao atualizar");
+      }
+    });
+}
 function deletarServico(codigo){
-  confirm("Deseja excluir?");
-  if(confirm){
     $.ajax({
         type:"POST", //como enviar
         url:"https://onservicos.000webhostapp.com/excluirServico.php",//para onde enviar
@@ -298,7 +382,6 @@ function deletarServico(codigo){
         }
     }); 
   }
-}
 
 // //Salvar Alterações do perfil
 // $(document).on('click','#btnSalvar', function(){

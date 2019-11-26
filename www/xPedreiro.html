@@ -7,6 +7,7 @@
 	<meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
 
 	<script src="components/jquery-3.4.1.min.js"></script>
+	<script src="components/acao.js"></script>
 	<script src="components/main.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script src="components/bootstrap.js"></script>
@@ -17,6 +18,17 @@
 
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  	<script>
+		$(document).ready(function(){
+        preencherPerfil();
+      });
+	</script>
+
+	<script>
+		$(document).ready(function(){
+        preencherPerfil();
+      });
+	</script>
 
 </head>
 
@@ -32,7 +44,7 @@
 
 			<div class="row">
 				<div class="circleusu">
-					<img src="" id="foto">
+					<img id="perfil">
 				</div>
 			</div>
 			<!-- COLOCAR UM BOTAO DE VOLTAR -->
@@ -78,21 +90,36 @@
 				</div>
 			</div>
 
-			<h3>Pedreiros Encontrados:</h3><br>
+			<h3>Serviços Encontrados:</h3><br>
 
 			<table id="pedreiros">
 
 			</table>
 
 
-			<!-- Modal -->
-			<!-- ss -->
-
+	<!-- Modal -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog modal-sm" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+        </button>
+							<h4 class="modal-title" id="myModalLabel">Atenção</h4>
+						</div>
+						<div class="modal-body">
+							Deseja sair?
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+							<a class="btn btn-primary" href="index.html">Sim</a>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<!-- Fim do Conteudo app -->
 		<div class="clear"></div>
 	</div>
-	<script src="components/acao.js"></script>
 </body>
 
 </html>

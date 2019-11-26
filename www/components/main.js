@@ -57,23 +57,23 @@ $(function(){
 
 })
 
-//Excluir Serviço
-$(document).on("click","#btnExcluir",function(){
-    $.ajax({
-        type:"POST", //como enviar
-        url:"https://onservicos.000webhostapp.com/excluirServico.php",//para onde enviar
-        data:"id="+$("#codigo").val(),
-        //se der certo
-        success: function(data){
-            navigator.notification.alert(data);
-            location.reload();//recarrega a pagina
-        },
-        //se der errado
-        error: function(data){
-             navigator.notification.alert(data);
-        }
-    }); 
-});
+// //Excluir Serviço
+// $(document).on("click","#btnExcluir",function(){
+//     $.ajax({
+//         type:"POST", //como enviar
+//         url:"https://onservicos.000webhostapp.com/excluirServico.php",//para onde enviar
+//         data:"id="+$("#codigo").val(),
+//         //se der certo
+//         success: function(data){
+//             navigator.notification.alert(data);
+//             location.reload();//recarrega a pagina
+//         },
+//         //se der errado
+//         error: function(data){
+//              navigator.notification.alert(data);
+//         }
+//     }); 
+// });
 
 //Alterar Senha
 $(document).on("click", "#alteraSenha", function(){

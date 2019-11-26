@@ -260,7 +260,7 @@ h3, h5{
 
 /*imagens dos icones*/
 .circle {
-  background-color: #aaa;
+  background-color: #e7e9eb;
   border-radius: 50%;
   width: 100px;
   height:100px;
@@ -270,9 +270,10 @@ h3, h5{
   position: relative;
 }
 .circle img {
-  position: relative;
+  position: center;
   bottom: 0;
   width: 100px;
+  height:100px;
 }
 
 /* .circleicon {
@@ -285,12 +286,12 @@ h3, h5{
   overflow: hidden;
   position: relative;
 } */
-.circleicon img {
+/* .circleicon img {
   position: absolute;
   bottom: 0;
   width: 100px;
 
-}
+} */
 .circleusu {
   background-color: #aaa;
   border-radius: 50%;
@@ -304,7 +305,8 @@ h3, h5{
 .circleusu img {
   position: center;
   bottom: 0;
-  width: 100px;
+   width: 100px;
+  height:100px;
 }
 .perfil {
   background-color: #aaa;
@@ -322,68 +324,7 @@ h3, h5{
   width: 100px;
 
 }
-#nomeprof{
-  margin-top: 1%;
-  margin-left: 31%;
-}
 
-
-/* Darker chat container */
-#eu {
-  border-color: #0e97a5;
-  background-color: rgb(104, 184, 236);
-}
-#voce {
-  border-color: #0e97a5;
-  background-color: rgb(104, 184, 236);
-}
-
-
-/* Clear floats */
-#voce::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-/* Style images */
-#voce img {
-  float: left;
-  max-width: 60px;
-  width: 100%;
-  margin-right: 20px;
-  border-radius: 50%;
-}
-
-/* Style the right image */
-#eu img.right {
-  float: right;
-  margin-left: 20px;
-  margin-right:0;
-}
-
-/* Style time text */
-.time-right {
-  float: right;
-  color: #aaa;
-}
-
-/* Style time text */
-.time-left {
-  float: left;
-  color: #999;
-}
-
-.container-chat{
-   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 100%;
-  padding: 70px;
-  box-sizing: border-box;
-  border: 5px solid #0e97a5;
-}
 
 #imgModal{
   width: 50%;

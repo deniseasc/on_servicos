@@ -19,6 +19,11 @@
 
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+   	<script>
+		$(document).ready(function(){
+        preencherPerfil();
+      });
+	</script>
 
 </head>
 
@@ -28,11 +33,12 @@
 		<div class="menu-wrapper">
 			<!-- conteúdo sidebar -->
 
-			<div class="row">
+				<div class="row">
 				<div class="circleusu">
-					<img src="" id="foto">
+					<img id="perfil">
 				</div>
 			</div>
+
 			<div class="row">
 				<div class="col-xs-12">
 					<button class="btn btn-info btn-block" id="btn" onclick="home()" style="margin-top: 20px;"> Home </button>
@@ -131,21 +137,22 @@
 			</div>
 
 		</div>
-		<!-- Modal -->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-			<div class="modal-dialog modal-sm" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+			<!-- Modal -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog modal-sm" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
         </button>
-						<h4 class="modal-title" id="myModalLabel">Atenção</h4>
-					</div>
-					<div class="modal-body">
-						Deseja sair?
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
-						<a class="btn btn-primary" href="index.html">Sim</a>
+							<h4 class="modal-title" id="myModalLabel">Atenção</h4>
+						</div>
+						<div class="modal-body">
+							Deseja sair?
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+							<a class="btn btn-primary" href="index.html">Sim</a>
+						</div>
 					</div>
 				</div>
 			</div>
