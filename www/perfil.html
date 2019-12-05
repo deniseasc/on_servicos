@@ -23,6 +23,40 @@
       });
 	</script>
 
+  <script>
+         $(document).ready(function() { // aplicação em javascript para caso de algum erro nos campos de login ou senha
+            $("#alteraSenha").click(function() {
+                var senha = $("#newsenha").val();
+                var senha2 = $("#confsenha").val();
+                if (senha2 == senha ) {
+                  var parametros = {
+                    "codigo": localStorage.getItem('cdUsuario'),
+                    "senha": $("#newsenha").val(),
+                  };
+                  $.ajax({
+                    method:"POST", //como enviar
+                    url:"https://onservicos.000webhostapp.com/alterarsenha.php",//para onde enviar
+                    data: parametros,
+                    //se der certo
+                    success: function(data)
+                    {
+                      //alert('Senha alterada');
+                    },
+                    //se der errado
+                    error: function(data)
+                    {
+                      alert(data);
+                      //navigator.notification.alert(data);
+                    }
+                  }); 
+                  alert("Senha alterada!");
+                } else {
+                    alert("Senhas diferentes!");
+                }
+            });
+        });
+</script>
+
 </head>
 
 <body style="background-color: #e7e9eb;">
@@ -206,33 +240,29 @@
 							<h4 class="modal-title" id="myModalLabel">Alterar senha</h4>
 						</div>
 						<div class="senhaModal">
-							<div class="row">
-                <div class="col-xs-8">
-                  <br>
-                  <label>Senha atual:</label>
-                  <input id="" type="text"></input>
-                </div>
-              </div>
+              <form name="alterarsenha">
 
               <div class="row">
                 <div class="col-xs-8">
                   <label>Nova senha:</label>
-                  <input id="newSenha" type="password"></input>
+                  <input id="newsenha" name="newSenha" type="password"></input>
                 </div>
               </div>
 
               <div class="row">
                 <div class="col-xs-8">
                   <label>Confirmar nova senha:</label>
-                  <input id="conf" type="password"></input>
+                  <input id="confsenha" name="conf" type="password"></input>
                 </div>
               </div>
+          
               <br>
 						</div>
 						<div class="modal-footer">
 							<button type="button" id="fechaSenha" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-              <button type="button" id="alteraSenha" class="btn btn-default">Alterar</button>
+              <button type="submit" id="alteraSenha" class="btn btn-default">Alterar</button>
 						</div>
+                </form>
 					</div>
 				</div>
 			</div>

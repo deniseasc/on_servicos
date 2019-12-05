@@ -1,35 +1,72 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-  <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+	<meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
 
-  <script src="components/jquery-3.4.1.min.js"></script>
-    <script src="components/acaoprof.js"></script>
-  <script src="components/main.js"></script>
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <script src="components/bootstrap.js"></script>
+	<script src="components/jquery-3.4.1.min.js"></script>
+	<script src="components/acaoprof.js"></script>
+	<script src="components/main.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script src="components/bootstrap.js"></script>
 
-  <script src="https://kit.fontawesome.com/be184030a6.js"></script><!-- link font awesome-->
-  <link rel="stylesheet" href="css/menu.css">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script src="https://kit.fontawesome.com/be184030a6.js"></script>
+	<!-- link font awesome-->
+	<link rel="stylesheet" href="css/menu.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-  <script>
-    $(document).ready(function(){
+	<script>
+		$(document).ready(function(){
       preencherPerfil();
     });
-  </script>
+	</script>
+
+    <script>
+         $(document).ready(function() { // aplicação em javascript para caso de algum erro nos campos de login ou senha
+            $("#alteraSenha").click(function() {
+                var senha = $("#newsenha").val();
+                var senha2 = $("#confsenha").val();
+                if (senha2 == senha ) {
+                  var parametros = {
+                    "codigo": localStorage.getItem('cdProf'),
+                    "senha": $("#newsenha").val(),
+                  };
+                  $.ajax({
+                    method:"POST", //como enviar
+                    url:"https://onservicos.000webhostapp.com/alterarsenhaProf.php",//para onde enviar
+                    data: parametros,
+                    //se der certo
+                    success: function(data)
+                    {
+                      //alert('Senha alterada');
+                    },
+                    //se der errado
+                    error: function(data)
+                    {
+                      alert(data);
+                      //navigator.notification.alert(data);
+                    }
+                  }); 
+                  alert("Senha alterada!");
+                } else {
+                    alert("Senhas diferentes!");
+                }
+            });
+        });
+</script>
+
 </head>
 
 <body style="background-color: #e7e9eb;">
 
- <div class="menu">
+	<div class="menu">
 		<div class="menu-wrapper">
 			<!-- conteúdo sidebar -->
 
-		<div class="row">
+			<div class="row">
 				<div class="circleusu">
 					<img id="img">
 				</div>
@@ -38,6 +75,19 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<button class="btn btn-info btn-block" id="btn" onclick="homeProf()" style="margin-top: 20px;"> Home </button>
+					<hr id="hr">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12">
+					<button class="btn btn-info btn-block" onclick="addServico()" id="btn"> Adicionar Serviços </button>
+					<hr id="hr">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<a href="#" data-toggle="modal" data-target="#modalSenha"><button class="btn btn-info btn-block" id="btn"> Alterar senha </button></a>
 					<hr id="hr">
 				</div>
 			</div>
@@ -60,134 +110,172 @@
 		</div>
 	</header>
 
-  <div class="content">
-    <!-- Conteudo app -->
-    <div class="box-content w100 left">
+	<div class="content">
+		<!-- Conteudo app -->
+		<div class="box-content w100 left">
 
-      <h3>Meu Perfil:</h3>
-<br>
+			<h3>Meu Perfil:</h3>
+			<br>
 			<div class="row">
 				<div class="circle">
 					<img id="perfil">
 				</div>
 			</div>
-<br>
- <h5><b>Dados pessoais:</b></h5>
-    <div class="row">
-      <div class="col-xs-12">
-        <label>Nome:</label>
-        <input type="text" id="nome" readonly>
-      </div>
-    </div>
+			<br>
+			<h5><b>Dados pessoais:</b></h5>
+			<div class="row">
+				<div class="col-xs-12">
+					<label>Nome:</label>
+					<input type="text" id="nome" readonly>
+				</div>
+			</div>
 
-    <div class="row">
-      <div class="col-xs-12">
-        <label>CPF:</label>
-        <input type="number" id="cpf" readonly>
-      </div>
-    </div>
+			<div class="row">
+				<div class="col-xs-12">
+					<label>CPF:</label>
+					<input type="number" id="cpf" readonly>
+				</div>
+			</div>
 
-    <div class="row">
-      <div class="col-xs-12">
-        <label>Celular:</label>
-        <input type="number" id="celular" readonly>
-      </div>
-    </div>
+			<div class="row">
+				<div class="col-xs-12">
+					<label>Celular:</label>
+					<input type="number" id="celular" readonly>
+				</div>
+			</div>
 
-    <div class="row">
-      <div class="col-xs-6">
-        <label>E-mail:</label>
-        <input type="text" id="email" readonly>
-      </div>
-  
+			<div class="row">
+				<div class="col-xs-6">
+					<label>E-mail:</label>
+					<input type="text" id="email" readonly>
+				</div>
 
-      <div class="col-xs-6">
-        <label>Login:</label>
-        <input type="text" id="login" readonly>
-      </div>
-      </div>
-<br>
-  <h5><b>Endereço:</b></h5>
-    <div class="row">
-      <div class="col-xs-6">
-        <label>CEP:</label>
-        <input type="number" id="cep" readonly>
-      </div>
-  
-      <div class="col-xs-6">
-        <label>Estado:</label>
-        <input type="text" id="estado" readonly>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col-xs-6">
-        <label>Cidade:</label>
-        <input type="text" id="cidade" readonly>
-      </div>
+				<div class="col-xs-6">
+					<label>Login:</label>
+					<input type="text" id="login" readonly>
+				</div>
+			</div>
+			<br>
+			<h5><b>Endereço:</b></h5>
+			<div class="row">
+				<div class="col-xs-6">
+					<label>CEP:</label>
+					<input type="number" id="cep" readonly>
+				</div>
 
-      <div class="col-xs-6">
-        <label>Bairro:</label>
-        <input type="text" id="bairro" readonly>
-      </div>
-    </div>
+				<div class="col-xs-6">
+					<label>Estado:</label>
+					<input type="text" id="estado" readonly>
+				</div>
+			</div>
 
-    <div class="row">
-      <div class="col-xs-6">
-        <label>Logradouro:</label>
-        <input type="text" id="rua" readonly>
-      </div>
+			<div class="row">
+				<div class="col-xs-6">
+					<label>Cidade:</label>
+					<input type="text" id="cidade" readonly>
+				</div>
 
-      <div class="col-xs-6">
-        <label>Número:</label>
-        <input type="number" id="numero" readonly>
-       </div>
-    </div>
+				<div class="col-xs-6">
+					<label>Bairro:</label>
+					<input type="text" id="bairro" readonly>
+				</div>
+			</div>
 
-      <div class="row">
-      <div class="col-xs-12">
-        <label>Complemento:</label>
-        <input type="text" id="complemento" readonly>
-      </div>
-    </div><br>
+			<div class="row">
+				<div class="col-xs-6">
+					<label>Logradouro:</label>
+					<input type="text" id="rua" readonly>
+				</div>
 
-    <div class="row">
-      <div class="col-xs-4">
-          <button class="btn btn-info btn-block" id="btnEditar">Editar</button>
-      </div>
+				<div class="col-xs-6">
+					<label>Número:</label>
+					<input type="number" id="numero" readonly>
+				</div>
+			</div>
 
-      <div class="col-xs-4">
-        <button class="btn btn-info btn-block" id="salvarEdit">Salvar</button>
-      </div>
+			<div class="row">
+				<div class="col-xs-12">
+					<label>Complemento:</label>
+					<input type="text" id="complemento" readonly>
+				</div>
+			</div><br>
 
-      <div class="col-xs-4">
-        <button class="btn btn-info btn-block" id="btnVoltar">Cancelar</button>
-      </div>
-    </div>
-      
+			<div class="row">
+				<div class="col-xs-4">
+					<button class="btn btn-info btn-block" id="btnEditar">Editar</button>
+				</div>
 
-    </div>
-         <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog modal-sm" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+				<div class="col-xs-4">
+					<button class="btn btn-info btn-block" id="salvarEdit">Salvar</button>
+				</div>
+
+				<div class="col-xs-4">
+					<button class="btn btn-info btn-block" id="btnVoltar">Cancelar</button>
+				</div>
+			</div>
+
+
+		</div>
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog modal-sm" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
         </button>
-        <h4 class="modal-title" id="myModalLabel">Atenção</h4>
-      </div>
-      <div class="modal-body">
-        Deseja sair?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
-        <a class="btn btn-primary" href="index.html">Sim</a>
-      </div>
-    </div>
-  </div>
-</div>
-    <!-- Fim do Conteudo app -->
-    <div class="clear"></div>
-  </div>
+						<h4 class="modal-title" id="myModalLabel">Atenção</h4>
+					</div>
+					<div class="modal-body">
+						Deseja sair?
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+						<a class="btn btn-primary" href="index.html">Sim</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+      <!-- Modal ALTERAR SENHA -->
+			<div class="modal fade" id="modalSenha" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog modal-sm" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+        </button>
+							<h4 class="modal-title" id="myModalLabel">Alterar senha</h4>
+						</div>
+						<div class="senhaModal">
+              <form name="alterarsenha">
+
+              <div class="row">
+                <div class="col-xs-8">
+                  <label>Nova senha:</label>
+                  <input id="newsenha" name="newSenha" type="password"></input>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-8">
+                  <label>Confirmar nova senha:</label>
+                  <input id="confsenha" name="conf" type="password"></input>
+                </div>
+              </div>
+          
+              <br>
+						</div>
+						<div class="modal-footer">
+							<button type="button" id="fechaSenha" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+              <button type="submit" id="alteraSenha" class="btn btn-default">Alterar</button>
+						</div>
+                </form>
+					</div>
+				</div>
+			</div>
+		<!-- Fim do Conteudo app -->
+		<div class="clear"></div>
+	</div>
 </body>
+
 </html>

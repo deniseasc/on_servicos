@@ -301,7 +301,7 @@ function listarServico(){
           var itemlista = "";
 
           $.each(data.profissional,function(i,dados){
-            itemlista += '<div class="box"> <div class="row"> <div class="col-xs-12"> <labeL>Profissão:</labeL> <input type="text" id="profissao" value="'+dados.profissao+'" readonly> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" id="servico" value="'+dados.servico+'" readonly> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL><br> <input type="text" id="descricao" value="'+dados.descricao+'" readonly> </div> </div><br><div class="row"> <div class="col-xs-4"> <button class="btn btn-info btn-block" id="editarServ">Editar</button> </div> <div class="col-xs-4"> <button class="btn btn-danger btn-block" id="salvarServ" onclick="var codigo = '+dados.codigo+'; alterarServico(codigo); "> Salvar</button> </div> <div class="col-xs-4"> <a href="#" data-toggle="modal" data-target="#modalServico"><button class="btn btn-danger btn-block" id="btnExcluir">Excluir</button></a> </div> </div> </div><br>                                                       <div class="modal fade" id="modalServico" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"> <div class="modal-dialog modal-sm" role="document"> <div class="modal-content"> <div class="modal-header"> <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span> </button> <h4 class="modal-title" id="myModalLabel">Excluir serviço</h4> </div> <div class="modal-body"> Deseja realmente excluir este serviço? </div> <div class="modal-footer"> <button type="button" id="fechaServico"class="btn btn-default" data-dismiss="modal">Não</button> <button type="button" id="excluiServico"  onclick="var codigo = '+dados.codigo+'; deletarServico(codigo); " class="btn btn-primary">Sim</button> </div> </div> </div> </div>'
+            itemlista += '<div class="box"> <div class="row"> <div class="col-xs-12"> <labeL>Profissão:</labeL> <input type="text" id="profissao" value="'+dados.profissao+'" readonly> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" class="servico" id="servico" value="'+dados.servico+'" readonly> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL><br> <input type="text" class="descricao" id="descricao" value="'+dados.descricao+'" readonly> </div> </div><br><div class="row"> <div class="col-xs-4"> <button class="btn btn-info btn-block" id="editarServ">Editar</button> </div> <div class="col-xs-4"> <button class="btn btn-danger btn-block" id="salvarServ" onclick="var codigo = '+dados.codigo+'; alterarServico(codigo); "> Salvar</button> </div> <div class="col-xs-4"> <a href="#" data-toggle="modal" data-target="#modalServico"><button class="btn btn-danger btn-block" id="btnExcluir">Excluir</button></a> </div> </div> </div><br>                                                       <div class="modal fade" id="modalServico" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"> <div class="modal-dialog modal-sm" role="document"> <div class="modal-content"> <div class="modal-header"> <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span> </button> <h4 class="modal-title" id="myModalLabel">Excluir serviço</h4> </div> <div class="modal-body"> Deseja realmente excluir este serviço? </div> <div class="modal-footer"> <button type="button" id="fechaServico"class="btn btn-default" data-dismiss="modal">Não</button> <button type="button" id="excluiServico"  onclick="var codigo = '+dados.codigo+'; deletarServico(codigo); " class="btn btn-primary">Sim</button> </div> </div> </div> </div>'
           });
           //  <div class="row"> <div class="col-xs-12"> <labeL>Dias em que trabalha:</labeL> </div> </div> <div class="col-xs-1"> <input type="checkbox" id="seg" value="Segunda">S </div> <div class="col-xs-1"> <input type="checkbox" id="ter" value="Terça">T </div> <div class="col-xs-1"> <input type="checkbox" id="qua" value="Quarta">Q </div> <div class="col-xs-1"> <input type="checkbox" id="qui" value="Quinta">Q </div> <div class="col-xs-1"> <input type="checkbox" id="sex" value="Sexta">S </div> <div class="col-xs-1"> <input type="checkbox" id="sab" value="Sábado">S </div> <div class="col-xs-1"> <input type="checkbox" id="dom" value="Domingo">D </div> </div> 
           $("#lista").html(itemlista);
@@ -317,18 +317,16 @@ function listarServico(){
       
 }
 
-//Salvar Alterações do Serviço
-$(document).on('click','#salvarServ', function(){
-  var parametros = {
+//Salvar Alterações do perfil
+function alterarServico(codigo){
 
-      "codigo": localStorage.getItem('codigo'),
-      "profissão": $("#profissao").val(),
+  var parametros = {
+      "codigo": codigo,
       "servico": $("#servico").val(),
       "descricao": $("#descricao").val()
-
     };
     $.ajax({
-      type:"post", //como enviar
+      method:"post", //como enviar
       url:"https://onservicos.000webhostapp.com/editarServico.php", //para onde enviar
       data:parametros, //o que enviar
       //se der certo
@@ -340,30 +338,8 @@ $(document).on('click','#salvarServ', function(){
         alert("Erro ao atualizar");
       }
     });
-});
-
-//Salvar Alterações do perfil
-function alterarServico(codigo){
-  var parametros = {
-      "codigo": localStorage.getItem('codigo'),
-      "profissão": $("#profissao").val(),
-      "servico": $("#servico").val(),
-      "descricao": $("#descricao").val()
-    };
-    $.ajax({
-      type:"post", //como enviar
-      url:"https://onservicos.000webhostapp.com/editarServico.php", //para onde enviar
-      data:parametros, //o que enviar
-      //se der certo
-      success: function(data){
-         alert("Perfil atualizado com sucesso!");
-      },
-      //se der errado
-      error: function(data){
-        alert("Erro ao atualizar");
-      }
-    });
 }
+
 function deletarServico(codigo){
     $.ajax({
         type:"POST", //como enviar
@@ -382,29 +358,6 @@ function deletarServico(codigo){
         }
     }); 
   }
-
-// //Salvar Alterações do perfil
-// $(document).on('click','#btnSalvar', function(){
-//   var parametros = {
-//       "codigo": localStorage.getItem('cdProf'),
-//       "profissao": $("#profissao").val(),
-//       "servico": $("#servico").val(),
-//       "descricao": $("#descricao").val(),
-//     };
-//     $.ajax({
-//       type:"post", //como enviar
-//       url:"https://https://onservicos.000webhostapp.com/editarServico.php", //para onde enviar
-//       data:parametros, //o que enviar
-//       //se der certo
-//       success: function(data){
-//          alert("Perfil atualizado com sucesso!");
-//       },
-//       //se der errado
-//       error: function(data){
-//         alert("Erro ao atualizar");
-//       }
-//     });
-// });
 
 $(document).on('click','#editarServ',function(){
   habilitaServ();
@@ -439,7 +392,6 @@ function desabilita(){
 
 function habilita(){
   $('#nome').prop('readonly', false);
-  $('#cpf').prop('readonly', false);
   $('#celular').prop('readonly', false);
   $('#email').prop('readonly', false);
   $('#login').prop('readonly', false);
@@ -453,14 +405,12 @@ function habilita(){
   $('#complemento').prop('readonly', false);
 }
  function habilitaServ(){
-  $('#profissao').prop('readonly', false);
-  $('#servico').prop('readonly', false);
-  $('#descricao').prop('readonly', false);
+  $('.servico').prop('readonly', false);
+  $('.descricao').prop('readonly', false);
  }
   function desabilitaServ(){
-  $('#profissao').prop('readonly', true);
-  $('#servico').prop('readonly', true);
-  $('#descricao').prop('readonly', true);
+  $('.servico').prop('readonly', true);
+  $('.descricao').prop('readonly', true);
  }
 
 //navegação páginas
@@ -471,9 +421,6 @@ function perfil(){
   location.href = "perfilProf.html";
 }
 
-function pedreiro(){
-  location.href = "listaserv.html";
-}
 function voltar(){
   location.href = "homeProf.html";
 }

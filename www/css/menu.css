@@ -175,11 +175,19 @@ input[type="number"] {
   border-right: 2px solid #0e97a5;
 }
 
-#btnSalvar, #btnConta, #btnContatar, #editar, #editarServ, #salvarServ, #btnEditar, #salvarEdit {
+#btnSalvar, #btnConta, #editar, #editarServ, #salvarServ, #btnEditar, #salvarEdit {
   background: linear-gradient(to right, #0e97a5, #20b6b9);
   border: none;
   color: white;
   text-decoration: none;
+}
+#btnContatar{
+  background: linear-gradient(to right, #0e97a5, #20b6b9);
+  border: none;
+  color: white;
+  text-decoration: none;
+  margin-left: 120%;
+  margin-top: -26%;
 }
 
 #fechaSenha, #sairModal, #btnExcluir, #btnServico, #btnVoltar {
@@ -206,13 +214,15 @@ input[type="number"] {
 }
 
 
-#s1{
+/* #s1{
   margin-top:10%;
-  }
-  #j1{
-  margin-top:8%;
-  margin-left: -60%;
-  }
+} */
+
+#btnContatar{
+  margin-left: -5px;
+  margin-top: -5%;
+}
+
 #foto{
   margin-left: 35%;
 }

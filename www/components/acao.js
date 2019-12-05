@@ -35,24 +35,44 @@ $(document).ready(function () {
 });
 
 //Validar Senha
-function validarSenha() {
-  var senha = document.getElementById('senha').value;
-  var confsenha = document.getElementById('confsenha').value;
+// function validarSenha() {
+//   var senha = document.getElementById('senha').value;
+//   var confsenha = document.getElementById('confsenha').value;
 
-  if (senha != "" && confsenha != "" && senha != confsenha) {
-    alert('senhas diferentes');
-  }
-  if (senha == "" && confsenha == "") {
-    alert('Digite uma senha');
-    return false
-  }
-  if (senha < 6) {
-    alert('A senha deve conter no mínimo 6 dígitos!');
-  }
-  else {
-    return true
-  }
-}
+//   if (senha != "" && confsenha != "" && senha != confsenha) {
+//     alert('senhas diferentes');
+//   }
+//   if (senha == "" && confsenha == "") {
+//     alert('Digite uma senha');
+//     return false
+//   }
+//   if (senha < 6) {
+//     alert('A senha deve conter no mínimo 6 dígitos!');
+//   }
+//   else {
+//     return true
+//   }
+// }
+
+
+//dados pessoais do profissional
+// function alterarSenha(){
+//   var alterarsenha = document.forms["alterarsenha"]
+  
+//   if (alterarsenha.senha.value == ""){
+//   alert("Preencha todos os campos!");
+//   return false;
+//   }
+//   if (alterarsenha.newSenha.value != alterasenha.conf.value) {
+//   alert("Senhas diferentes!");
+//   }
+//   if (alterarsenha.senha.value.length < 6) {
+//   alert("A senha deve conter no minímo 6 digitos!");
+//   document.formulario.senha.focus();
+//   return false;
+//   }
+
+// }
 
 //Cadastrar Usuário
 $(document).on("click", "#btnSalvar", function () {
@@ -126,62 +146,57 @@ $(document).on("click", "#btnSalvar", function () {
 
 
 //validar CPF
-function VerificaCPF () {
+function VerificaCPF() {
 
-		var inputCPF = document.getElementById('cpf');
+  var inputCPF = document.getElementById('cpf');
 
-		if (vercpf(inputCPF.value)) 
-		{
-			inputCPF.style.border = "2px #0e97a5 solid";
-		}
-		else 
-		{
-			errors="1";
+  if (vercpf(inputCPF.value)) {
+    inputCPF.style.border = "2px #0e97a5 solid";
+  }
+  else {
+    errors = "1";
 
-			if (errors)
-			{
-        alert("CPF inválido");
-				inputCPF.style.border = "2px red solid";	
-			}
-		}
+    if (errors) {
+      alert("CPF inválido");
+      inputCPF.style.border = "2px red solid";
+    }
+  }
 
-	}
+}
 
-	function vercpf (cpf) {
+function vercpf(cpf) {
 
-		if (cpf.length != 11 || cpf == "00000000000" || cpf == "11111111111" || cpf == "22222222222" || cpf == "33333333333" || cpf == "44444444444" || cpf == "55555555555" || cpf == "66666666666" || cpf == "77777777777" || cpf == "88888888888" || cpf == "99999999999")
+  if (cpf.length != 11 || cpf == "00000000000" || cpf == "11111111111" || cpf == "22222222222" || cpf == "33333333333" || cpf == "44444444444" || cpf == "55555555555" || cpf == "66666666666" || cpf == "77777777777" || cpf == "88888888888" || cpf == "99999999999")
 
-			return false;
+    return false;
 
-			add = 0;
+  add = 0;
 
-		for (i=0; i < 9; i ++)
-		{
+  for (i = 0; i < 9; i++) {
 
-			add += parseInt(cpf.charAt(i)) * (10 - i);
-			rev = 11 - (add % 11);
-		}
-		if (rev == 10 || rev == 11){
-			rev = 0;
-		}
+    add += parseInt(cpf.charAt(i)) * (10 - i);
+    rev = 11 - (add % 11);
+  }
+  if (rev == 10 || rev == 11) {
+    rev = 0;
+  }
 
-		if (rev != parseInt(cpf.charAt(9)))
-			return false;
-			add = 0;
+  if (rev != parseInt(cpf.charAt(9)))
+    return false;
+  add = 0;
 
-		for (i = 0; i < 10; i ++)
-		{
-			add += parseInt(cpf.charAt(i)) * (11 - i);
-			rev = 11 - (add % 11);
-		}
-			if (rev == 10 || rev == 11)
-				rev = 0;
+  for (i = 0; i < 10; i++) {
+    add += parseInt(cpf.charAt(i)) * (11 - i);
+    rev = 11 - (add % 11);
+  }
+  if (rev == 10 || rev == 11)
+    rev = 0;
 
-			if (rev != parseInt(cpf.charAt(10)))
-				return false;
-				//alert('O CPF INFORMADO É VÁLIDO.');
-				return true;
-	}
+  if (rev != parseInt(cpf.charAt(10)))
+    return false;
+  //alert('O CPF INFORMADO É VÁLIDO.');
+  return true;
+}
 
 //login usuario
 $(document).on('click', '#btnEntrar', function () {
@@ -239,13 +254,13 @@ function preencherPerfil() {
       $("#rua").val(data.perfil.rua);
       $("#numero").val(data.perfil.numero);
       $("#complemento").val(data.perfil.complemento);
-      $("#foto").attr('src', 'https://onservicos.000webhostapp.com/'+data.perfil.foto);
-      $("#img").attr('src', 'https://onservicos.000webhostapp.com/'+data.perfil.foto);
-      $("#perfil").attr('src', 'https://onservicos.000webhostapp.com/'+data.perfil.foto);
+      $("#foto").attr('src', 'https://onservicos.000webhostapp.com/' + data.perfil.foto);
+      $("#img").attr('src', 'https://onservicos.000webhostapp.com/' + data.perfil.foto);
+      $("#perfil").attr('src', 'https://onservicos.000webhostapp.com/' + data.perfil.foto);
     },
     //se der errado
     error: function (data) {
-      alert('erro'); 
+      alert('erro');
     }
   });
 }
@@ -264,12 +279,11 @@ function desabilita() {
   $('#rua').prop('readonly', true);
   $('#numero').prop('readonly', true);
   $('#complemento').prop('readonly', true);
-  $('#btnProximo').prop('readonly',true);
+  $('#btnProximo').prop('readonly', true);
 }
 
 function habilita() {
   $('#nome').prop('readonly', false);
-  $('#cpf').prop('readonly', false);
   $('#celular').prop('readonly', false);
   $('#email').prop('readonly', false);
   $('#login').prop('readonly', false);
@@ -281,7 +295,7 @@ function habilita() {
   $('#rua').prop('readonly', false);
   $('#numero').prop('readonly', false);
   $('#complemento').prop('readonly', false);
-  $('#btnProximo').prop('readonly',false);
+  $('#btnProximo').prop('readonly', false);
 }
 
 //Salvar Alterações do perfil
@@ -325,46 +339,45 @@ $(document).on('click', '#btnVoltar', function () {
 
 
 //INPUT DE PESQUISA
-$(document).on('click', '#pesquisa', function () {
+function pesquisa() {
   var valorInput = document.getElementById('texto');
-  if ((valorInput.value) == "Pedreiro" ||(valorInput.value) == "pedreiro" ) {
+  if ((valorInput.value) == "Pedreiro" || (valorInput.value) == "pedreiro") {
     location.href = "xPedreiro.html";
   }
-  if ((valorInput.value) == "Pintor" || (valorInput.value) == "pintor"){
+  if ((valorInput.value) == "Pintor" || (valorInput.value) == "pintor") {
     location.href = "xPintor.html";
   }
   if ((valorInput.value) == "Encanador" || (valorInput.value) == "encanador") {
     location.href = "xEncanador.html";
   }
-     if ((valorInput.value) == "jardineiro"|| (valorInput.value) == "Jardineiro"){
-     location.href = "xJardineiro.html";
+  if ((valorInput.value) == "jardineiro" || (valorInput.value) == "Jardineiro") {
+    location.href = "xJardineiro.html";
   }
-     if ((valorInput.value) == "Piscineiro"||(valorInput.value) == "piscineiro"){
-     location.href = "xPiscineiro.html";
+  if ((valorInput.value) == "Piscineiro" || (valorInput.value) == "piscineiro") {
+    location.href = "xPiscineiro.html";
   }
-     if ((valorInput.value) == "marceneiro"||(valorInput.value) == "Marceneiro"){
-     location.href = "xMarceneiro.html";
+  if ((valorInput.value) == "marceneiro" || (valorInput.value) == "Marceneiro") {
+    location.href = "xMarceneiro.html";
   }
-     if ((valorInput.value) == "mecanico"||(valorInput.value) == "Mecanico" || (valorInput.value) =="Mecânico"|| (valorInput.value) =="mecânico"){
-     location.href = "xMecanico.html";
+  if ((valorInput.value) == "mecanico" || (valorInput.value) == "Mecanico" || (valorInput.value) == "Mecânico" || (valorInput.value) == "mecânico") {
+    location.href = "xMecanico.html";
   }
-     if ((valorInput.value) == "Eletricista"||(valorInput.value) == "eletricista"){
-     location.href = "xEletricista.html";
+  if ((valorInput.value) == "Eletricista" || (valorInput.value) == "eletricista") {
+    location.href = "xEletricista.html";
   }
-     if ((valorInput.value) == "vidraceiro"||(valorInput.value) == "Vidraceiro"){
-     location.href = "xVidraceiro.html";
+  if ((valorInput.value) == "vidraceiro" || (valorInput.value) == "Vidraceiro") {
+    location.href = "xVidraceiro.html";
   }
-     if ((valorInput.value) == "Eletrodomésticos"|| (valorInput.value) == "eletrodomésticos"||(valorInput.value) == "técnico eletrodomésticos"||  (valorInput.value) == "Técnico eletrodomésticos" ||(valorInput.value) == "técnico de eletrodomésticos" ||(valorInput.value) == "Técnico de eletrodomésticos"){
-     location.href = "xTecnico.html";
+  if ((valorInput.value) == "Eletrodomésticos" || (valorInput.value) == "eletrodomésticos" || (valorInput.value) == "técnico eletrodomésticos" || (valorInput.value) == "Técnico eletrodomésticos" || (valorInput.value) == "técnico de eletrodomésticos" || (valorInput.value) == "Técnico de eletrodomésticos") {
+    location.href = "xTecnico.html";
   }
-     if ((valorInput.value) == "chaveiro"|| (valorInput.value) == "Chaveiro"){
-     location.href = "xChaveiro.html";
+  if ((valorInput.value) == "chaveiro" || (valorInput.value) == "Chaveiro") {
+    location.href = "xChaveiro.html";
   }
-     if ((valorInput.value) == "Dedetizador"||(valorInput.value) == "dedetizador"){
-     location.href = "xDedetizador.html";
+  if ((valorInput.value) == "Dedetizador" || (valorInput.value) == "dedetizador") {
+    location.href = "xDedetizador.html";
   }
-
-})
+}
 
 //Lista serviços
 function listarPedreiro() {
@@ -377,7 +390,7 @@ function listarPedreiro() {
     success: function (data) {
       var itemlista = "";
       $.each(data.profissional, function (i, dados) {
-        itemlista += '<div class="box"> <h1>Pontos: '+dados.ponto+' </h1><div class="row"> <div class="circle"> <img src="https://onservicos.000webhostapp.com/' + dados.foto + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="' + dados.nome + '"> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.servico + '"> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.descricao + '"> </div> <div class="col-xs-12"> <labeL>Cidade:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.cidade + '"> </div> </div> <br> <div class="row"> <div class="col-xs-3"><img src="img/favoritar.png" onclick="Favoritar()" id="s1"></div> <div class="col-xs-3"> <img src="img/joiaa2.png" onclick="var codigo = '+dados.codigo+'; recomendar(codigo)" id="j1"> </div> <div class="col-xs-6"> <button class="btn btn-danger btn-block" id="btnContatar" data-toggle="modal" data-target="#modalExemplo">Contatar</button> </div> </div> </div><br> <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <br><br><br><br><br><br><br><br><br> <div class="modal-dialog" role="document"> <div class="modal-content" id="modal"> <div class="modal-header"> <h5 class="modal-title" id="exampleModalLabel">Contatar Profissional</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" id="modal-dentro"> <center> <div class="row"> <div class="col-xs-6"> <a href="https://wa.me/55' + dados.celular + '"><img src="img/WhatsApp-icone.png" id="imgModal" alt=""></a> </div> <div class="col-xs-6"><a href="tel:' + dados.celular + '"><img src="img/agenda.png" id="imgModal" alt=""></a></div> </div> </center> </div> <div class="modal-footer"> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">Fechar</button> </div> </div> </div> </div>';
+        itemlista += '<div class="box"> <div class="row"> <div class="circle"> <img src="https://onservicos.000webhostapp.com/' + dados.foto + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="' + dados.nome + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.servico + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Descrição:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.descricao + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Cidade:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.cidade + '"> </div> </div> <br> <div class="row"> <div class="col-xs-3"> <img src="img/joiaa.png" onclick="var codigo = ' + dados.codigo + '; recomendar(codigo)" onclick="adicionaFav(this.id)" id="j1"> <label id="pontos">' + dados.ponto + ' </label> </div> <div class="col-xs-3"> <img src="img/deslike.png" onclick="var codigo = ' + dados.codigo + '; naoRecomendar(codigo)" id="j2"> <label id="pontos2">' + dados.menosponto + ' </label> </div> <div class="col-xs-6"> <a href="tel:+55' + dados.celular + '" class="btn btn-info btn-block" id="btnContatar">Contatar</a> </div> </div> </div> <br>';
       });
 
       $("#pedreiros").html(itemlista);
@@ -403,7 +416,7 @@ function listarPintor() {
     success: function (data) {
       var itemlista = "";
       $.each(data.profissional, function (i, dados) {
-        itemlista +=   '<div class="box"> <div class="row"> <div class="circle"> <img src="https://onservicos.000webhostapp.com/' + dados.foto + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="' + dados.nome + '"> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.servico + '"> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.descricao + '"> </div> <div class="col-xs-12"> <labeL>Cidade:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.cidade + '"> </div> </div> <br> <div class="row"> <div class="col-xs-3"><img src="img/favoritar.png" onclick="Favoritar()" id="s1"></div> <div class="col-xs-3"> <img src="img/joiaa2.png" onclick="recomendar()" id="j1"> </div> <div class="col-xs-6"> <button class="btn btn-danger btn-block" id="btnContatar" data-toggle="modal" data-target="#modalExemplo">Contatar</button> </div> </div> </div><br> <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <br><br><br><br><br><br><br><br><br> <div class="modal-dialog" role="document"> <div class="modal-content" id="modal"> <div class="modal-header"> <h5 class="modal-title" id="exampleModalLabel">Contatar Profissional</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" id="modal-dentro"> <center> <div class="row"> <div class="col-xs-6"> <a href="https://wa.me/5513996857881"><img src="img/WhatsApp-icone.png" id="imgModal" alt=""></a> </div> <div class="col-xs-6"><a href="tel:' + dados.celular + '"><img src="img/agenda.png" id="imgModal" alt=""></a></div> </div> </center> </div> <div class="modal-footer"> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">Fechar</button> </div> </div> </div> </div>';
+        itemlista += '<div class="box"> <div class="row"> <div class="circle"> <img src="https://onservicos.000webhostapp.com/' + dados.foto + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="' + dados.nome + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.servico + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Descrição:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.descricao + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Cidade:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.cidade + '"> </div> </div> <br> <div class="row"> <div class="col-xs-3"> <img src="img/joiaa.png" onclick="var codigo = ' + dados.codigo + '; recomendar(codigo)" onclick="adicionaFav(this.id)" id="j1"> <label id="pontos">' + dados.ponto + ' </label> </div> <div class="col-xs-3"> <img src="img/deslike.png" onclick="var codigo = ' + dados.codigo + '; naoRecomendar(codigo)" id="j2"> <label id="pontos2">' + dados.menosponto + ' </label> </div> <div class="col-xs-6"> <a href="tel:' + dados.celular + '"><button class="btn btn-info btn-block" id="btnContatar">Contatar</button></a> </div> </div> </div> <br>';
       });
 
       $("#pintor").html(itemlista);
@@ -429,7 +442,7 @@ function listarEncanador() {
     success: function (data) {
       var itemlista = "";
       $.each(data.profissional, function (i, dados) {
-        itemlista +=  '<div class="box"> <div class="row"> <div class="circle"> <img src="https://onservicos.000webhostapp.com/' + dados.foto + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="' + dados.nome + '"> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.servico + '"> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.descricao + '"> </div> <div class="col-xs-12"> <labeL>Cidade:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.cidade + '"> </div> </div> <br> <div class="row"> <div class="col-xs-3"><img src="img/favoritar.png" onclick="Favoritar()" id="s1"></div> <div class="col-xs-3"> <img src="img/joiaa2.png" onclick="recomendar()" id="j1"> </div> <div class="col-xs-6"> <button class="btn btn-danger btn-block" id="btnContatar" data-toggle="modal" data-target="#modalExemplo">Contatar</button> </div> </div> </div><br> <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <br><br><br><br><br><br><br><br><br> <div class="modal-dialog" role="document"> <div class="modal-content" id="modal"> <div class="modal-header"> <h5 class="modal-title" id="exampleModalLabel">Contatar Profissional</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" id="modal-dentro"> <center> <div class="row"> <div class="col-xs-6"> <a href="https://wa.me/55' + dados.celular + '"><img src="img/WhatsApp-icone.png" id="imgModal" alt=""></a> </div> <div class="col-xs-6"><a href="tel:' + dados.celular + '"><img src="img/agenda.png" id="imgModal" alt=""></a></div> </div> </center> </div> <div class="modal-footer"> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">Fechar</button> </div> </div> </div> </div>';
+        itemlista += '<div class="box"> <div class="row"> <div class="circle"> <img src="https://onservicos.000webhostapp.com/' + dados.foto + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="' + dados.nome + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.servico + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Descrição:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.descricao + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Cidade:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.cidade + '"> </div> </div> <br> <div class="row"> <div class="col-xs-3"> <img src="img/joiaa.png" onclick="var codigo = ' + dados.codigo + '; recomendar(codigo)" onclick="adicionaFav(this.id)" id="j1"> <label id="pontos">' + dados.ponto + ' </label> </div> <div class="col-xs-3"> <img src="img/deslike.png" onclick="var codigo = ' + dados.codigo + '; naoRecomendar(codigo)" id="j2"> <label id="pontos2">' + dados.menosponto + ' </label> </div> <div class="col-xs-6"> <a href="tel:' + dados.celular + '"><button class="btn btn-info btn-block" id="btnContatar">Contatar</button></a> </div> </div> </div> <br>';
       });
 
       $("#servicos").html(itemlista);
@@ -455,7 +468,7 @@ function listarJardineiro() {
     success: function (data) {
       var itemlista = "";
       $.each(data.profissional, function (i, dados) {
-        itemlista +=  '<div class="box"> <div class="row"> <div class="circle"> <img src="https://onservicos.000webhostapp.com/' + dados.foto + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="' + dados.nome + '"> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.servico + '"> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.descricao + '"> </div> <div class="col-xs-12"> <labeL>Cidade:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.cidade + '"> </div> </div> <br> <div class="row"> <div class="col-xs-3"><img src="img/favoritar.png" onclick="Favoritar()" id="s1"></div> <div class="col-xs-3"> <img src="img/joiaa2.png" onclick="recomendar()" id="j1"> </div> <div class="col-xs-6"> <button class="btn btn-danger btn-block" id="btnContatar" data-toggle="modal" data-target="#modalExemplo">Contatar</button> </div> </div> </div><br> <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <br><br><br><br><br><br><br><br><br> <div class="modal-dialog" role="document"> <div class="modal-content" id="modal"> <div class="modal-header"> <h5 class="modal-title" id="exampleModalLabel">Contatar Profissional</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" id="modal-dentro"> <center> <div class="row"> <div class="col-xs-6"> <a href="https://wa.me/55' + dados.celular + '"><img src="img/WhatsApp-icone.png" id="imgModal" alt=""></a> </div> <div class="col-xs-6"><a href="tel:' + dados.celular + '"><img src="img/agenda.png" id="imgModal" alt=""></a></div> </div> </center> </div> <div class="modal-footer"> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">Fechar</button> </div> </div> </div> </div>';
+        itemlista += '<div class="box"> <div class="row"> <div class="circle"> <img src="https://onservicos.000webhostapp.com/' + dados.foto + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="' + dados.nome + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.servico + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Descrição:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.descricao + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Cidade:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.cidade + '"> </div> </div> <br> <div class="row"> <div class="col-xs-3"> <img src="img/joiaa.png" onclick="var codigo = ' + dados.codigo + '; recomendar(codigo)" onclick="adicionaFav(this.id)" id="j1"> <label id="pontos">' + dados.ponto + ' </label> </div> <div class="col-xs-3"> <img src="img/deslike.png" onclick="var codigo = ' + dados.codigo + '; naoRecomendar(codigo)" id="j2"> <label id="pontos2">' + dados.menosponto + ' </label> </div> <div class="col-xs-6"> <a href="tel:' + dados.celular + '"><button class="btn btn-info btn-block" id="btnContatar">Contatar</button></a> </div> </div> </div> <br>';
       });
 
       $("#servicos").html(itemlista);
@@ -481,7 +494,7 @@ function listarPiscineiro() {
     success: function (data) {
       var itemlista = "";
       $.each(data.profissional, function (i, dados) {
-        itemlista += '<div class="box"> <div class="row"> <div class="circle"> <img src="https://onservicos.000webhostapp.com/' + dados.foto + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="' + dados.nome + '"> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.servico + '"> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.descricao + '"> </div> <div class="col-xs-12"> <labeL>Cidade:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.cidade + '"> </div> </div> <br> <div class="row"> <div class="col-xs-3"><img src="img/favoritar.png" onclick="Favoritar()" id="s1"></div> <div class="col-xs-3"> <img src="img/joiaa2.png" onclick="recomendar()" id="j1"> </div> <div class="col-xs-6"> <button class="btn btn-danger btn-block" id="btnContatar" data-toggle="modal" data-target="#modalExemplo">Contatar</button> </div> </div> </div><br> <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <br><br><br><br><br><br><br><br><br> <div class="modal-dialog" role="document"> <div class="modal-content" id="modal"> <div class="modal-header"> <h5 class="modal-title" id="exampleModalLabel">Contatar Profissional</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" id="modal-dentro"> <center> <div class="row"> <div class="col-xs-6"> <a href="https://wa.me/55' + dados.celular + '"><img src="img/WhatsApp-icone.png" id="imgModal" alt=""></a> </div> <div class="col-xs-6"><a href="tel:' + dados.celular + '"><img src="img/agenda.png" id="imgModal" alt=""></a></div> </div> </center> </div> <div class="modal-footer"> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">Fechar</button> </div> </div> </div> </div>'
+        itemlista += '<div class="box"> <div class="row"> <div class="circle"> <img src="https://onservicos.000webhostapp.com/' + dados.foto + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="' + dados.nome + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.servico + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Descrição:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.descricao + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Cidade:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.cidade + '"> </div> </div> <br> <div class="row"> <div class="col-xs-3"> <img src="img/joiaa.png" onclick="var codigo = ' + dados.codigo + '; recomendar(codigo)" onclick="adicionaFav(this.id)" id="j1"> <label id="pontos">' + dados.ponto + ' </label> </div> <div class="col-xs-3"> <img src="img/deslike.png" onclick="var codigo = ' + dados.codigo + '; naoRecomendar(codigo)" id="j2"> <label id="pontos2">' + dados.menosponto + ' </label> </div> <div class="col-xs-6"> <a href="tel:' + dados.celular + '"><button class="btn btn-info btn-block" id="btnContatar">Contatar</button></a> </div> </div> </div> <br>';
       });
 
       $("#servicos").html(itemlista);
@@ -508,7 +521,7 @@ function listarMarceneiro() {
     success: function (data) {
       var itemlista = "";
       $.each(data.profissional, function (i, dados) {
-        itemlista +=  '<div class="box"> <div class="row"> <div class="circle"> <img src="https://onservicos.000webhostapp.com/' + dados.foto + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="' + dados.nome + '"> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.servico + '"> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.descricao + '"> </div> <div class="col-xs-12"> <labeL>Cidade:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.cidade + '"> </div> </div> <br> <div class="row"> <div class="col-xs-3"><img src="img/favoritar.png" onclick="Favoritar()" id="s1"></div> <div class="col-xs-3"> <img src="img/joiaa2.png" onclick="recomendar()" id="j1"> </div> <div class="col-xs-6"> <button class="btn btn-danger btn-block" id="btnContatar" data-toggle="modal" data-target="#modalExemplo">Contatar</button> </div> </div> </div><br> <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <br><br><br><br><br><br><br><br><br> <div class="modal-dialog" role="document"> <div class="modal-content" id="modal"> <div class="modal-header"> <h5 class="modal-title" id="exampleModalLabel">Contatar Profissional</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" id="modal-dentro"> <center> <div class="row"> <div class="col-xs-6"> <a href="https://wa.me/55' + dados.celular + '"><img src="img/WhatsApp-icone.png" id="imgModal" alt=""></a> </div> <div class="col-xs-6"><a href="tel:' + dados.celular + '"><img src="img/agenda.png" id="imgModal" alt=""></a></div> </div> </center> </div> <div class="modal-footer"> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">Fechar</button> </div> </div> </div> </div>';
+        itemlista += '<div class="box"> <div class="row"> <div class="circle"> <img src="https://onservicos.000webhostapp.com/' + dados.foto + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="' + dados.nome + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.servico + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Descrição:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.descricao + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Cidade:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.cidade + '"> </div> </div> <br> <div class="row"> <div class="col-xs-3"> <img src="img/joiaa.png" onclick="var codigo = ' + dados.codigo + '; recomendar(codigo)" onclick="adicionaFav(this.id)" id="j1"> <label id="pontos">' + dados.ponto + ' </label> </div> <div class="col-xs-3"> <img src="img/deslike.png" onclick="var codigo = ' + dados.codigo + '; naoRecomendar(codigo)" id="j2"> <label id="pontos2">' + dados.menosponto + ' </label> </div> <div class="col-xs-6"> <a href="tel:' + dados.celular + '"><button class="btn btn-info btn-block" id="btnContatar">Contatar</button></a> </div> </div> </div> <br>';
       });
 
       $("#servicos").html(itemlista);
@@ -534,7 +547,7 @@ function listarMecanico() {
     success: function (data) {
       var itemlista = "";
       $.each(data.profissional, function (i, dados) {
-        itemlista +=  '<div class="box"> <div class="row"> <div class="circle"> <img src="https://onservicos.000webhostapp.com/' + dados.foto + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="' + dados.nome + '"> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.servico + '"> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.descricao + '"> </div> <div class="col-xs-12"> <labeL>Cidade:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.cidade + '"> </div> </div> <br> <div class="row"> <div class="col-xs-3"><img src="img/favoritar.png" onclick="Favoritar()" id="s1"></div> <div class="col-xs-3"> <img src="img/joiaa2.png" onclick="recomendar()" id="j1"> </div> <div class="col-xs-6"> <button class="btn btn-danger btn-block" id="btnContatar" data-toggle="modal" data-target="#modalExemplo">Contatar</button> </div> </div> </div><br> <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <br><br><br><br><br><br><br><br><br> <div class="modal-dialog" role="document"> <div class="modal-content" id="modal"> <div class="modal-header"> <h5 class="modal-title" id="exampleModalLabel">Contatar Profissional</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" id="modal-dentro"> <center> <div class="row"> <div class="col-xs-6"> <a href="https://wa.me/55' + dados.celular + '"><img src="img/WhatsApp-icone.png" id="imgModal" alt=""></a> </div> <div class="col-xs-6"><a href="tel:' + dados.celular + '"><img src="img/agenda.png" id="imgModal" alt=""></a></div> </div> </center> </div> <div class="modal-footer"> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">Fechar</button> </div> </div> </div> </div>';
+        itemlista += '<div class="box"> <div class="row"> <div class="circle"> <img src="https://onservicos.000webhostapp.com/' + dados.foto + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="' + dados.nome + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.servico + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Descrição:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.descricao + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Cidade:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.cidade + '"> </div> </div> <br> <div class="row"> <div class="col-xs-3"> <img src="img/joiaa.png" onclick="var codigo = ' + dados.codigo + '; recomendar(codigo)" onclick="adicionaFav(this.id)" id="j1"> <label id="pontos">' + dados.ponto + ' </label> </div> <div class="col-xs-3"> <img src="img/deslike.png" onclick="var codigo = ' + dados.codigo + '; naoRecomendar(codigo)" id="j2"> <label id="pontos2">' + dados.menosponto + ' </label> </div> <div class="col-xs-6"> <a href="tel:' + dados.celular + '"><button class="btn btn-info btn-block" id="btnContatar">Contatar</button></a> </div> </div> </div> <br>';
       });
 
       $("#servicos").html(itemlista);
@@ -560,7 +573,7 @@ function listarEletricista() {
     success: function (data) {
       var itemlista = "";
       $.each(data.profissional, function (i, dados) {
-        itemlista +=  '<div class="box"> <div class="row"> <div class="circle"> <img src="https://onservicos.000webhostapp.com/' + dados.foto + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="' + dados.nome + '"> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.servico + '"> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.descricao + '"> </div> <div class="col-xs-12"> <labeL>Cidade:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.cidade + '"> </div> </div> <br> <div class="row"> <div class="col-xs-3"><img src="img/favoritar.png" onclick="Favoritar()" id="s1"></div> <div class="col-xs-3"> <img src="img/joiaa2.png" onclick="recomendar()" id="j1"> </div> <div class="col-xs-6"> <button class="btn btn-danger btn-block" id="btnContatar" data-toggle="modal" data-target="#modalExemplo">Contatar</button> </div> </div> </div><br> <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <br><br><br><br><br><br><br><br><br> <div class="modal-dialog" role="document"> <div class="modal-content" id="modal"> <div class="modal-header"> <h5 class="modal-title" id="exampleModalLabel">Contatar Profissional</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" id="modal-dentro"> <center> <div class="row"> <div class="col-xs-6"> <a href="https://wa.me/55' + dados.celular + '"><img src="img/WhatsApp-icone.png" id="imgModal" alt=""></a> </div> <div class="col-xs-6"><a href="tel:' + dados.celular + '"><img src="img/agenda.png" id="imgModal" alt=""></a></div> </div> </center> </div> <div class="modal-footer"> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">Fechar</button> </div> </div> </div> </div>';
+        itemlista += '<div class="box"> <div class="row"> <div class="circle"> <img src="https://onservicos.000webhostapp.com/' + dados.foto + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="' + dados.nome + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.servico + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Descrição:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.descricao + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Cidade:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.cidade + '"> </div> </div> <br> <div class="row"> <div class="col-xs-3"> <img src="img/joiaa.png" onclick="var codigo = ' + dados.codigo + '; recomendar(codigo)" onclick="adicionaFav(this.id)" id="j1"> <label id="pontos">' + dados.ponto + ' </label> </div> <div class="col-xs-3"> <img src="img/deslike.png" onclick="var codigo = ' + dados.codigo + '; naoRecomendar(codigo)" id="j2"> <label id="pontos2">' + dados.menosponto + ' </label> </div> <div class="col-xs-6"> <a href="tel:' + dados.celular + '"><button class="btn btn-info btn-block" id="btnContatar">Contatar</button></a> </div> </div> </div> <br>';
       });
 
       $("#servicos").html(itemlista);
@@ -586,7 +599,7 @@ function listarVidraceiro() {
     success: function (data) {
       var itemlista = "";
       $.each(data.profissional, function (i, dados) {
-        itemlista +=  '<div class="box"> <div class="row"> <div class="circle"> <img src="https://onservicos.000webhostapp.com/' + dados.foto + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="' + dados.nome + '"> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.servico + '"> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.descricao + '"> </div> <div class="col-xs-12"> <labeL>Cidade:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.cidade + '"> </div> </div> <br> <div class="row"> <div class="col-xs-3"><img src="img/favoritar.png" onclick="Favoritar()" id="s1"></div> <div class="col-xs-3"> <img src="img/joiaa2.png" onclick="recomendar()" id="j1"> </div> <div class="col-xs-6"> <button class="btn btn-danger btn-block" id="btnContatar" data-toggle="modal" data-target="#modalExemplo">Contatar</button> </div> </div> </div><br> <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <br><br><br><br><br><br><br><br><br> <div class="modal-dialog" role="document"> <div class="modal-content" id="modal"> <div class="modal-header"> <h5 class="modal-title" id="exampleModalLabel">Contatar Profissional</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" id="modal-dentro"> <center> <div class="row"> <div class="col-xs-6"> <a href="https://wa.me/55' + dados.celular + '"><img src="img/WhatsApp-icone.png" id="imgModal" alt=""></a> </div> <div class="col-xs-6"><a href="tel:' + dados.celular + '"><img src="img/agenda.png" id="imgModal" alt=""></a></div> </div> </center> </div> <div class="modal-footer"> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">Fechar</button> </div> </div> </div> </div>';
+        itemlista += '<div class="box"> <div class="row"> <div class="circle"> <img src="https://onservicos.000webhostapp.com/' + dados.foto + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="' + dados.nome + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.servico + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Descrição:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.descricao + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Cidade:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.cidade + '"> </div> </div> <br> <div class="row"> <div class="col-xs-3"> <img src="img/joiaa.png" onclick="var codigo = ' + dados.codigo + '; recomendar(codigo)" onclick="adicionaFav(this.id)" id="j1"> <label id="pontos">' + dados.ponto + ' </label> </div> <div class="col-xs-3"> <img src="img/deslike.png" onclick="var codigo = ' + dados.codigo + '; naoRecomendar(codigo)" id="j2"> <label id="pontos2">' + dados.menosponto + ' </label> </div> <div class="col-xs-6"> <a href="tel:' + dados.celular + '"><button class="btn btn-info btn-block" id="btnContatar">Contatar</button></a> </div> </div> </div> <br>';
       });
 
       $("#servicos").html(itemlista);
@@ -612,7 +625,7 @@ function listarTecnico() {
     success: function (data) {
       var itemlista = "";
       $.each(data.profissional, function (i, dados) {
-        itemlista +=  '<div class="box"> <div class="row"><div class="circle"> <img src="https://onservicos.000webhostapp.com/' + dados.foto + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="' + dados.nome + '"> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.servico + '"> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.descricao + '"> </div> <div class="col-xs-12"> <labeL>Cidade:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.cidade + '"> </div> </div> <br> <div class="row"> <div class="col-xs-3"><img src="img/favoritar.png" onclick="Favoritar()" id="s1"></div> <div class="col-xs-3"> <img src="img/joiaa2.png" onclick="recomendar()" id="j1"> </div> <div class="col-xs-6"> <button class="btn btn-danger btn-block" id="btnContatar" data-toggle="modal" data-target="#modalExemplo">Contatar</button> </div> </div> </div><br> <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <br><br><br><br><br><br><br><br><br> <div class="modal-dialog" role="document"> <div class="modal-content" id="modal"> <div class="modal-header"> <h5 class="modal-title" id="exampleModalLabel">Contatar Profissional</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" id="modal-dentro"> <center> <div class="row"> <div class="col-xs-6"> <a href="https://wa.me/55' + dados.celular + '"><img src="img/WhatsApp-icone.png" id="imgModal" alt=""></a> </div> <div class="col-xs-6"><a href="tel:' + dados.celular + '"><img src="img/agenda.png" id="imgModal" alt=""></a></div> </div> </center> </div> <div class="modal-footer"> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">Fechar</button> </div> </div> </div> </div>';
+        itemlista += '<div class="box"> <div class="row"> <div class="circle"> <img src="https://onservicos.000webhostapp.com/' + dados.foto + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="' + dados.nome + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.servico + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Descrição:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.descricao + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Cidade:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.cidade + '"> </div> </div> <br> <div class="row"> <div class="col-xs-3"> <img src="img/joiaa.png" onclick="var codigo = ' + dados.codigo + '; recomendar(codigo)" onclick="adicionaFav(this.id)" id="j1"> <label id="pontos">' + dados.ponto + ' </label> </div> <div class="col-xs-3"> <img src="img/deslike.png" onclick="var codigo = ' + dados.codigo + '; naoRecomendar(codigo)" id="j2"> <label id="pontos2">' + dados.menosponto + ' </label> </div> <div class="col-xs-6"> <a href="tel:' + dados.celular + '"><button class="btn btn-info btn-block" id="btnContatar">Contatar</button></a> </div> </div> </div> <br>';
       });
 
       $("#servicos").html(itemlista);
@@ -638,7 +651,7 @@ function listarChaveiro() {
     success: function (data) {
       var itemlista = "";
       $.each(data.profissional, function (i, dados) {
-        itemlista +=  '<div class="box"> <div class="row"> <div class="circle"> <img src="https://onservicos.000webhostapp.com/' + dados.foto + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="' + dados.nome + '"> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.servico + '"> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.descricao + '"> </div> <div class="col-xs-12"> <labeL>Cidade:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.cidade + '"> </div> </div> <br> <div class="row"> <div class="col-xs-3"><img src="img/favoritar.png" onclick="Favoritar()" id="s1"></div> <div class="col-xs-3"> <img src="img/joiaa2.png" onclick="recomendar()" id="j1"> </div> <div class="col-xs-6"> <button class="btn btn-danger btn-block" id="btnContatar" data-toggle="modal" data-target="#modalExemplo">Contatar</button> </div> </div> </div><br> <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <br><br><br><br><br><br><br><br><br> <div class="modal-dialog" role="document"> <div class="modal-content" id="modal"> <div class="modal-header"> <h5 class="modal-title" id="exampleModalLabel">Contatar Profissional</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" id="modal-dentro"> <center> <div class="row"> <div class="col-xs-6"> <a href="https://wa.me/55' + dados.celular + '"><img src="img/WhatsApp-icone.png" id="imgModal" alt=""></a> </div> <div class="col-xs-6"><a href="tel:' + dados.celular + '"><img src="img/agenda.png" id="imgModal" alt=""></a></div> </div> </center> </div> <div class="modal-footer"> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">Fechar</button> </div> </div> </div> </div>';
+        itemlista += '<div class="box"> <div class="row"> <div class="circle"> <img src="https://onservicos.000webhostapp.com/' + dados.foto + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="' + dados.nome + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.servico + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Descrição:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.descricao + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Cidade:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.cidade + '"> </div> </div> <br> <div class="row"> <div class="col-xs-3"> <img src="img/joiaa.png" onclick="var codigo = ' + dados.codigo + '; recomendar(codigo)" onclick="adicionaFav(this.id)" id="j1"> <label id="pontos">' + dados.ponto + ' </label> </div> <div class="col-xs-3"> <img src="img/deslike.png" onclick="var codigo = ' + dados.codigo + '; naoRecomendar(codigo)" id="j2"> <label id="pontos2">' + dados.menosponto + ' </label> </div> <div class="col-xs-6"> <a href="tel:' + dados.celular + '"><button class="btn btn-info btn-block" id="btnContatar">Contatar</button></a> </div> </div> </div> <br>';
       });
 
       $("#servicos").html(itemlista);
@@ -664,7 +677,7 @@ function listarDedetizador() {
     success: function (data) {
       var itemlista = "";
       $.each(data.profissional, function (i, dados) {
-        itemlista +=  '<div class="box"> <div class="row"> <div class="circle"> <img src="https://onservicos.000webhostapp.com/' + dados.foto + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="' + dados.nome + '"> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.servico + '"> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.descricao + '"> </div> <div class="col-xs-12"> <labeL>Cidade:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.cidade + '"> </div> </div> <br> <div class="row"> <div class="col-xs-3"><img src="img/favoritar.png" onclick="Favoritar()" id="s1"></div> <div class="col-xs-3"> <img src="img/joiaa2.png" onclick="recomendar()" id="j1"> </div> <div class="col-xs-6"> <button class="btn btn-danger btn-block" id="btnContatar" data-toggle="modal" data-target="#modalExemplo">Contatar</button> </div> </div> </div><br> <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <br><br><br><br><br><br><br><br><br> <div class="modal-dialog" role="document"> <div class="modal-content" id="modal"> <div class="modal-header"> <h5 class="modal-title" id="exampleModalLabel">Contatar Profissional</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" id="modal-dentro"> <center> <div class="row"> <div class="col-xs-6"> <a href="https://wa.me/55' + dados.celular + '"><img src="img/WhatsApp-icone.png" id="imgModal" alt=""></a> </div> <div class="col-xs-6"><a href="tel:' + dados.celular + '"><img src="img/agenda.png" id="imgModal" alt=""></a></div> </div> </center> </div> <div class="modal-footer"> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">Fechar</button> </div> </div> </div> </div>';
+        itemlista += '<div class="box"> <div class="row"> <div class="circle"> <img src="https://onservicos.000webhostapp.com/' + dados.foto + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="' + dados.nome + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.servico + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Descrição:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.descricao + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Cidade:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.cidade + '"> </div> </div> <br> <div class="row"> <div class="col-xs-3"> <img src="img/joiaa.png" onclick="var codigo = ' + dados.codigo + '; recomendar(codigo)" onclick="adicionaFav(this.id)" id="j1"> <label id="pontos">' + dados.ponto + ' </label> </div> <div class="col-xs-3"> <img src="img/deslike.png" onclick="var codigo = ' + dados.codigo + '; naoRecomendar(codigo)" id="j2"> <label id="pontos2">' + dados.menosponto + ' </label> </div> <div class="col-xs-6"> <a href="tel:' + dados.celular + '"><button class="btn btn-info btn-block" id="btnContatar">Contatar</button></a> </div> </div> </div> <br>';
       });
 
       $("#servicos").html(itemlista);
@@ -690,7 +703,7 @@ function listarFavoritos() {
     success: function (data) {
       var itemlista = "";
       $.each(data.profissional, function (i, dados) {
-        itemlista +=  '<div class="box"> <div class="row"> <div class="circle"> <img src="https://onservicos.000webhostapp.com/' + dados.foto + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="' + dados.nome + '"> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.servico + '"> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.descricao + '"> </div> <div class="col-xs-12"> <labeL>Cidade:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.cidade + '"> </div> </div> <br> <div class="row"> <div class="col-xs-3"><img src="img/favoritar.png" onclick="Favoritar()" id="s1"></div> <div class="col-xs-3"> <img src="img/joiaa2.png" onclick="recomendar()" id="j1"> </div> <div class="col-xs-6"> <button class="btn btn-danger btn-block" id="btnContatar" data-toggle="modal" data-target="#modalExemplo">Contatar</button> </div> </div> </div><br> <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <br><br><br><br><br><br><br><br><br> <div class="modal-dialog" role="document"> <div class="modal-content" id="modal"> <div class="modal-header"> <h5 class="modal-title" id="exampleModalLabel">Contatar Profissional</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" id="modal-dentro"> <center> <div class="row"> <div class="col-xs-6"> <a href="https://wa.me/55' + dados.celular + '"><img src="img/WhatsApp-icone.png" id="imgModal" alt=""></a> </div> <div class="col-xs-6"><a href="tel:' + dados.celular + '"><img src="img/agenda.png" id="imgModal" alt=""></a></div> </div> </center> </div> <div class="modal-footer"> <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">Fechar</button> </div> </div> </div> </div>';
+        itemlista += '<div class="box"> <div class="row"> <div class="circle"> <img src="https://onservicos.000webhostapp.com/' + dados.foto + '"> </div> </div> <div class="row"> <div class="col-xs-12"> <labeL>Profissional:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold;  background-color: #e7e9eb;" disabled value="' + dados.nome + '"> </div> <div class="col-xs-12"> <labeL>Serviços que realiza:</labeL> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5; font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.servico + '"> </div> <div class="col-xs-12"> <labeL>Descrição:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.descricao + '"> </div> <div class="col-xs-12"> <labeL>Cidade:</labeL> <br> <input type="text" style="border: none;border-bottom: solid 3px #0e97a5;  font-weight: bold; background-color: #e7e9eb;" disabled value="' + dados.cidade + '"> </div> </div> <br><div class="row"> <div class="col-xs-4"> <img src="img/joiaa.png" onclick="var codigo = ' + dados.codigo + '; recomendar(codigo)" id="j1"> 		</div> <div class="col-xs-2"> <label id="pontos">' + dados.ponto + ' </label> </div> <div class="col-xs-6"> <a href="tel:' + dados.celular + '"><button class="btn btn-danger btn-block" id="btnContatar" data-toggle="modal" data-target="#modalExemplo">Contatar</button></a> </div> </div> </div> <br>';
       });
 
       $("#favoritos").html(itemlista);
@@ -704,32 +717,23 @@ function listarFavoritos() {
   });
 
 }
-// function Favoritar() {
-//    $.ajax({
-//     type: "post", //como enviar
-//     url: "https://onservicos.000webhostapp.com/favoritar.php",//para onde enviar
-//     "codigo": localStorage.getItem('codigo'),
-//     "usuario":localStorage.getItem('cdUsuario'), 
-//     dataType: 'json',//o que enviar
-//     success: function(data){
-//     alert("FUNFOU ESSE CARAIO!");
-//       },
-//     //se der errado
-//     error: function (data) {
-//       alert('erro');
-//     }
-//    })
-// }
+
 
 //Recomendar
 function recomendar(id) {
+  
+   var url = window.location;
+    url = url.toString()
+    url = url[0];
+
   $.ajax({
     type: "post", //como enviar
     url: "https://onservicos.000webhostapp.com/recomendar.php",//para onde enviar
-    // data: "codigo": id,
+    data:"codigo="+id,
     //se der certo
     success: function (data) {
-      alert(data);
+      alert('Serviço recomendado!');
+      location.reload();
     },
     //se der errado
     error: function (data) {
@@ -737,6 +741,55 @@ function recomendar(id) {
     }
   });
 }
+
+//Não Recomendar
+function naoRecomendar(id) {
+  
+   var url = window.location;
+    url = url.toString()
+    url = url[0];
+
+  $.ajax({
+    type: "post", //como enviar
+    url: "https://onservicos.000webhostapp.com/naoRecomenda.php",//para onde enviar
+    data:"codigo="+id,
+    //se der certo
+    success: function (data) {
+      alert('Serviço não recomendado!');
+      location.reload();
+      
+    },
+    //se der errado
+    error: function (data) {
+      alert(data);
+    }
+  });
+}
+
+// function alterarSenha() {
+
+//   localStorage.setItem('cdUsuario', idUsuario);
+//   var atual = document.getElementById('atual').value;
+//   var newsenha = document.getElementById('newsenha').value;
+//   var confsenha = document.getElementById('confsenha').value;
+
+//   if(atual == local){
+
+//   }
+//   if (senha != "" && confsenha != "" && senha != confsenha) {
+//     alert('senhas diferentes');
+//   }
+//   if (senha == "" && confsenha == "") {
+//     alert('Digite uma senha');
+//     return false
+//   }
+//   if (senha < 6) {
+//     alert('A senha deve conter no mínimo 6 dígitos!');
+//   }
+//   else {
+//     return true
+//   }
+// }
 
 //  var url = window.location;
 //  url = url.toString()
@@ -756,8 +809,7 @@ function recomendar(id) {
 //  if (j1 == url + "img/joiaa.png") {
 //  document.getElementById("j1").src = "img/joiaa2.png";
 //  recomenda = 0;
-//  } 
-// }
+//  }
 
 //BOTÕES COM REDIRECIONAMENTO
 function home() {
@@ -785,7 +837,7 @@ function jardineiro() {
 }
 
 function piscineiro() {
-  location.href = "listaserv.html";
+  location.href = "xPiscineiro.html";
 }
 
 function mais() {
@@ -826,9 +878,3 @@ function dedetizador() {
 function favoritos() {
   location.href = "favoritos.html";
 }
-
-// function pesquisa() {
-//   if (pesquisa = value == "Pedreiro") {
-//     location.href("xPedreiro.html")
-//   }
-// }
